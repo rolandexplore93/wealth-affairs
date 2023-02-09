@@ -32,3 +32,14 @@
     border: 1px solid green;
     flex: 5;
 }
+
+.summary {
+    /* height: 100px; */
+    border-bottom: 1px solid #000;
+}
+
+.tabs {
+    /* height: 30px; */
+    border-bottom: 1px solid #000;
+    margin: 20px 0px;
+}

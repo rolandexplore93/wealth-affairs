@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="wrapper">
+        <!-- Sidebar -->
         <div class="sidebar">
             <div class="rm">
                 <img class="photo" src="../images/relational-manager-photo.jfif" alt="rm-image" />
@@ -25,14 +26,32 @@
                 <p><a href="../index.html">Go to homepage</a></p>
             </div>
         </div>
+        <!-- Page content -->
         <div class="main">
-            <div>
+            <div class="summary">
                 <h1>Investment Portal Dashboard</h1>  
-
+                <div>Cards</div>
+            </div>
+            <div class="tabs">
+                <a href="">
+                    <div class="tablink" id="tab__products">All products</div>
+                </a>
+                <a href="">
+                    <div class="tablink" id="tab__ideas">All products</div>
+                </a>
             </div>
             <div>
-                <button><a href="">All products</a></button>
-                <button><a href="">All ideas</a></button>
+                <div class="searchbar">
+                    <input type="text">
+                    <button class="filter">Filter</button>
+                    <button class="sort">Sort</button>
+                </div>
+                <div class="products">
+                    All products display
+                </div>
+                <div class="navigation">
+                    <button>Previous</button> 1 <button>Next</button>
+                </div>
             </div>
         </div>
     </div>
