@@ -8,7 +8,78 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Welcome to FA's portal</h1>  
-    <p><a href="../index.html">Go to homepage</a></p>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="rm">
+                <img class="photo" src="../images/relational-manager-photo.jfif" alt="rm-image" />
+                <p class="name">Francis, O. O</p>
+                <p class="title">FA</p>
+            </div>
+            <div class="">
+                <p><a href="">Dashboard</a></p>
+                <p><a href="">Profile</a></p>
+            </div>
+            <div class="logout">
+                <button>Logout</button>
+                <p><a href="../index.html">Go to homepage</a></p>
+            </div>
+        </div>
+        <div class="main">
+            <div>
+                <h1>FA Ideas uploadingDashboard</h1>  
+                <button><a href="./form.html">Create Ideas</a></button>
+            </div>
+            <div>
+                <!-- <button><a href="">All ideas</a></button> -->
+                <h2 id="investment-ideas">Investment Ideas</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Instrument Name</th>
+                        <th>Issue</th>
+                        <th>Ticker</th>
+                        <th>ISIN</th>
+                        <th>Region</th>
+                        <th>Country</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Apple Inc.</td>
+                        <td>Common Stock</td>
+                        <td>AAPL</td>
+                        <td>US0378331005</td>
+                        <td>North America</td>
+                        <td>United States</td>
+                        <td>Pending</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>Microsoft Corporation</td>
+                        <td>Common Stock</td>
+                        <td>MSFT</td>
+                        <td>US5949181045</td>
+                        <td>North America</td>
+                        <td>United States</td>
+                        <td>Rejected</td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Amazon.com, Inc.</td>
+                        <td>Common Stock</td>
+                        <td>AMZN</td>
+                        <td>US0231351067</td>
+                        <td>North America</td>
+                        <td>United States</td>
+                        <td>Approved</td>
+                        <td>---</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
