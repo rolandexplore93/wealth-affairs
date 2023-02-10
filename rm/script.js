@@ -13,3 +13,4 @@ const openTabContent = (e, tabName) => {
     document.getElementById(tabName).style.display = "block";
     e.currentTarget.firstElementChild.className += "border-red";    // Adds style to each tab click
 }
+
