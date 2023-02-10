@@ -11,6 +11,7 @@
     display: flex;
 }
 
+/* Sidebar */
 .sidebar {
     border: 1px solid blue;
     flex: 1;
@@ -28,6 +29,7 @@
     border-radius: 100%;
 }
 
+/* Main page */
 .main {
     border: 1px solid green;
     flex: 5;
@@ -52,4 +54,47 @@
 
 .border-blue {
     border-bottom: 5px solid blue;
+}
+
+.products {
+    border: 1px solid red;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid black;
+    width: 200px;
+    padding: 5px;
+}
+
+.product-title, .product-type, .product-stock {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 5px;
+    /* border: 1px solid red; */
+}
+
+.product-symbol {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-cat, .product-group {
+    background-color: greenyellow;
+    padding: 3px;
+    font-size: 12px;
+    border: 1px solid black;
 }
