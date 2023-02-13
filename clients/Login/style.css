@@ -1,58 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-  }
+  /* border: 1px solid red; */
+  height: 100vh;
+  width: 100%;
+}
+
+.wrapper {
+  /* border: 1px solid blue; */
+  height: 100%;
+  width: 100%;
+}
+
+/* Left section */
+.Left {
+  float:left; 
+  width: 40%;
+  background-color: white;
+  padding: 200px 100px;
+  /* border: 1px solid blue; */
+  height: 100%;
+}
+
+/* Right section */
+.Right {
+  float: right;
+  width: 60%;
+  /* border: 1px solid red; */
+  height: 100%;
+}
+
+/* Left section styles */
+.title {
+  text-align: center;
+  background-color: white;
+  color: blueviolet;
+  font-size: 32px;
+}
+
+form {
+  padding: 20px;
+  background-color: #ddd;
+  margin: 20px 0;
+  /* border: 1px solid red; */
+}
  
-  h1 {
-    text-align: center;
-    background-color: white;
-    color: blueviolet;
-  }
-  h2 {
-    text-align: left;
-    background-color: white;
-    color: black;
-  }
-    .Left{
-    float:left; 
-    width: 40%;
-    background-color: white;
-    height: 585px;
 
-    }
-    .Right{
-    float: right;
-    height: 585px;
-    width: 60%;
-    padding-block: 8px;
-    border: 3px solid red;
+#form-directive {
+  text-align: center;
+  color: black;
+}
 
-    }
-    .Body{
-        float: right;
-        height: 585px;
-        width: 100%;
-        background-color: white;
-        
-        }
-        .container {
-            padding: 20px;
-          }
-          
-          /* Full-width input fields */
+#form-guide {
+  margin-bottom: 10px;
+}
+
+/* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 40%;
-    padding: 5px;
-    margin: 11px 0 5px 0;
-    border: none;
-    background: #f1f1f1;
-  }
+  width: 40%;
+  padding: 5px;
+  margin: 11px 0 5px 0;
+  border: none;
+  outline: 0;
+  background: #f1f1f1;
+}
   
-  input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  * {box-sizing: border-box}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #eee;
+  outline: none;
+}
 
-  input[type=text], input[type=fname] {
-    border-color: red;
-  }
+/* Right section styles */
+.onboarding-image-cover {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+
+.onboarding-image {
+  height: 100%;
+  width: 100%;
+}
