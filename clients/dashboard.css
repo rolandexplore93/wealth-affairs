@@ -1,0 +1,29 @@
+.left{
+    float:left; 
+    width: 15%;
+    background-color: white;
+    height: 580px;
+    padding-block: 8px;
+    border: 2px solid red;
+
+    }
+    .right{
+    float: right;
+    height: 580px;
+    width: 84.2%;
+    padding-block: 8px;
+    border: 2px solid red;
+    }
+    .header{
+        float: top;
+        height: 100px;
+        width: 100;
+        padding-block: 8px;
+        border: 3px solid red;
+        }
+        .w3-light-grey{
+            color: blueviolet;
+        }
+        .w3-container{
+          color: blue;  
+        }
