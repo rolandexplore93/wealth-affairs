@@ -39,3 +39,8 @@ span.onclick = function() {
 //     modal.style.display = "none";
 //   }
 // }
+
+// $(".chosen-select").chosen({
+//   allow_single_deselect: true,
+//   disable_search_threshold: 10
+// });
