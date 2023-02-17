@@ -40,7 +40,25 @@ span.onclick = function() {
 //   }
 // }
 
-// $(".chosen-select").chosen({
-//   allow_single_deselect: true,
-//   disable_search_threshold: 10
-// });
+// Checkbox inside select
+var expandProductCategory = false;
+// const showCategoryOptions = () => {
+//   var checkboxes = document.getElementById("checkboxes");
+//   if (!expandProductCategory){
+//     checkboxes.style.display = "block"; 
+//     expandProductCategory = true;
+//   } else {
+//     checkboxes.style.display = "none";
+//     expandProductCategory = "false";
+//   }
+// }
+
+function expandProductCategory() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expandProductCategory){
+    checkboxes.style.display = "block"; 
+    expandProductCategory = true;
+  } else {
+    checkboxes.style.display = "none";
+  }
+}

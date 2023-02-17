@@ -104,6 +104,20 @@
                                 <p class="product-details-name">IBM Common Stock</p>
                             </div>
                             <div class="product-details-preferences">
+                                <form>
+                                    <div class="multiselect">
+                                        <div class="selectBox" onclick="expandProductCategory()">
+                                            <select name="" id="">
+                                                <option value="">Select product category</option>
+                                            </select>
+                                            <div class="overSelect"></div>
+                                        </div>
+                                        <div id="checkboxes">
+                                            <label for="basic-security"><input type="checkbox" name="" id="basic-security">Basic Security</label>
+                                            <label for="derivatives"><input type="checkbox" name="" id="derivatives">Derivatives</label>
+                                        </div>
+                                    </div>
+                                </form>
                                 <button class="product-preferences">Select product category</button>
                                 <button class="product-preferences">Select product class</button>
                                 <button class="product-preferences">Select product group</button>
