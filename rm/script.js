@@ -40,25 +40,35 @@ span.onclick = function() {
 //   }
 // }
 
-// Checkbox inside select
-var expandProductCategory = false;
-// const showCategoryOptions = () => {
-//   var checkboxes = document.getElementById("checkboxes");
-//   if (!expandProductCategory){
-//     checkboxes.style.display = "block"; 
-//     expandProductCategory = true;
-//   } else {
-//     checkboxes.style.display = "none";
-//     expandProductCategory = "false";
-//   }
+// Checkbox basic instrument preferences
+const toggleDropdown = document.querySelector('.toggle-dropdown');
+const dropdown = document.querySelector('.dropdown');
+
+toggleDropdown.addEventListener('click', function() {
+  dropdown.classList.toggle('show');
+});
+
+  // Get value on checkbox toggle
+// const checkboxes = document.querySelectorAll('.options input[type="checkbox"]');
+// for (let i = 0; i < checkboxes.length; i++){
+//   checkboxes[i].addEventListener('change', function() {
+//     let selectedValues = [];
+//     for (let j = 0; j < checkboxes.length; j++){
+//       if (checkboxes[j].checked){
+//         selectedValues.push(checkboxes[j].value);
+//       }
+//     }
+//     console.log(selectedValues); // Values to use
+//   })
 // }
 
-function expandProductCategory() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expandProductCategory){
-    checkboxes.style.display = "block"; 
-    expandProductCategory = true;
-  } else {
-    checkboxes.style.display = "none";
-  }
-}
+// checkbox derivatives products
+const toggleDerivativesProducts = document.querySelector(".toggle-dp");
+console.log(toggleDerivativesProducts)
+const dropdownDerivativesProducts = document.querySelector(".dropdown-dp");
+console.log(dropdownDerivativesProducts)
+
+toggleDerivativesProducts.addEventListener('change', function(){
+  alert('ddd')
+  dropdownDerivativesProducts.classList.toggle("show");
+})

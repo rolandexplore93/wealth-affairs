@@ -204,6 +204,8 @@ button {
 
 .product-details-preferences {
     flex: 3;
+    display: flex;
+    gap: 20px;
 }
 
 .product-details-offer {
@@ -215,41 +217,55 @@ button {
     padding: 2px 3px;
 }
 
-/* styles for checkboxes inside select */
-.multiselect {
-    width: 200px;
-  }
-  
-  .selectBox {
+/* styles for checkboxes product preferences */
+.multi-select {
     position: relative;
-  }
-  
-  .selectBox select {
-    width: 100%;
-    font-weight: bold;
-  }
-  
-  .overSelect {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
-  
-  #checkboxes {
-    display: none;
-    border: 1px #dadada solid;
-  }
-  
-  #checkboxes label {
-    display: block;
-  }
-  
-  #checkboxes label:hover {
-    background-color: #1e90ff;
-  }
+    /* display: inline-block; */
+    border: 1px solid red;
+    height: fit-content;
+}
 
+.toggle-dropdown, .toggle-dp {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 3px 10px;
+}
+
+.toggle-dropdown:hover, .toggle-dp:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown, .dropdown-dp {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+.dropdown.show, .dropdown-dp.show {
+  display: block;
+}
+
+.options, .options-dp {
+  max-height: 100%;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.options label, .options-dp label {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.options label:hover, .options-dp label:hover {
+  background-color: #f2f2f2;
+}
+
+/*  */
 .product-details-r2 {
     margin: 20px 0;
 }
@@ -307,5 +323,4 @@ button {
     align-items: flex-end;
     gap: 10px;
 }
-
 

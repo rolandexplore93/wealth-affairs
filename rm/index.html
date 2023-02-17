@@ -17,7 +17,7 @@
                 <p class="title">Relational Manager</p>
             </div>
             <div class="">
-                <p><a href="">Dashboard</a></p>
+                <p><a href="javascript:void(0)" onclick="expanded()">Dashboard</a></p>
                 <p><a href="">Profile</a></p>
             </div>
             <div class="logout">
@@ -104,24 +104,36 @@
                                 <p class="product-details-name">IBM Common Stock</p>
                             </div>
                             <div class="product-details-preferences">
-                                <form>
-                                    <div class="multiselect">
-                                        <div class="selectBox" onclick="expandProductCategory()">
-                                            <select name="" id="">
-                                                <option value="">Select product category</option>
-                                            </select>
-                                            <div class="overSelect"></div>
-                                        </div>
-                                        <div id="checkboxes">
-                                            <label for="basic-security"><input type="checkbox" name="" id="basic-security">Basic Security</label>
-                                            <label for="derivatives"><input type="checkbox" name="" id="derivatives">Derivatives</label>
-                                        </div>
+                                <div class="multi-select">
+                                    <button class="toggle-dropdown">Basic Instrument Products</button>
+                                    <div class="dropdown">
+                                      <div class="options">
+                                        <label><input type="checkbox" value="Bonds">Bonds</label>
+                                        <label><input type="checkbox" value="Equities">Equities</label>
+                                        <label><input type="checkbox" value="FX">FX</label>
+                                        <label><input type="checkbox" value="Money Market">Money Market</label>
+                                        <label><input type="checkbox" value="Loan">Loan</label>
+                                        <label><input type="checkbox" value="Commodities">Commodities</label>
+                                        <label><input type="checkbox" value="Index">Index</label>
+                                        <label><input type="checkbox" value="Hedge Funds">FX</label>
+                                        <label><input type="checkbox" value="Private Equity">Private Equity</label>
+                                        <label><input type="checkbox" value="Insurance">Insurance</label>
+                                        <label><input type="checkbox" value="Collective Investment">Collective Investment</label>
+                                        <label><input type="checkbox" value="Digital Asset">Digital Asset</label>
+                                      </div>
                                     </div>
-                                </form>
-                                <button class="product-preferences">Select product category</button>
-                                <button class="product-preferences">Select product class</button>
-                                <button class="product-preferences">Select product group</button>
-                                <button class="product-preferences">Select product type</button>
+                                </div>
+                                <div class="multi-select">
+                                    <button class="toggle-dp">Derivatives Products</button>
+                                    <div class="dropdown-dp">
+                                      <div class="options-dp">
+                                        <label><input type="checkbox" value="Security Derivatives">Security Derivatives</label>
+                                        <label><input type="checkbox" value="FX and Money Market">FX and Money Market</label>
+                                        <label><input type="checkbox" value="Credit Derivatives">Credit Derivatives</label>
+                                        <label><input type="checkbox" value="Insurance Derivatives">Insurance Derivatives</label>
+                                      </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="product-details-offer">
                                 <p>Offer: <span id="stock-unit">127.57</span> stocks per <span id="stock-price">1</span> <span id="stock-currency">USD</span></p>
@@ -236,6 +248,6 @@
     </div>
 
     <script src="./script.js" type="text/javascript"></script>
-    <script src="./components.js" type="text/javascript"></script>
+    <!-- <script src="./components.js" type="text/javascript"></script> -->
 </body>
 </html>
