@@ -220,9 +220,8 @@ button {
 /* styles for checkboxes product preferences */
 .multi-select {
     position: relative;
-    /* display: inline-block; */
-    border: 1px solid red;
     height: fit-content;
+    /* display: inline-block; */
 }
 
 .toggle-dropdown, .toggle-dp {

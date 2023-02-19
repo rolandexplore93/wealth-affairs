@@ -1,3 +1,4 @@
+// tabs
 const openTabContent = (e, tabName) => {
     let index, tabContent, tablinks;
     tabContent = document.getElementsByClassName('tab__content');
@@ -40,6 +41,64 @@ span.onclick = function() {
 //   }
 // }
 
+// Reusable crated investment products
+class CreatedInvestmentCards extends HTMLElement {
+  connectedCallback(){
+    this.innerHTML = `
+      <div class="card">
+        <div class="product-title">
+            <p class="product-symbol">IBM</p>
+            <p class="product-name">IBM Common Stock</p>
+        </div>
+        <div class="product-type">
+            <p class="product-cat">Basic Securities</p>
+            <p class="product-group">Equities</p>
+            <div>
+                <p>2</p>
+            </div>
+        </div>
+        <div class="product-stock">
+            <p class="product-stock-title">Stock Exchange:</p>
+            <p class="product-stock-category">NYSE</p>
+        </div>
+        <div class="product-deal">
+            <p class="product-offer">Offer: 127.57 stocks / 1 USD</p>
+        </div>
+        <button class="product-view" id="product-view" style="cursor: pointer;">View product</button>
+      </div>
+    `
+  }
+}
+customElements.define('created-investment-cards', CreatedInvestmentCards);
+
+// Resuable components in HTML
+class BasicSecurity extends HTMLElement {
+  connectedCallback(){
+    this.innerHTML = `
+      <div class="multi-select">
+        <button class="toggle-dropdown">Basic Instrument Products</button>
+        <div class="dropdown">
+        <div class="options">
+          <label><input type="checkbox" value="Bonds">Bonds</label>
+          <label><input type="checkbox" value="Equities">Equities</label>
+          <label><input type="checkbox" value="FX">FX</label>
+          <label><input type="checkbox" value="Money Market">Money Market</label>
+          <label><input type="checkbox" value="Loan">Loan</label>
+          <label><input type="checkbox" value="Commodities">Commodities</label>
+          <label><input type="checkbox" value="Index">Index</label>
+          <label><input type="checkbox" value="Hedge Funds">FX</label>
+          <label><input type="checkbox" value="Private Equity">Private Equity</label>
+          <label><input type="checkbox" value="Insurance">Insurance</label>
+          <label><input type="checkbox" value="Collective Investment">Collective Investment</label>
+          <label><input type="checkbox" value="Digital Asset">Digital Asset</label>
+        </div>
+        </div>
+      </div>
+    `;
+  }
+}
+customElements.define('basic-security-products', BasicSecurity)
+
 // Checkbox basic instrument preferences
 const toggleDropdown = document.querySelector('.toggle-dropdown');
 const dropdown = document.querySelector('.dropdown');
@@ -48,27 +107,25 @@ toggleDropdown.addEventListener('click', function() {
   dropdown.classList.toggle('show');
 });
 
-  // Get value on checkbox toggle
-// const checkboxes = document.querySelectorAll('.options input[type="checkbox"]');
-// for (let i = 0; i < checkboxes.length; i++){
-//   checkboxes[i].addEventListener('change', function() {
-//     let selectedValues = [];
-//     for (let j = 0; j < checkboxes.length; j++){
-//       if (checkboxes[j].checked){
-//         selectedValues.push(checkboxes[j].value);
-//       }
-//     }
-//     console.log(selectedValues); // Values to use
-//   })
-// }
-
 // checkbox derivatives products
 const toggleDerivativesProducts = document.querySelector(".toggle-dp");
-console.log(toggleDerivativesProducts)
 const dropdownDerivativesProducts = document.querySelector(".dropdown-dp");
-console.log(dropdownDerivativesProducts)
 
-toggleDerivativesProducts.addEventListener('change', function(){
-  alert('ddd')
+toggleDerivativesProducts.addEventListener('click', function(){
   dropdownDerivativesProducts.classList.toggle("show");
 })
+
+  // Get value on checkbox toggle
+const checkboxes = document.querySelectorAll('.options input[type="checkbox"]');
+for (let i = 0; i < checkboxes.length; i++){
+  checkboxes[i].addEventListener('change', function() {
+    let selectedValues = [];
+    for (let j = 0; j < checkboxes.length; j++){
+      if (checkboxes[j].checked){
+        selectedValues.push(checkboxes[j].value);
+      }
+    }
+    console.log(selectedValues); // Values to use
+  })
+}
+
