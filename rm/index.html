@@ -186,74 +186,18 @@
             </div>
             <!-- content display for all ideas -->
             <div id="ideas" class="tab__content" style="display: none;">
-                <table>
-                    <tr>
-                        <th>Date Created</th>
-                        <th>Instrument Name</th>
-                        <th>Asset Type</th>
-                        <th>Offer</th>
-                        <th>Closing Date</th>
-                        <th>Risk level</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>2/2/2023</td>
-                        <td>Amazon.com, Inc</td>
-                        <td>Equities</td>
-                        <td>1 USD per 127.72 stocks</td>
-                        <td>7/9/2023</td>
-                        <td>1</td>
-                        <td>Pending</td>
-                        <td><button>Create Idea</button></td>
-                    </tr>
-                    <tr>
-                        <td>3/2/2023</td>
-                        <td>Intellia Common Stock</td>
-                        <td>Equities</td>
-                        <td>1 USD per 57.53 stocks</td>
-                        <td>9/9/2023</td>
-                        <td>3</td>
-                        <td>Created</td>
-                        <td><button>Create Idea</button></td>
-                    </tr>
-                    
-                </table>
+                <ideas-project></ideas-project>
             </div>
             <!-- content display for all registered clients -->
             <div id="clients" class="tab__content" style="display: none;">
-                <table>
-                    <tr>
-                        <th>S/n</th>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Richard</td>
-                        <td>Stones</td>
-                        <td>richard@gmail.com</td>
-                        <td>USA</td>
-                        <td><button>View</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jackie</td>
-                        <td>Mary</td>
-                        <td>mary@outlook.com</td>
-                        <td>Brazil</td>
-                        <td><button>View</button></td>
-                    </tr>
-                </table>
+                <client-profile></client-profile>
             </div>
         </div>
     </div>
 
     <script src="./script.js" type="text/javascript"></script>
     <script src="./products.js" type="text/javascript"></script>
-    <!-- <script src="./components.js" type="text/javascript"></script> -->
+    <script src="./ideas/ideas.js" type="text/javascript"></script>
+    <script src="./clients/clients.js"></script>
 </body>
 </html>
