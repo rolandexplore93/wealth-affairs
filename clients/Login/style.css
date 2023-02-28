@@ -14,24 +14,29 @@ body {
   /* border: 1px solid blue; */
   height: 100%;
   width: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 10px;
 }
 
 /* Left section */
 .Left {
-  float:left; 
-  width: 40%;
+  /* float:left;  */
+  /* width: 40%; */
   background-color: white;
-  padding: 200px 100px;
+  padding: 50px;
   /* border: 1px solid blue; */
   height: 100%;
+  flex: 2;
 }
 
 /* Right section */
 .Right {
-  float: right;
-  width: 60%;
+  /* float: right; */
+  /* width: 60%; */
   /* border: 1px solid red; */
   height: 100%;
+  flex: 3;
 }
 
 /* Left section styles */
