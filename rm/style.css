@@ -308,13 +308,13 @@ button {
 .product-details-preferences-2 {
     flex: 2;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    /* flex-direction: column; */
+    gap: 15px;
 }
 
-.product-details-place {
-    gap: 5px;
-}
+/* .product-details-place {
+    gap: 15px;
+} */
 
 .product-details-recom {
     flex: 1;

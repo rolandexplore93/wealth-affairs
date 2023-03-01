@@ -101,84 +101,180 @@
 
                         <!-- Modal content -->
                         <div class="modal-content product-details">
-                          <span class="close">&times;</span>
-                          <div class="product-details-r1" style="display: flex;">
-                            <div class="product-details-tag" style="display: flex;">
-                                <div class="product-details-logo"><p >IBM</p></div>
-                                <p class="product-details-name">IBM Common Stock</p>
-                            </div>
-                            <div class="product-details-preferences">
-                                <div class="multi-select">
-                                    <button class="toggle-dropdown">Basic Instrument Products</button>
-                                    <div class="dropdown">
-                                      <div class="options">
-                                        <label><input type="checkbox" value="Bonds">Bonds</label>
-                                        <label><input type="checkbox" value="Equities">Equities</label>
-                                        <label><input type="checkbox" value="FX">FX</label>
-                                        <label><input type="checkbox" value="Money Market">Money Market</label>
-                                        <label><input type="checkbox" value="Loan">Loan</label>
-                                        <label><input type="checkbox" value="Commodities">Commodities</label>
-                                        <label><input type="checkbox" value="Index">Index</label>
-                                        <label><input type="checkbox" value="Hedge Funds">FX</label>
-                                        <label><input type="checkbox" value="Private Equity">Private Equity</label>
-                                        <label><input type="checkbox" value="Insurance">Insurance</label>
-                                        <label><input type="checkbox" value="Collective Investment">Collective Investment</label>
-                                        <label><input type="checkbox" value="Digital Asset">Digital Asset</label>
-                                      </div>
+                            <span class="close">&times;</span>
+                            <div class="product-details-r1" style="display: flex;">
+                                <div class="product-details-tag" style="display: flex;">
+                                    <div class="product-details-logo"><p >IBM</p></div>
+                                    <p class="product-details-name">IBM Common Stock</p>
+                                </div>
+                                <div class="product-details-preferences">
+                                    <div class="multi-select">
+                                        <div class="toggle-dropdown">
+                                            <input type="checkbox" name="" id="">
+                                            <span>Basic Instrument Products</span>
+                                        </div>
+                                        <div class="dropdown">
+                                            <div class="options">
+                                                <label><input type="checkbox" value="Bonds">Bonds</label>
+                                                <label><input type="checkbox" value="Equities">Equities</label>
+                                                <label><input type="checkbox" value="FX">FX</label>
+                                                <label><input type="checkbox" value="Money Market">Money Market</label>
+                                                <label><input type="checkbox" value="Loan">Loan</label>
+                                                <label><input type="checkbox" value="Commodities">Commodities</label>
+                                                <label><input type="checkbox" value="Index">Index</label>
+                                                <label><input type="checkbox" value="Hedge Funds">FX</label>
+                                                <label><input type="checkbox" value="Private Equity">Private Equity</label>
+                                                <label><input type="checkbox" value="Insurance">Insurance</label>
+                                                <label><input type="checkbox" value="Collective Investment">Collective Investment</label>
+                                                <label><input type="checkbox" value="Digital Asset">Digital Asset</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <basic-security-products></basic-security-products> -->
+                                    <div class="multi-select">
+                                        <button class="toggle-dp">Derivatives Products</button>
+                                        <div class="dropdown-dp">
+                                        <div class="options-dp options">
+                                            <label><input type="checkbox" value="Security Derivatives">Security Derivatives</label>
+                                            <label><input type="checkbox" value="FX and Money Market">FX and Money Market</label>
+                                            <label><input type="checkbox" value="Credit Derivatives">Credit Derivatives</label>
+                                            <label><input type="checkbox" value="Insurance Derivatives">Insurance Derivatives</label>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- <basic-security-products></basic-security-products> -->
-                                <div class="multi-select">
-                                    <button class="toggle-dp">Derivatives Products</button>
-                                    <div class="dropdown-dp">
-                                      <div class="options-dp options">
-                                        <label><input type="checkbox" value="Security Derivatives">Security Derivatives</label>
-                                        <label><input type="checkbox" value="FX and Money Market">FX and Money Market</label>
-                                        <label><input type="checkbox" value="Credit Derivatives">Credit Derivatives</label>
-                                        <label><input type="checkbox" value="Insurance Derivatives">Insurance Derivatives</label>
-                                      </div>
+                                <div class="product-details-offer">
+                                    <p>Offer: <span id="stock-unit">127.57</span> stocks per <span id="stock-price">1</span> <span id="stock-currency">USD</span></p>
+                                </div>
+                            </div>
+                            <div class="product-details-r2 " style="display: flex;">
+                                <div class="product-details-stock-info" style="border: 1px solid black;">
+                                    <p class="product-details-stock">Stock Exchange: <span id="stock">NYSE</span></p>
+                                    <p class="product-details-issuer">Issuer: <span id="issuer">International Business Machines Corporation</span></p>
+                                    <div class="product-details-codes">
+                                        <p>ISIN: <span id="isin">N/A</span></p>
+                                        <p>Ticker: <span id="ticker">IBM</span></p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product-details-offer">
-                                <p>Offer: <span id="stock-unit">127.57</span> stocks per <span id="stock-price">1</span> <span id="stock-currency">USD</span></p>
-                            </div>
-                          </div>
-                          <div class="product-details-r2 " style="display: flex;">
-                            <div class="product-details-stock-info" style="border: 1px solid black;">
-                                <p class="product-details-stock">Stock Exchange: <span id="stock">NYSE</span></p>
-                                <p class="product-details-issuer">Issuer: <span id="issuer">International Business Machines Corporation</span></p>
-                                <div class="product-details-codes">
-                                    <p>ISIN: <span id="isin">N/A</span></p>
-                                    <p>Ticker: <span id="ticker">IBM</span></p>
+                                <div class="product-details-risk" style="display: flex;">
+                                    <p id="risk-rating">1</p>
+                                    <p id="risk-brief">Suitable for very conservative investors</p>
+                                    <!-- <p id="risk-description">Investors who hope to experience minimal fluctuations in portfolio value over a rolling one year period and are generally only willing to buy investments that are priced frequently and have a high certainty of being able to sell quickly (less than a week) at a price close to the recently observed market value.</p> -->
                                 </div>
                             </div>
-                            <div class="product-details-risk" style="display: flex;">
-                                <p id="risk-rating">1</p>
-                                <p id="risk-brief">Suitable for very conservative investors</p>
-                                <!-- <p id="risk-description">Investors who hope to experience minimal fluctuations in portfolio value over a rolling one year period and are generally only willing to buy investments that are priced frequently and have a high certainty of being able to sell quickly (less than a week) at a price close to the recently observed market value.</p> -->
-                            </div>
-                          </div>
-                          <div class="product-details-r3" style="display: flex;">
-                            <div class="product-details-preferences-2">
-                                <div class="product-details-place" style="display: flex;">
-                                    <button>Select Industry</button>
-                                    <button>Select Sector</button>
+                            <div class="product-details-r3" style="display: flex;">
+                                <div class="product-details-preferences-2">
+                                    <!-- <div class="product-details-place" style="display: flex;"> -->
+                                        <!-- Industry -->
+                                        <div class="multi-select">
+                                            <div class="industry-dropdown">
+                                                <button>Select Industry</button>
+                                            </div>
+                                            <div class="industry">
+                                                <label for="">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span>Energy Sector</span>
+                                                    <span>8</span>
+                                                </label>
+                                            </div>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Energy</span>
+                                                <span>3</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Renewable Energy</span>
+                                                <span>1</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Uranium</span>
+                                                <span>4</span>
+                                            </label>
+                                            <div class="industry">
+                                                <label for="">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span>Basic Materials</span>
+                                                    <span>4</span>
+                                                </label>
+                                            </div>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Chemicals</span>
+                                                <span>3</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Mineral Resources</span>
+                                                <span>1</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Applied Resources</span>
+                                                <span>1</span>
+                                            </label>
+                                            <div class="industry">
+                                                <label for="">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span>Industrials</span>
+                                                    <span>4</span>
+                                                </label>
+                                            </div>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Industrial Goods</span>
+                                                <span>3</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Industrial Services</span>
+                                                <span>1</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Industrial Conglomerate</span>
+                                                <span>1</span>
+                                            </label>
+                                            <label for="">
+                                                <input type="checkbox" name="" id="">
+                                                <span>Transportation</span>
+                                                <span>1</span>
+                                            </label>
+                                            <!-- <div class="dropdown">
+                                                <div class="options">
+                                                    <label><input type="checkbox" value="Bonds">Bonds</label>
+                                                    <label><input type="checkbox" value="Equities">Equities</label>
+                                                    <label><input type="checkbox" value="FX">FX</label>
+                                                    <label><input type="checkbox" value="Money Market">Money Market</label>
+                                                    <label><input type="checkbox" value="Loan">Loan</label>
+                                                    <label><input type="checkbox" value="Commodities">Commodities</label>
+                                                    <label><input type="checkbox" value="Index">Index</label>
+                                                    <label><input type="checkbox" value="Hedge Funds">FX</label>
+                                                    <label><input type="checkbox" value="Private Equity">Private Equity</label>
+                                                    <label><input type="checkbox" value="Insurance">Insurance</label>
+                                                    <label><input type="checkbox" value="Collective Investment">Collective Investment</label>
+                                                    <label><input type="checkbox" value="Digital Asset">Digital Asset</label>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                        <!-- <button>Select Industry</button> -->
+                                        <button>Select Sector</button>
+                                    <!-- </div>
+                                    <div class="product-details-place" style="display: flex;"> -->
+                                        <button>Select Region</button>
+                                        <button>Select Sub-region</button>
+                                        <button>Select Country</button>
+                                    <!-- </div> -->
                                 </div>
-                                <div class="product-details-place" style="display: flex;">
-                                    <button>Select Region</button>
-                                    <button>Select Sub-region</button>
-                                    <button>Select Country</button>
+                                <div class="product-details-recom" style="display: flex;">
+                                    <button id="filter-client">View Clients (2)</button>
+                                    <button id="rec-to-client">Recommend to Clients</button>
                                 </div>
                             </div>
-                            <div class="product-details-recom" style="display: flex;">
-                                <button id="filter-client">View Clients (2)</button>
-                                <button id="rec-to-client">Recommend to Clients</button>
-                            </div>
-                          </div>
                         </div>
                       
-                      </div>
+                    </div>
                 </div>
                 <div class="navigation">
                     <button>Previous</button> 1 <button>Next</button>
