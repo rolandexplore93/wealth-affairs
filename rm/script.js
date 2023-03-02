@@ -207,3 +207,19 @@ class IdeasTable extends HTMLElement {
   }
 }
 customElements.define('ideas-pro', IdeasTable);
+
+// Select Industry functionality
+const selectIndustry = document.querySelector(".select-industry");
+console.log(selectIndustry)
+
+selectIndustry.addEventListener("click", function(){
+  const selectIndustries = document.querySelectorAll('.industry');
+  // console.log(selectIndustries)
+  for (let index = 0; index < selectIndustries.length; index++) {
+    // const element = array[index];
+    // selectIndustries[index].style.display = "block";
+    selectIndustries[index].classList.toggle("show");
+    
+  }
+  
+})

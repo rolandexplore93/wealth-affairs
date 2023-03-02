@@ -164,114 +164,46 @@
                             </div>
                             <div class="product-details-r3" style="display: flex;">
                                 <div class="product-details-preferences-2">
-                                    <!-- <div class="product-details-place" style="display: flex;"> -->
                                         <!-- Industry -->
-                                        <div class="multi-select">
-                                            <div class="industry-dropdown">
-                                                <button>Select Industry</button>
-                                            </div>
-                                            <div class="industry">
-                                                <label for="">
-                                                    <input type="checkbox" name="" id="">
-                                                    <span>Energy Sector</span>
-                                                    <span>8</span>
-                                                </label>
-                                            </div>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Energy</span>
-                                                <span>3</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Renewable Energy</span>
-                                                <span>1</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Uranium</span>
-                                                <span>4</span>
-                                            </label>
-                                            <div class="industry">
-                                                <label for="">
-                                                    <input type="checkbox" name="" id="">
-                                                    <span>Basic Materials</span>
-                                                    <span>4</span>
-                                                </label>
-                                            </div>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Chemicals</span>
-                                                <span>3</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Mineral Resources</span>
-                                                <span>1</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Applied Resources</span>
-                                                <span>1</span>
-                                            </label>
-                                            <div class="industry">
-                                                <label for="">
-                                                    <input type="checkbox" name="" id="">
-                                                    <span>Industrials</span>
-                                                    <span>4</span>
-                                                </label>
-                                            </div>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Industrial Goods</span>
-                                                <span>3</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Industrial Services</span>
-                                                <span>1</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Industrial Conglomerate</span>
-                                                <span>1</span>
-                                            </label>
-                                            <label for="">
-                                                <input type="checkbox" name="" id="">
-                                                <span>Transportation</span>
-                                                <span>1</span>
-                                            </label>
-                                            <!-- <div class="dropdown">
-                                                <div class="options">
-                                                    <label><input type="checkbox" value="Bonds">Bonds</label>
-                                                    <label><input type="checkbox" value="Equities">Equities</label>
-                                                    <label><input type="checkbox" value="FX">FX</label>
-                                                    <label><input type="checkbox" value="Money Market">Money Market</label>
-                                                    <label><input type="checkbox" value="Loan">Loan</label>
-                                                    <label><input type="checkbox" value="Commodities">Commodities</label>
-                                                    <label><input type="checkbox" value="Index">Index</label>
-                                                    <label><input type="checkbox" value="Hedge Funds">FX</label>
-                                                    <label><input type="checkbox" value="Private Equity">Private Equity</label>
-                                                    <label><input type="checkbox" value="Insurance">Insurance</label>
-                                                    <label><input type="checkbox" value="Collective Investment">Collective Investment</label>
-                                                    <label><input type="checkbox" value="Digital Asset">Digital Asset</label>
-                                                </div>
-                                            </div> -->
-                                        </div>
-                                        <!-- <button>Select Industry</button> -->
-                                        <button>Select Sector</button>
-                                    <!-- </div>
-                                    <div class="product-details-place" style="display: flex;"> -->
-                                        <button>Select Region</button>
-                                        <button>Select Sub-region</button>
-                                        <button>Select Country</button>
-                                    <!-- </div> -->
+                                    <div class="industry-cat" style="display: fle;">
+                                        <label for="select-industry">Domicile Product Industry:</label>
+                                        <select name="industry" id="industry">
+                                            <option value="" disabled selected>Select Industry</option>
+                                            <option value="Energy">Energy</option>
+                                            <option value="Basic Materials">Basic Materials</option>
+                                            <option value="Industrials">Industrials</option>
+                                            <option value="Consumer Cyclicals">Consumer Cyclicals</option>
+                                            <option value="Consumer Non-cyclicals">Consumer Non-cyclicals</option>
+                                            <option value="Financials">Financials</option>
+                                            <option value="Healthcare">Healthcare</option>
+                                            <option value="Technology">Technology</option>
+                                            <option value="Telecommunication Services">Telecommunication Services</option>
+                                            <option value="Utilities">Utilities</option>
+                                        </select>
+                                    </div>
+                                    <div class="industry-cat" style="display: fle;">
+                                        <label for="select-industry">Domiciled Region:</label>
+                                        <select name="industry" id="industry">
+                                            <option value="" disabled selected>Select Region</option>
+                                            <option value="Africa">Africa</option>
+                                            <option value="Americas">Americas</option>
+                                            <option value="Europe">Europe</option>
+                                        </select>
+                                    </div>
+                                    <div class="industry-cat" style="display: fle;">
+                                        <label for="select-industry">Trading Country:</label>
+                                        <select name="industry" id="industry">
+                                            <option value="" disabled selected>Select Country</option>
+                                            <option value="Energy">Nigeria</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="India">India</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="product-details-recom" style="display: flex;">
-                                    <button id="filter-client">View Clients (2)</button>
-                                    <button id="rec-to-client">Recommend to Clients</button>
+                                    <button id="filter-client">Suggested to Clients (2)</button>
+                                    <!-- <button id="rec-to-client">Recommend to Clients</button> -->
                                 </div>
-                            </div>
                         </div>
                       
                     </div>
