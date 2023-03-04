@@ -198,7 +198,7 @@ class IdeasTable extends HTMLElement {
                               <td><button onclick={alert('sss')}>View Idea</button></td>
                           </tr>`
                       ))
-                      .join('')
+                      // .join('')
                   }
                       
                   </table>
@@ -208,18 +208,30 @@ class IdeasTable extends HTMLElement {
 }
 customElements.define('ideas-pro', IdeasTable);
 
-// Select Industry functionality
-const selectIndustry = document.querySelector(".select-industry");
-console.log(selectIndustry)
+// // Select Industry functionality
+// const selectIndustry = document.querySelector(".select-industry");
+// console.log(selectIndustry)
 
-selectIndustry.addEventListener("click", function(){
-  const selectIndustries = document.querySelectorAll('.industry');
-  // console.log(selectIndustries)
-  for (let index = 0; index < selectIndustries.length; index++) {
-    // const element = array[index];
-    // selectIndustries[index].style.display = "block";
-    selectIndustries[index].classList.toggle("show");
+// selectIndustry.addEventListener("click", function(){
+//   const selectIndustries = document.querySelectorAll('.industry');
+//   // console.log(selectIndustries)
+//   for (let index = 0; index < selectIndustries.length; index++) {
+//     // const element = array[index];
+//     // selectIndustries[index].style.display = "block";
+//     selectIndustries[index].classList.toggle("show");
     
-  }
+//   }
   
-})
+// })
+
+
+// Get Selected Industry
+// const getSelectedIndustry = () => {
+//   const industrySelect = document.getElementById("industry");
+//   const selectedIndustry = industrySelect.value;
+//   console.log("Selected Industry: " + selectedIndustry)
+
+
+// } 
+
+// getSelectedIndustry()
