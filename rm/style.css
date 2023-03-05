@@ -48,9 +48,13 @@
     gap: 20px;
 }
 
-.border-red {
+.tablink.active {
+    background: green;
     border-bottom: 5px solid red;
 }
+
+/* .border-red {
+} */
 
 .border-blue {
     border-bottom: 5px solid blue;

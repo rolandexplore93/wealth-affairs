@@ -9,10 +9,10 @@ const openTabContent = (e, tabName) => {
     // iterate over each tablink and remove default styling
     tablinks = document.getElementsByClassName('tablink');
     for (index = 0; index < tabContent.length; index++){
-        tablinks[index].className = tablinks[index].className.replace("border-red", "")
+        tablinks[index].className = tablinks[index].className.replace(" active", "")
     }
     document.getElementById(tabName).style.display = "block";
-    e.currentTarget.firstElementChild.className += "border-red";    // Adds style to each tab click
+    e.currentTarget.className += " active";    // Adds style to each tab click
 }
 
 // Get the modal
@@ -45,7 +45,7 @@ span.onclick = function() {
 //   }
 // }
 
-// Reusable crated investment products
+// Reusable created investment products
 class CreatedInvestmentCards extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
@@ -75,7 +75,7 @@ class CreatedInvestmentCards extends HTMLElement {
 }
 customElements.define('created-investment-cards', CreatedInvestmentCards);
 
-// Resuable components in HTML
+// Resuable BasicSecurity components
 class BasicSecurity extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
@@ -162,7 +162,7 @@ const ideas = [
       instrumentName: 'Apple',
       assetType: 'Bonds',
       price: 20,
-      currency: 'GBP',
+      currency: 'G BP',
       stock: 10,
       closingDate: '21/05/2023',
       riskLevel: 2,
@@ -174,7 +174,7 @@ class IdeasTable extends HTMLElement {
   connectedCallback(){
       this.innerHTML =
           `
-              <div id="ideas" class="b__content" style="display: non;">
+              <div id="" class="b__content" style="display: non;">
                   <table>
                       <tr>
                           <th>Date Created</th>
@@ -195,10 +195,10 @@ class IdeasTable extends HTMLElement {
                               <td>${idea.closingDate}</td>
                               <td>${idea.riskLevel}</td>
                               <td>${idea.status}</td>
-                              <td><button onclick={alert('sss')}>View Idea</button></td>
+                              <td><button onclick="console.log('${idea.status}')">View Idea</button></td>
                           </tr>`
                       ))
-                      // .join('')
+                      .join('')
                   }
                       
                   </table>
