@@ -50,7 +50,6 @@
 
 .tablink.active {
     background: green;
-    border-bottom: 5px solid red;
 }
 
 /* .border-red {
@@ -61,7 +60,6 @@
 }
 
 .products {
-    border: 1px solid red;
     padding: 10px;
     display: flex;
     gap: 10px;
@@ -149,7 +147,6 @@
 /* Idea page styles */
 #ideas {
     padding: 0 5px;
-    border: 3px solid red;
 }
 
   /* Client page styles */

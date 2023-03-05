@@ -51,7 +51,7 @@ class Clients extends HTMLElement {
                                 <td>${client.phoneNumber}</td>
                                 <td>${client.email}</td>
                                 <td>${client.country}</td>
-                                <td><button onclick="alert('${client.country}')">View Profile</button></td>
+                                <td><button id="idme" onclick="alert('${client.country}')">View Profile</button></td>
                             </tr>`
                         ))
                         .join('')
@@ -66,6 +66,9 @@ customElements.define('client-profile', Clients);
 
 
 
+// document.getElementById('idme').onclick = function(){
+//     console.log("Yipeeee");
+//   }
 
 
 
