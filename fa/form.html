@@ -7,14 +7,14 @@
 <body>
   <div class="container">
     <h1>Investment Ideas Upload</h1>
-    <form>
+    <form action="http://localhost/webdevelopment/wealth-affairs/fa/createIdea.php" method="post">
       <div class="form-group">
         <label for="instrument-name">Instrument Name:</label>
-        <input type="text" id="instrument-name" name="instrument-name" required>
+        <input type="text" id="instrument-name" name="instrument-name" >
       </div>
       <div class="form-group">
         <label for="instrument-dn">Instrument-Dn:</label>
-        <input type="text" id="instrument-dn" name="instrument-dn" required>
+        <input type="text" id="instrument-dn" name="instrument-dn" >
       </div>
       <div class="form-group">
         <label for="basic instrument">Basic Instrument:</label>
@@ -57,31 +57,31 @@
       </div>
       <div class="form-group">
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required>
+        <input type="text" id="price" name="price" >
       </div>
       <div class="form-group">
         <label for="currency">Currency:</label>
-        <input type="text" id="currency" name="currency" required>
+        <input type="text" id="currency" name="currency" >
       </div>
       <div class="form-group">
         <label for="stocks">Stocks:</label>
-        <input type="text" id="stocks" name="stocks" required>
+        <input type="text" id="stocks" name="stocks" >
       </div>
       <div class="form-group">
         <label for="stock exchange">Stock Exchange:</label>
-        <input type="text" id="stock exchange" name="stock exchange" required>
+        <input type="text" id="stock exchange" name="stock-exchange" >
       </div>
       <div class="form-group">
         <label for="issuer">Issuer:</label>
-        <input type="text" id="issuer" name="issuer" required>
+        <input type="text" id="issuer" name="issuer" >
       </div>
       <div class="form-group">
         <label for="isin">ISIN:</label>
-        <input type="text" id="isin" name="isin" required>
+        <input type="text" id="isin" name="isin" >
       </div>
       <div class="form-group">
         <label for="ticker">Ticker:</label>
-        <input type="text" id="ticker" name="ticker" required>
+        <input type="text" id="ticker" name="ticker" >
       </div>
       <div class ="form-group">
       <label for="region">Region:</label>
@@ -106,7 +106,7 @@
           <option value="Ghana">Ghana</option>
         </select>
       </div>
-      <button type="submit"><a href="./index.html">Submit</a></button>
+      <button type="submit">Submit</button>
     </form>
   </div>
 </body>
