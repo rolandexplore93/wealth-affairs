@@ -1,4 +1,7 @@
-const clients = [
+// Prevent javascript code from loading until html code has been completely loaded
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const clients = [
     {
         id: '1112',
         firstname: 'John',
@@ -29,7 +32,7 @@ class Clients extends HTMLElement {
     connectedCallback(){
         this.innerHTML =
             `
-                <div id="" class="content" style="display: non;">
+                <div class="content">
                     <table>
                         <tr>
                             <th>ID</th>
@@ -48,7 +51,7 @@ class Clients extends HTMLElement {
                                 <td>${client.phoneNumber}</td>
                                 <td>${client.email}</td>
                                 <td>${client.country}</td>
-                                <td><button id="view-client" onclick={alert(${client.firstname})}>View Profile</button></td>
+                                <td><button id="idme" onclick="alert('${client.country}')">View Profile</button></td>
                             </tr>`
                         ))
                         .join('')
@@ -61,7 +64,13 @@ class Clients extends HTMLElement {
 }
 customElements.define('client-profile', Clients);
 
-const ccc = document.getElementById("view-client");
-ccc.onclick = function() {
-  alert(client.firstname)
-}
+
+
+// document.getElementById('idme').onclick = function(){
+//     console.log("Yipeeee");
+//   }
+
+
+
+
+});

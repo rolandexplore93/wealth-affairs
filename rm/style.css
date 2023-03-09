@@ -48,16 +48,18 @@
     gap: 20px;
 }
 
-.border-red {
-    border-bottom: 5px solid red;
+.tablink.active {
+    background: green;
 }
+
+/* .border-red {
+} */
 
 .border-blue {
     border-bottom: 5px solid blue;
 }
 
 .products {
-    border: 1px solid red;
     padding: 10px;
     display: flex;
     gap: 10px;
@@ -309,11 +311,7 @@ button {
     flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-}
-
-.product-details-place {
-    gap: 5px;
+    gap: 15px;
 }
 
 .product-details-recom {
@@ -323,3 +321,33 @@ button {
     gap: 10px;
 }
 
+/* Select industry styles */
+.industry-cat {
+    /* border: 1px solid red; */
+}
+
+.select-industry {
+    /* border: 1px solid blue; */
+    padding: 2px 0px;
+}
+
+.industry {
+    /* display: none; */
+}
+
+.sub-industry {
+    /* display: none; */
+    margin-left: 15px;
+}
+
+.present {
+    background: #ddd;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.showit {
+    /* display: none; */
+    color: red;
+}

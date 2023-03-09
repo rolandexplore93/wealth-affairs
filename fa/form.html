@@ -1,65 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idea form</title>
+  <title>Investment Ideas Upload</title>
+  <link rel="stylesheet" type="text/css" href="style3.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Investment Ideas Upload</h1>
-        <form>
-          <div class="form-group">
-            <label for="instrument-name">Instrument Name:</label>
-            <input type="text" id="instrument-name" name="instrument-name" required>
-          </div>
-          <div class="form-group">
-            <label for="instrument d.n">Instrument D.N:</label>
-            <input type="text" id="instrument d.n" name="instrument d.n" required>
-          </div>
-          <div class="form-group">
-            <label for="issuer">Issuer:</label>
-            <input type="text" id="issuer" name="issuer" required>
-          </div>
-          <div class="form-group">
-            <label for="denomination">Denomination:</label>
-            <input type="text" id="denomination" name="denomination" required>
-          </div>
-          <div class="form-group">
-            <label for="ticker">Ticker:</label>
-            <input type="text" id="ticker" name="ticker" required>
-          </div>
-          <div class="form-group">
-            <label for="isin">ISIN:</label>
-            <input type="text" id="isin" name="isin" required>
-          </div>
-          <div class="form-group">
-            <label for="price closing date">Price Closing Date:</label>
-            <input type="text" id="price closing date" name="price closing date" required>
-          </div>
-          <div class="form-group">
-            <label for="maturity date">Maturity Date:</label>
-            <input type="text" id="maturity date" name="maturity date" required>
-          </div>
-          <div class="form-group">
-            <label for="issue date">Issue Date:</label>
-            <input type="text" id="issue date" name="issue date" required>
-          </div>
-          <div class="form-group">
-            <label for="currency">Currency:</label>
-            <input type="text" id="currency" name="currency" required>
-          </div>
-          <div class="form-group">
-            <label for="region">Region:</label>
-            <input type="text" id="region" name="region" required>
-          </div>
-          <div class="form-group">
-            <label for="country">Country:</label>
-            <input type="text" id="country" name="country" required>
-          </div>
-          <button type="submit"><a href="./index.html">Submit</a></button>
-        </form>
+  <div class="container">
+    <h1>Investment Ideas Upload</h1>
+    <form action="http://localhost/webdevelopment/wealth-affairs/fa/createIdea.php" method="post">
+      <div class="form-group">
+        <label for="instrument-name">Instrument Name:</label>
+        <input type="text" id="instrument-name" name="instrument-name" >
       </div>
+      <div class="form-group">
+        <label for="instrument-dn">Instrument-Dn:</label>
+        <input type="text" id="instrument-dn" name="instrument-dn" >
+      </div>
+      <div class="form-group">
+        <label for="basic instrument">Basic Instrument:</label>
+        <select id="basic instrument">
+          <option value="">-- Select an Instrument --</option>
+          <option value="Stocks">Stocks</option>
+          <option value="Bonds">Bonds</option>
+          <option value="ETFs">ETFs</option>
+          <option value="Mutual Funds">Mutual Funds</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="derivative">Derivatives:</label>
+        <select id="derivative">
+        <option value="">-- Select a Derivative --</option>
+        <option value="Security Derivatives">Security Derivatives</option>
+        <option value="FX and Money Market">FX and Money Market</option>
+        <option value="Credit Derivatives">Credit Derivatives</option>
+        <option value="Insurance Derivatives">Insurance Derivatives</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label for="industry">Industry:</label>
+        <select id="industry">
+          <option value="">-- Select an Industry --</option>
+          <option value="Technology">Technology</option>
+          <option value="Finance">Finance</option>
+          <option value="Renewable Energy">Renewable Energy</option>
+          <option value="Healthcare">Healthcare</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="risk-level">Risk Level:</label>
+        <select id= "risk-level">
+          <option value="">-- Select a Risk Level --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" >
+      </div>
+      <div class="form-group">
+        <label for="currency">Currency:</label>
+        <input type="text" id="currency" name="currency" >
+      </div>
+      <div class="form-group">
+        <label for="stocks">Stocks:</label>
+        <input type="text" id="stocks" name="stocks" >
+      </div>
+      <div class="form-group">
+        <label for="stock exchange">Stock Exchange:</label>
+        <input type="text" id="stock exchange" name="stock-exchange" >
+      </div>
+      <div class="form-group">
+        <label for="issuer">Issuer:</label>
+        <input type="text" id="issuer" name="issuer" >
+      </div>
+      <div class="form-group">
+        <label for="isin">ISIN:</label>
+        <input type="text" id="isin" name="isin" >
+      </div>
+      <div class="form-group">
+        <label for="ticker">Ticker:</label>
+        <input type="text" id="ticker" name="ticker" >
+      </div>
+      <div class ="form-group">
+      <label for="region">Region:</label>
+      <select id="region">
+        <option value="">-- Select a Region --</option>
+        <option value="North America">North America</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia">Asia</option>
+        <option value="Latin America">Latin America</option>
+        <option value="Middle East">Middle East</option>
+        <option value="Africa">Africa</option>
+      </select>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country">
+          <option value="">-- Select a Country --</option>
+          <option value="United States">United States</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Argentina">Argentina</option>
+          <option value="China">China</option>
+          <option value="Ghana">Ghana</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
