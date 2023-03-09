@@ -12,8 +12,8 @@
         <div class="sidebar">
             <div class="rm">
                 <img class="photo" src="../images/relational-manager-photo.jfif" alt="rm-image" />
-                <p class="name">Francis, O. O</p>
-                <p class="title">FA</p>
+                <p class="name">Francis, O. A</p>
+                <p class="title">Funds Administrator</p>
             </div>
             <div class="">
                 <p><a href="">Dashboard</a></p>
@@ -26,20 +26,38 @@
         </div>
         <div class="main">
             <div>
-                <h1>FA Ideas uploadingDashboard</h1>  
+                <h2>FA IDEAS DASHBOARD</h2>  
                 <button><a href="./form.html">Create Ideas</a></button>
             </div>
             <div>
                 <!-- <button><a href="">All ideas</a></button> -->
-                <h2 id="investment-ideas">Investment Ideas</h2>
+                <h3 id="investment-ideas">INVESTMENT IDEAS</h3>
                 <table>
+                    <style>
+                        table {
+                          font-family: arial, sans-serif;
+                          border-collapse: collapse;
+                          width: 100%;
+                        }
+                        
+                        td, th {
+                          border: 1px solid #dddddd;
+                          text-align: left;
+                          padding: 8px;
+                        }
+                        
+                        tr:nth-child(even) {
+                          background-color: #dddddd;
+                        }
+                        </style>
                     <thead>
                     <tr>
+                        <th>Date created</th>
                         <th>Instrument Name</th>
-                        <th>Issue</th>
-                        <th>Ticker</th>
-                        <th>ISIN</th>
-                        <th>Region</th>
+                        <th>Asset Type</th>
+                        <th>Industry</th>
+                        <th>Risk Level</th>
+                        <th>Currency</th>
                         <th>Country</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -47,34 +65,37 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Apple Inc.</td>
-                        <td>Common Stock</td>
-                        <td>AAPL</td>
-                        <td>US0378331005</td>
-                        <td>North America</td>
+                        <td>2/2/23</td>
+                        <td>IBM Common Stock</td>
+                        <td>Equities</td>
+                        <td>Software & IT Services</td>
+                        <td>1</td>
+                        <td>USD</td>
                         <td>United States</td>
                         <td>Pending</td>
-                        <td>---</td>
+                        <td><button>Delete</button></td>
                     </tr>
                     <tr>
-                        <td>Microsoft Corporation</td>
-                        <td>Common Stock</td>
-                        <td>MSFT</td>
-                        <td>US5949181045</td>
-                        <td>North America</td>
-                        <td>United States</td>
+                        <td>2/2/23</td>
+                        <td>Natixis Green Note</td>
+                        <td>Derivatives</td>
+                        <td>Banking & Investment Services</td>
+                        <td>5</td>
+                        <td>EUR</td>
+                        <td>Europe</td>
                         <td>Rejected</td>
                         <td><button>Delete</button></td>
                     </tr>
                     <tr>
+                        <td>3/2/23</td>
                         <td>Amazon.com, Inc.</td>
-                        <td>Common Stock</td>
-                        <td>AMZN</td>
-                        <td>US0231351067</td>
-                        <td>North America</td>
+                        <td>Equities</td>
+                        <td>Software & IT Services</td>
+                        <td>1</td>
+                        <td>USD</td>
                         <td>United States</td>
                         <td>Approved</td>
-                        <td>---</td>
+                        <td><button>Delete</button></td>
                     </tr>
                     </tbody>
                 </table>
