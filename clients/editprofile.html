@@ -3,7 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="editprofile.css">
-    <script src="editprofile.js"></script>
+    <script src="/clients/editprofile.js"></script>
     <title>Edit profile
     </title>
 </head>
@@ -53,7 +53,7 @@
                         <img src="../images/relational-manager-photo.jfif" alt="rm-image" />
                     <p class="name" >Olajide, O. O</p>
                     <p class="title">Client</p>
-                    <button><a href="#">Save profile</a></button><br>
+                    <button><a href="/clients/Dashboard.html">Save profile</a></button><br>
                     <button><a href="/clients/Login/password.html">Change Password</a></button>
                 </div>
             </section> 
@@ -64,44 +64,44 @@
 
                      <!-- Form for preference -->
                      <!-- <form class="form-inline" action="/action_page.php"> -->
-                        <form class="form-inline" action="/action_page.php">
+                        <form class="form-inline" method='post' action="http://localhost/wealth-affairs/clients/action_pref.php">
                             <!-- Basic instruments checkbox -->
                             <div class="multiselect">
-                              <div class="selectBox" onclick="BshowCheckboxes()">
+                              <div class="selectBox" onclick="showCheckboxes('bInstrument')">
                                 <select>
                                   <option>Select a Basic Instrument</option>
                                 </select>
                                 <div class="overSelect"></div>
                               </div>
                               <div id="bInstrument">
-                                <label for="one">
-                                  <input type="checkbox" id="one" />First checkbox</label>
-                                <label for="two">
-                                  <input type="checkbox" id="two" />Second checkbox</label>
-                                <label for="three">
-                                  <input type="checkbox" id="three" />Third checkbox</label>
+                                <label for="bone">
+                                  <input type="checkbox" id="bone" />Bonds</label><br>
+                                <label for="btwo">
+                                  <input type="checkbox" id="btwo" />Equities</label><br>
+                                <label for="bthree">
+                                  <input type="checkbox" id="bthree" />FX</label><br>
                               </div>
                               </div>
                               <!-- Derivatives checkbox -->
                               <div class="multiselect">
-                                <div class="selectBox" onclick="DshowCheckboxes()">
+                                <div class="selectBox" onclick="showCheckboxes('derivative')">
                                   <select>
                                     <option>Select a Derivative</option>
                                   </select>
                                   <div class="overSelect"></div>
                                 </div>
                                 <div id="derivative">
-                                  <label for="three">
-                                    <input type="checkbox" id="three" />Third checkbox</label>
-                                  <label for="four">
-                                    <input type="checkbox" id="four" />Forth checkbox</label>
-                                  <label for="five">
-                                    <input type="checkbox" id="three" />Third checkbox</label>
+                                  <label for="dthree">
+                                    <input type="checkbox" id="dthree" />Security Derivative</label><br>
+                                  <label for="dfour">
+                                    <input type="checkbox" id="dfour" />FX & Money Market</label><br>
+                                  <label for="dfive">
+                                    <input type="checkbox" id="dfive" />Credit Derivative</label><br>
                                 </div>
                                 </div>
                                 <!-- Risk levels checkbox -->
                                 <div class="multiselect">
-                                    <div class="selectBox" onclick="RshowCheckboxes()">
+                                    <div class="selectBox" onclick="showCheckboxes('riskLevel')">
                                       <select>
                                         <option>Select a Risk Level</option>
                                       </select>
@@ -109,77 +109,76 @@
                                     </div>
                                     <div id="riskLevel">
                                       <label for="Rone">
-                                        <input type="checkbox" id="Rone" />Risk Level 1</label>
-                                      <label for="four">
-                                        <input type="checkbox" id="four" />Forth checkbox</label>
-                                      <label for="five">
-                                        <input type="checkbox" id="three" />Third checkbox</label>
-                                        <label for="four">
-                                            <input type="checkbox" id="four" />Forth checkbox</label>
-                                          <label for="five">
-                                            <input type="checkbox" id="three" />Third checkbox</label>
+                                        <input type="checkbox" id="Rone" />Risk Level 1</label><br>
+                                      <label for="Rtwo">
+                                        <input type="checkbox" id="Rtwo" />Risk Level 2</label><br>
+                                      <label for="rthree">
+                                        <input type="checkbox" id="rthree" />Risk Level 3</label><br>
+                                        <label for="rfour">
+                                            <input type="checkbox" id="rfour" />Risk Level 4</label><br>
+                                          <label for="rfive">
+                                            <input type="checkbox" id="rfive" />Risk Level 5</label><br>
                                     </div>
                                     </div>
+                                    <!-- Industry checkbox -->
                                     <div class="multiselect">
-                                        <div class="selectBox" onclick="DshowCheckboxes()">
+                                        <div class="selectBox" onclick="showCheckboxes('industry')">
                                           <select>
-                                            <option>Select a Derivative</option>
+                                            <option>Select an Industry</option>
                                           </select>
                                           <div class="overSelect"></div>
                                         </div>
-                                        <div id="derivative">
-                                          <label for="three">
-                                            <input type="checkbox" id="three" />Third checkbox</label>
-                                          <label for="four">
-                                            <input type="checkbox" id="four" />Forth checkbox</label>
-                                          <label for="five">
-                                            <input type="checkbox" id="three" />Third checkbox</label>
+                                        <div id="industry">
+                                          <label for="energy">
+                                            <input type="checkbox" id="energy" name="industry[]" value="energy"> Energy</label><br>
+                                          <label for="chemicals">
+                                            <input type="checkbox" id="chemicals" name="industry[]" value="chemicals"> Chemicals</label><br>
+                                          <label for="industrial-goods">
+                                            <input type="checkbox" id="industrial-goods" name="industry[]" value="industrial-goods"> Industrial Goods</label><br>
+                                          <label for="auto">
+                                            <input type="checkbox" id="auto" name="industry[]" value="auto"> Automobiles & Auto Parts</label><br>
+                                          <label for="food-beverages">
+                                            <input type="checkbox" id="food-beverages" name="industry[]" value="food-beverages"> Food & Beverages</label><br>
+                                          <label for="banking">
+                                            <input type="checkbox" id="banking" name="industry[]" value="banking"> Banking & Investment</label><br>
+                                          <label for="healthcare">
+                                            <input type="checkbox" id="healthcare" name="industry[]" value="healthcare"> Healthcare Services</label><br>
+                                          <label for="tech">
+                                            <input type="checkbox" id="tech" name="industry[]" value="tech"> Technology Equipment</label><br>
+                                          <label for="telecom">
+                                            <input type="checkbox" id="telecom" name="industry[]" value="telecom"> Telecommunication</label><br>
+                                          <label for="utilities">
+                                            <input type="checkbox" id="utilities" name="industry[]" value="utilities"> Utilities</label><br>
                                         </div>
                                         </div>
                                         <div class="multiselect">
-                                            <div class="selectBox" onclick="DshowCheckboxes()">
+                                            <div class="selectBox" onclick="showCheckboxes('region')">
                                               <select>
-                                                <option>Select a Derivative</option>
+                                                <option>Select Regions</option>
                                               </select>
                                               <div class="overSelect"></div>
                                             </div>
-                                            <div id="derivative">
+                                            <div id="region">
                                               <label for="three">
-                                                <input type="checkbox" id="three" />Third checkbox</label>
+                                                <input type="checkbox" id="three" />Africa</label><br>
                                               <label for="four">
-                                                <input type="checkbox" id="four" />Forth checkbox</label>
+                                                <input type="checkbox" id="four" />Americas</label><br>
                                               <label for="five">
-                                                <input type="checkbox" id="three" />Third checkbox</label>
+                                                <input type="checkbox" id="three" />Asia</label><br>
                                             </div>
-                                            </div>
-                                            <div class="multiselect">
-                                                <div class="selectBox" onclick="DshowCheckboxes()">
-                                                  <select>
-                                                    <option>Select a Derivative</option>
-                                                  </select>
-                                                  <div class="overSelect"></div>
-                                                </div>
-                                                <div id="derivative">
-                                                  <label for="three">
-                                                    <input type="checkbox" id="three" />Third checkbox</label>
-                                                  <label for="four">
-                                                    <input type="checkbox" id="four" />Forth checkbox</label>
-                                                  <label for="five">
-                                                    <input type="checkbox" id="three" />Third checkbox</label>
-                                                </div>
-                                                </div>
-                                <button type="submit">Submit</button>
+                                            </div>      
+                                            <button type="submit">Submit</button>
                           </form>
-                      
-                        <!-- <label for="country">Country</label>
-                        <select id="country" name="country">
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="usa">USA</option>
-                        </select>
-                        <button type="submit">Submit</button>
-                      </form> -->
-                    </div>   
+                          <script>
+                            function showCheckboxes(id) {
+                                var checkboxes = document.getElementById(id);
+                                if (checkboxes.style.display === "block") {
+                                    checkboxes.style.display = "none";
+                                } else {
+                                    checkboxes.style.display = "block";
+                                }
+                            }
+                          </script>
         </section>
          <!-- Footer -->
         <footer style="border: 1px solid green">This is footer</footer>

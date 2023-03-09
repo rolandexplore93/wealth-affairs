@@ -101,22 +101,17 @@
   bottom: 0;
 }
 
-#bInstrument #derivative #riskLevel {
+/* #bInstrument #derivative #riskLevel #industry {
   display: none;
   border: 1px #dadada solid;
+} */
+
+#bInstrument #derivative #riskLevel #industry label {
+  display: none;
 }
 
-#bInstrument label {
-  display: block;
-}
-#derivative label {
-  display: block;
-}
-#riskLevel label {
-  display: block;
-}
 
-#bInstrument #derivative label:hover {
+#bInstrument #derivative #riskLevel #industry label:hover {
   background-color: #1e90ff;
 }
 
