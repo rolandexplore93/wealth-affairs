@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: IBMPlexSans-Bold
+font link: https://fonts.google.com/specimen/IBM+Plex+Sans
+font author: Mike Abbink
+font author site: https://www.mikeabbink.com/
+
+
+icon designer: Desbenoit
+icon designer link: /desbenoit
+        
+{"bg":"#F6E6F0","icon-gradient-0":"#B4373D","icon-gradient-1":"#B23ACB","font":"#341028","slogan":"#48243c"}
+      

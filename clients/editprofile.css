@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* border: 1px solid red; */
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Tw Cen MT;
+    /* position: relative; */
+  
+  }
+  
+  /* Header styles */
+  
+  
+  
+  /* Product Section Styles */
+  /* product cards */
+  .profile-page, .preference {
+    border: 1px solid red;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Style the form - display items horizontally */
+.form-inline, .multiselect{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input, input[type=text], select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input, input[type=text], select {
+    margin: 10px 0;
+  }
+
+  .form-inline, .multiselect {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* Preferences form */
+/* <!-- language: lang-css --> */
+
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#bInstrument #derivative #riskLevel {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#bInstrument label {
+  display: block;
+}
+#derivative label {
+  display: block;
+}
+#riskLevel label {
+  display: block;
+}
+
+#bInstrument #derivative label:hover {
+  background-color: #1e90ff;
+}
+
+  
+  .side-profile {
+    /* height: 50px;
+    width: 50px;
+    border-radius: 100%; */
+    text-align: center;
+  }
+  
+  .side-profile > img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+  }
+  
+  
+  
+  /* Footer styles */
+  footer {
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* width: 100%; */
+    padding: 10px;
+  }
+  
+  
+  
+  
+  
+  
