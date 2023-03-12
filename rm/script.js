@@ -195,7 +195,7 @@ class IdeasTable extends HTMLElement {
     const closeModal = modal.querySelector('.close');
     closeModal.onclick = function(){
       modal.style.display = 'none';
-    }
+    };
 
     this.innerHTML =
         `
@@ -238,7 +238,8 @@ class IdeasTable extends HTMLElement {
         console.log(ideaId);
         // console.log(ideas);
         const targetIdea = ideas.find(idea => idea.id == ideaId);
-        console.log(targetIdea)
+        console.log(targetIdea);
+        
         modalContent.innerHTML = `
           <div class="product-details-r1" style="display: flex;">
             <div class="product-details-tag" style="display: flex;">
@@ -339,13 +340,21 @@ class IdeasTable extends HTMLElement {
                   </div>
               </div>
               <div class="product-details-recom" style="display: flex;">
+                  <button id="reject-idea">Reject Idea</button>
                   <button id="filter-client">Suggested to Clients (2)</button>
-                  <button id="rec-to-client">Recommend to Clients</button>
+                  <button id="rec-to-client"">Recommend to Clients</button>
               </div>
           </div>
         `;
         modal.style.display = 'block';
-      }
+
+        const a = document.querySelector("#rec-to-client");
+        a.onclick = function(){
+          alert(`${targetIdea.instrumentName} has been recommended to interested clients`);
+          window.location.href = "/rm/index.html";
+        }
+        
+      };
     })
   };
 };

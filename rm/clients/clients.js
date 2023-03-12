@@ -51,7 +51,7 @@ class Clients extends HTMLElement {
                                 <td>${client.phoneNumber}</td>
                                 <td>${client.email}</td>
                                 <td>${client.country}</td>
-                                <td><button id="idme" onclick="alert('${client.country}')">View Profile</button></td>
+                                <td><button class="idme" onclick="viewClientProfile('${client.country}')">View Profile</button></td>
                             </tr>`
                         ))
                         .join('')
@@ -59,10 +59,16 @@ class Clients extends HTMLElement {
                         
                     </table>
                 </div>
-            `
-    }
+            `;
+            
+            const viewClient = this.querySelectorAll('idme');
+            console.log(viewClient)
+
+        }
 }
 customElements.define('client-profile', Clients);
+
+
 
 
 
