@@ -208,7 +208,9 @@ class IdeasTable extends HTMLElement {
                 <table>
                     <tr>
                         <th>Date Created</th>
-                        <th>Instrument Name</th>
+                        <th>Instrument kkkkkkName</th>
+                        <th>Instrument kkkkkkName</th>
+                        <th>Instrument kkkkkkName</th>
                         <th>Asset Type (Basic Securities)</th>
                         <th>Asset Type (Derivatives)</th>
                         <th>Offer</th>
@@ -262,7 +264,7 @@ class IdeasTable extends HTMLElement {
                 <div class="form-group">
                   <label for="basic instrument">Basic Instrument:</label>
                   <select id="basic instrument" name="BasicSecurities">
-                    <option value="" disabled ${targetIdea.BasicSecurities == '' || targetIdea.BasicSecurities == null ? 'selected' : ''}>-- Select an Instrument --</option>
+                    <option value="" disabled ${targetIdea.BasicSecurities == '' ? 'selected' : ''}>-- Select an Instrument --</option>
                     <option value="Stocks" ${targetIdea.BasicSecurities == 'Stocks' ? 'selected' : ''}>Stocks</option>
                     <option value="Bonds" ${targetIdea.BasicSecurities == 'Bonds' ? 'selected' : ''}>Bonds</option>
                     <option value="ETFs" ${targetIdea.BasicSecurities == 'ETFs' ? 'selected' : ''}>ETFs</option>
