@@ -47,4 +47,6 @@
 
     mysqli_query($databaseConnection, "INSERT INTO `idea`(`InstrumentName`, `InstrumentDn`, `BasicSecurities`, `Derivatives`, `Industry`, `RiskLevel`, `Denomination`, `PriceCurrency`, `ClosingPrice`, `StockExchange`, `Issuer`, `Isin`, `Ticker`, `Region`, `Country`) 
     VALUES ('$instrumentName','$instrumentDn','$BasicSecurities','$Derivatives','$Industry','$RiskLevel','$Denomination','$PriceCurrency','$ClosingPrice','$StockExchange','$Issuer','$Isin','$Ticker','$Region','$Country')");
+
+    mysqli_close($databaseConnection);
 ?>

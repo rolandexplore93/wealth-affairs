@@ -134,7 +134,7 @@ for (let i = 0; i < checkboxes.length; i++){
 }
 
 
-const ideas = [
+const ideass = [
   {
       id: 1,
       dateCreated: '12/12/2022',
@@ -179,6 +179,11 @@ const ideas = [
   },
 ]
 
+fetch('http://localhost/wealth-affairs/backend/getIdeas.php')
+  .then(response => response.json())
+  .then(ideas => {
+    // do something with the data
+    // Define IdeasTable
 class IdeasTable extends HTMLElement {
   connectedCallback(){
     const modal = document.createElement('div');
@@ -204,28 +209,29 @@ class IdeasTable extends HTMLElement {
                     <tr>
                         <th>Date Created</th>
                         <th>Instrument Name</th>
-                        <th>Asset Type</th>
+                        <th>Asset Type (Basic Securities)</th>
+                        <th>Asset Type (Derivatives)</th>
                         <th>Offer</th>
-                        <th>Closing Date</th>
+                        <th>Price Closing Date</th>
                         <th>Risk level</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                     ${ideas.map(idea => (
                         `<tr>
-                            <td>${idea.dateCreated}</td>
-                            <td>${idea.instrumentName}</td>
-                            <td>${idea.assetType}</td>
-                            <td>${idea.price} ${idea.currency} per ${idea.stock} stocks</td>
-                            <td>${idea.closingDate}</td>
-                            <td>${idea.riskLevel}</td>
-                            <td>${idea.status}</td>
-                            <td><button class="view-idea" data-id="${idea.id}" onclick="viewIdea()">View Idea</button></td>
+                            <td>${idea.IdeaID}</td>
+                            <td>${idea.InstrumentName}</td>
+                            <td>${idea.BasicSecurities != '' ? idea.BasicSecurities : 'Not Applicable'}</td>
+                            <td>${idea.Derivatives != '' ? idea.Derivatives : 'Not Applicable'}</td>
+                            <td>${idea.PriceCurrency} ${idea.ClosingPrice} per ${idea.Denomination} units</td>
+                            <td>${idea.PriceClosingDate}</td>
+                            <td>${idea.RiskLevel}</td>
+                            <td>${idea.Status}</td>
+                            <td><button class="view-idea" data-id="${idea.IdeaID}" onclick="viewIdea()">View Idea</button></td>
                         </tr>`
                     ))
                     .join('')
                 }
-                    
                 </table>
             </div>
         `;
@@ -237,14 +243,143 @@ class IdeasTable extends HTMLElement {
         const ideaId = eachIdea.dataset.id;
         console.log(ideaId);
         // console.log(ideas);
-        const targetIdea = ideas.find(idea => idea.id == ideaId);
+        const targetIdea = ideas.find(idea => idea.IdeaID == ideaId);
         console.log(targetIdea);
         
         modalContent.innerHTML = `
-          <div class="product-details-r1" style="display: flex;">
+          <div class="product-details-r1" style="display: fle;">
+            <div class="product-creation">
+              <h1>Investment Ideas Upload</h1>
+              <form action="http://localhost/wealth-affairs/backend/products.php" method="post">
+                <div class="form-group">
+                  <label for="instrument-name">Instrument Name:</label>
+                  <input type="text" id="InstrumentName" name="InstrumentName" value='${targetIdea.InstrumentName}' >
+                </div>
+                <div class="form-group">
+                  <label for="instrument-dn">Instrument-Dn:</label>
+                  <input type="text" id="InstrumentDn" name="InstrumentDn" value='${targetIdea.InstrumentDn}' >
+                </div>
+                <div class="form-group">
+                  <label for="basic instrument">Basic Instrument:</label>
+                  <select id="basic instrument" name="BasicSecurities">
+                    <option value="" disabled ${targetIdea.BasicSecurities == '' || targetIdea.BasicSecurities == null ? 'selected' : ''}>-- Select an Instrument --</option>
+                    <option value="Stocks" ${targetIdea.BasicSecurities == 'Stocks' ? 'selected' : ''}>Stocks</option>
+                    <option value="Bonds" ${targetIdea.BasicSecurities == 'Bonds' ? 'selected' : ''}>Bonds</option>
+                    <option value="ETFs" ${targetIdea.BasicSecurities == 'ETFs' ? 'selected' : ''}>ETFs</option>
+                    <option value="Mutual Funds" ${targetIdea.BasicSecurities == 'Mutual Funds' ? 'selected' : ''}>Mutual Funds</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="derivative">Derivatives:</label>
+                  <select id="derivative" name="Derivatives">
+                    <option value="" disabled ${targetIdea.Derivatives == '' || targetIdea.Derivative == null ? 'selected' : ''}>-- Select a Derivative --</option>
+                    <option value="Security Derivatives" ${targetIdea.Derivatives == 'Security Derivatives' ? 'selected' : ''}>Security Derivatives</option>
+                    <option value="FX and Money Market" ${targetIdea.Derivatives == 'FX and Money Market' ? 'selected' : ''}>FX and Money Market</option>
+                    <option value="Credit Derivatives" ${targetIdea.Derivatives == 'Credit Derivatives' ? 'selected' : ''}>Credit Derivatives</option>
+                    <option value="Insurance Derivatives" ${targetIdea.Derivatives == 'Insurance Derivatives' ? 'selected' : ''}>Insurance Derivatives</option>
+                </select>
+                </div>
+                <div class="form-group">
+                  <label for="industry">Industry:</label>
+                  <select id="industry" name="Industry">
+                    <option value="" disabled ${targetIdea.Industry == '' ? 'selected' : ''}>-- Select an Industry --</option>
+                    <option value="Technology" ${targetIdea.Industry == 'Technology' ? 'selected' : ''}>Technology</option>
+                    <option value="Finance" ${targetIdea.Industry == 'Finance' ? 'selected' : ''}>Finance</option>
+                    <option value="Renewable Energy" ${targetIdea.Industry == 'Renewable Energy' ? 'selected' : ''}>Renewable Energy</option>
+                    <option value="Healthcare" ${targetIdea.Industry == 'Healthcare' ? 'selected' : ''}>Healthcare</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="risk-level">Risk Level:</label>
+                  <select id= "risk-level" name="RiskLevel">
+                    <option value="" disabled ${targetIdea.RiskLevel == '' ? 'selected' : ''}>-- Select a Risk Level --</option>
+                    <option value="1" ${targetIdea.RiskLevel == '1' ? 'selected' : ''}>1</option>
+                    <option value="2" ${targetIdea.RiskLevel == '2' ? 'selected' : ''}>2</option>
+                    <option value="3" ${targetIdea.RiskLevel == '3' ? 'selected' : ''}>3</option>
+                    <option value="4" ${targetIdea.RiskLevel == '4' ? 'selected' : ''}>4</option>
+                    <option value="5" ${targetIdea.RiskLevel == '5' ? 'selected' : ''}>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="denomination">Denomination:</label>
+                  <input type="text" id="denomination" name="Denomination" value='${targetIdea.Denomination}'>
+                </div>
+                <div class="form-group">
+                  <label for="priceCurrency">Price Currency:</label>
+                  <input type="text" id="priceCurrency" name="PriceCurrency" value='${targetIdea.PriceCurrency}' >
+                </div>
+                <div class="form-group">
+                  <label for="closingPrice">Closing Price:</label>
+                  <input type="text" id="closingPrice" name="ClosingPrice" value='${targetIdea.ClosingPrice}' >
+                </div>
+                <div class="form-group">
+                  <label for="stockExchange">Stock Exchange:</label>
+                  <input type="text" id="stockExchange" name="StockExchange" value='${targetIdea.StockExchange}' >
+                </div>
+                <div class="form-group">
+                  <label for="issuer">Issuer:</label>
+                  <input type="text" id="issuer" name="Issuer" value='${targetIdea.Issuer}' >
+                </div>
+                <div class="form-group">
+                  <label for="isin">ISIN:</label>
+                  <input type="text" id="isin" name="Isin" value='${targetIdea.Isin}' >
+                </div>
+                <div class="form-group">
+                  <label for="ticker">Ticker:</label>
+                  <input type="text" id="ticker" name="Ticker" value='${targetIdea.Ticker}' >
+                </div>
+                <div class ="form-group">
+                <label for="region">Region:</label>
+                <select id="region" name="Region">
+                  <option value="" disabled ${targetIdea.Region == '' ? 'selected' : ''}>-- Select a Region --</option>
+                  <option value="North America" ${targetIdea.Region == 'North America' ? 'selected' : ''}>North America</option>
+                  <option value="South America" ${targetIdea.Region == 'South America' ? 'selected' : ''}>South America</option>
+                  <option value="Europe" ${targetIdea.Region == 'Europe' ? 'selected' : ''}>Europe</option>
+                  <option value="Asia" ${targetIdea.Region == 'Asia' ? 'selected' : ''}>Asia</option>
+                  <option value="Africa" ${targetIdea.Region == 'Africa' ? 'selected' : ''}>Africa</option>
+                  <option value="Oceania" ${targetIdea.Region == 'Oceania' ? 'selected' : ''}>Oceania</option>
+                </select>
+                <div class="form-group">
+                  <label for="country">Country:</label>
+                  <select id="country" name="Country">
+                    <option value="" disabled  ${targetIdea.Country == '' ? 'selected' : ''}>-- Select a Country --</option>
+                    <option value="United States" ${targetIdea.Country == 'United States' && 'selected'}>United States</option>
+                    <option value="Nigeria" ${targetIdea.Country == 'Nigeria' && 'selected'}>Nigeria</option>
+                    <option value="Algeria" ${targetIdea.Country == 'Algeria' && 'selected'}>Algeria</option>
+                    <option value="Argentina" ${targetIdea.Country == 'Argentina' && 'selected'}>Argentina</option>
+                    <option value="China" ${targetIdea.Country == 'China' && 'selected'}>China</option>
+                    <option value="Albania" ${targetIdea.Country == 'Albania' && 'selected'}>Albania</option>
+                    <option value="Australia" ${targetIdea.Country == 'Australia' && 'selected'}>Australia</option>
+                    <option value="Austria" ${targetIdea.Country == 'Austria' && 'selected'}>Austria</option>
+                    <option value="Belgium" ${targetIdea.Country == 'Belgium' && 'selected'}>Belgium</option>
+                    <option value="Brazil" ${targetIdea.Country == 'Brazil' && 'selected'}>Brazil</option>
+                    <option value="Canada" ${targetIdea.Country == 'Canada' && 'selected'}>Canada</option>
+                    <option value="France" ${targetIdea.Country == 'France' && 'selected'}>France</option>
+                    <option value="Germany" ${targetIdea.Country == 'Germany' && 'selected'}>Germany</option>
+                    <option value="Greece" ${targetIdea.Country == 'Greece' && 'selected'}>Greece</option>
+                    <option value="India" ${targetIdea.Country == 'India' && 'selected'}>India</option>
+                    <option value="Indonesia" ${targetIdea.Country == 'Indonesia' && 'selected'}>Indonesia</option>
+                    <option value="Italy" ${targetIdea.Country == 'Italy' && 'selected'}>Italy</option>
+                    <option value="Japan" ${targetIdea.Country == 'Japan' && 'selected'}>Japan</option>
+                    <option value="Mexico" ${targetIdea.Country == 'Mexico' && 'selected'}>Mexico</option>
+                    <option value="Russia" ${targetIdea.Country == 'Russia' && 'selected'}>Russia</option>
+                    <option value="South Africa" ${targetIdea.Country == 'South Africa' && 'selected'}>South Africa</option>
+                    <option value="Spain" ${targetIdea.Country == 'Spain' && 'selected'}>Spain</option>
+                    <option value="Switzerland" ${targetIdea.Country == 'Switzerland' && 'selected'}>Switzerland</option>
+                    <option value="United Kingdom" ${targetIdea.Country == 'United Kingdom' && 'selected'}>United Kingdom</option>
+                    <option value="Ghana" ${targetIdea.Country == 'Ghana' && 'selected'}>Ghana</option>
+                  </select>
+                </div>
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+
+
+
+
             <div class="product-details-tag" style="display: flex;">
-                <div class="product-details-logo"><p> IBM</p></div>
-                <p class="product-details-name">${targetIdea.instrumentName}</p>
+                <div class="product-details-logo"><p>${targetIdea.InstrumentDn}</p></div>
+                <p class="product-details-name">${targetIdea.InstrumentName}</p>
             </div>
             <div class="product-details-preferences">
                 <div class="multi-select">
@@ -296,9 +431,9 @@ class IdeasTable extends HTMLElement {
                   </div>
               </div>
               <div class="product-details-risk" style="display: flex;">
-                  <p id="risk-rating">${targetIdea.riskLevel}</p>
-                  <p id="risk-brief">${targetIdea.riskLevelBrief}</p>
-                  <p id="risk-description">${targetIdea.riskLevelDescription}</p>
+                  <p id="risk-rating">${targetIdea.RiskLevel}</p>
+                  <p id="risk-brief">${targetIdea.RiskLevelBrief}</p>
+                  <p id="risk-description">${targetIdea.RiskLevelDescription}</p>
               </div>
           </div>
           <div class="product-details-r3" style="display: flex;">
@@ -352,6 +487,11 @@ class IdeasTable extends HTMLElement {
         a.onclick = function(){
           alert(`${targetIdea.instrumentName} has been recommended to interested clients`);
           window.location.href = "/rm/index.html";
+        };
+
+        const selectRisk = document.getElementById('risk-level');
+        selectRisk.onchange = function(){
+          console.log("Risk:" + selectRisk.value)
         }
         
       };
@@ -359,3 +499,26 @@ class IdeasTable extends HTMLElement {
   };
 };
 customElements.define('ideas-pro', IdeasTable);
+
+
+
+
+
+})
+.catch(error => console.error(error));
+
+
+// ${ideas.map(idea => (
+//   `<tr>
+//       <td>${idea.dateCreated}</td>
+//       <td>${idea.instrumentName}</td>
+//       <td>${idea.assetType}</td>
+//       <td>${idea.price} ${idea.currency} per ${idea.stock} stocks</td>
+//       <td>${idea.closingDate}</td>
+//       <td>${idea.riskLevel}</td>
+//       <td>${idea.status}</td>
+//       <td><button class="view-idea" data-id="${idea.id}" onclick="viewIdea()">View Idea</button></td>
+//   </tr>`
+// ))
+// .join('')
+// }
