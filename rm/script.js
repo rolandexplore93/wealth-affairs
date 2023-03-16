@@ -182,7 +182,6 @@ const ideass = [
 fetch('http://localhost/wealth-affairs/backend/getIdeas.php')
   .then(response => response.json())
   .then(ideas => {
-    // do something with the data
     // Define IdeasTable
 class IdeasTable extends HTMLElement {
   connectedCallback(){
@@ -207,10 +206,8 @@ class IdeasTable extends HTMLElement {
             <div id="" class="b__content" style="display: non;">
                 <table>
                     <tr>
-                        <th>Date Created</th>
-                        <th>Instrument kkkkkkName</th>
-                        <th>Instrument kkkkkkName</th>
-                        <th>Instrument kkkkkkName</th>
+                        <th>Idea ID No</th>
+                        <th>Instrument Name</th>
                         <th>Asset Type (Basic Securities)</th>
                         <th>Asset Type (Derivatives)</th>
                         <th>Offer</th>
@@ -229,7 +226,7 @@ class IdeasTable extends HTMLElement {
                             <td>${idea.PriceClosingDate}</td>
                             <td>${idea.RiskLevel}</td>
                             <td>${idea.Status}</td>
-                            <td><button class="view-idea" data-id="${idea.IdeaID}" onclick="viewIdea()">View Idea</button></td>
+                            <td><button ${idea.Status == '' || idea.Status == 'Pending' ? '' : 'disabled'} class="view-idea" data-id="${idea.IdeaID}" onclick="viewIdea()">${idea.Status == 'Approved' ? 'Decided' : 'View Idea'}</button></td>
                         </tr>`
                     ))
                     .join('')
@@ -253,6 +250,7 @@ class IdeasTable extends HTMLElement {
             <div class="product-creation">
               <h1>Investment Ideas Upload</h1>
               <form action="http://localhost/wealth-affairs/backend/products.php" method="post">
+                <input type="hidden" name="IdeaID" value="${targetIdea.IdeaID}" >
                 <div class="form-group">
                   <label for="instrument-name">Instrument Name:</label>
                   <input type="text" id="InstrumentName" name="InstrumentName" value='${targetIdea.InstrumentName}' >

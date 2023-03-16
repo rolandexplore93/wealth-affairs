@@ -1,4 +1,11 @@
-<?php 
+<?php
+    $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
+    if ($databaseConnection -> connect_error){
+        die("Connection failed. " . $databaseConnection -> connect_error);
+    };
+    echo "Connection successful";
+
+    $IdeaID = $_POST["IdeaID"];
     $instrumentName = $_POST["InstrumentName"];
     $instrumentDn = $_POST["InstrumentDn"];
     $Industry = $_POST["Industry"];
@@ -13,6 +20,7 @@
     $Region = $_POST["Region"];
     $Country = $_POST["Country"];
     $Ticker = $_POST["Ticker"];
+    
     if(isset($_POST["BasicSecurities"])) {
         $BasicSecurities = $_POST["BasicSecurities"];
         echo $BasicSecurities;
@@ -42,14 +50,19 @@
         $RiskLevelDescription = 'Investors who are prepared to accept large portfolio losses up to the value of their entire portfolio over a one year period and are generally willing to buy investments or enter into contracts that may be difficult to sell or close for an extended period or have an uncertain realizable value at any given time.';
     }
 
+
+    // mysqli_query($databaseConnection, "INSERT INTO `products`(`InstrumentName`, `InstrumentDn`, `BasicSecurities`, `Derivatives`, `Industry`, `RiskLevel`, `Denomination`, `PriceCurrency`, `ClosingPrice`, `PriceClosingDate`, `StockExchange`, `Issuer`, `Isin`, `Ticker`, `Region`, `Country`, `IdeaID`, `RiskLevelBrief`, `RiskLevelDescription`) 
+    // VALUES ('$instrumentName','$instrumentDn','$BasicSecurities','$Derivatives','$Industry','$RiskLevel','$Denomination','$PriceCurrency','$ClosingPrice','$StockExchange','$Issuer','$Isin','$Ticker','$Region','$Country','$IdeaID','$RiskLevel','$RiskLevelBrief','$RiskLevelDescription')");
+    // echo "Data posted <br>";
+    // echo $IdeaID;
     // echo $instrumentName;
     // echo $instrumentDn;
     // echo $BasicSecurities;
     // echo $Derivatives;
     // echo $Industry;
-    echo $RiskLevel;
-    echo $RiskLevelBrief;
-    echo $RiskLevelDescription;
+    // echo $RiskLevel;
+    // echo $RiskLevelBrief;
+    // echo $RiskLevelDescription;
     // echo $Denomination;
     // echo $PriceCurrency;
     // echo $ClosingPrice;

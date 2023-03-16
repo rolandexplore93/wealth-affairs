@@ -25,3 +25,13 @@
 //   })
 //   .catch(error => console.error(error));
 
+
+// getProducts
+fetch('http://localhost/wealth-affairs/backend/getProducts.php')
+  .then(response => response.json())
+  .then(data => {
+    // do something with the data
+    console.log(data)
+  })
+  .catch(error => console.error(error));
+
