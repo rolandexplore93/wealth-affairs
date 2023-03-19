@@ -4,7 +4,7 @@
         die("Connection failed. " . $databaseConnection -> connect_error);
     };
 
-    $result = mysqli_query($databaseConnection, "SELECT * FROM `idea`");
+    $result = mysqli_query($databaseConnection, "SELECT * FROM `ideas`");
     
     if (mysqli_num_rows($result) > 0) {
         $resultas = array();

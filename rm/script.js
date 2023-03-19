@@ -183,6 +183,7 @@ fetch('http://localhost/wealth-affairs/backend/getIdeas.php')
   .then(response => response.json())
   .then(ideas => {
     // Define IdeasTable
+    console.log(ideas)
 class IdeasTable extends HTMLElement {
   connectedCallback(){
     const modal = document.createElement('div');
@@ -206,10 +207,9 @@ class IdeasTable extends HTMLElement {
             <div id="" class="b__content" style="display: non;">
                 <table>
                     <tr>
-                        <th>Idea ID No</th>
+                        <th>Idea ID</th>
                         <th>Instrument Name</th>
-                        <th>Asset Type (Basic Securities)</th>
-                        <th>Asset Type (Derivatives)</th>
+                        <th>Product Type</th>
                         <th>Offer</th>
                         <th>Price Closing Date</th>
                         <th>Risk level</th>
@@ -220,8 +220,7 @@ class IdeasTable extends HTMLElement {
                         `<tr>
                             <td>${idea.IdeaID}</td>
                             <td>${idea.InstrumentName}</td>
-                            <td>${idea.BasicSecurities != '' ? idea.BasicSecurities : 'Not Applicable'}</td>
-                            <td>${idea.Derivatives != '' ? idea.Derivatives : 'Not Applicable'}</td>
+                            <td>${idea.ProductType != '' ? idea.ProductType : 'Not Applicable'}</td>
                             <td>${idea.PriceCurrency} ${idea.ClosingPrice} per ${idea.Denomination} units</td>
                             <td>${idea.PriceClosingDate}</td>
                             <td>${idea.RiskLevel}</td>
@@ -251,6 +250,7 @@ class IdeasTable extends HTMLElement {
               <h1>Investment Ideas Upload</h1>
               <form action="http://localhost/wealth-affairs/backend/products.php" method="post">
                 <input type="hidden" name="IdeaID" value="${targetIdea.IdeaID}" >
+                <input type="hidden" name="RmID" value="1" >
                 <div class="form-group">
                   <label for="instrument-name">Instrument Name:</label>
                   <input type="text" id="InstrumentName" name="InstrumentName" value='${targetIdea.InstrumentName}' >
@@ -260,24 +260,18 @@ class IdeasTable extends HTMLElement {
                   <input type="text" id="InstrumentDn" name="InstrumentDn" value='${targetIdea.InstrumentDn}' >
                 </div>
                 <div class="form-group">
-                  <label for="basic instrument">Basic Instrument:</label>
-                  <select id="basic instrument" name="BasicSecurities">
-                    <option value="" disabled ${targetIdea.BasicSecurities == '' ? 'selected' : ''}>-- Select an Instrument --</option>
-                    <option value="Stocks" ${targetIdea.BasicSecurities == 'Stocks' ? 'selected' : ''}>Stocks</option>
-                    <option value="Bonds" ${targetIdea.BasicSecurities == 'Bonds' ? 'selected' : ''}>Bonds</option>
-                    <option value="ETFs" ${targetIdea.BasicSecurities == 'ETFs' ? 'selected' : ''}>ETFs</option>
-                    <option value="Mutual Funds" ${targetIdea.BasicSecurities == 'Mutual Funds' ? 'selected' : ''}>Mutual Funds</option>
+                  <label for="product type">Product Type:</label>
+                  <select id="product type" name="ProductType">
+                    <option value="" disabled ${targetIdea.ProductType == '' ? 'selected' : ''}>-- Select an Instrument --</option>
+                    <option value="Stocks" ${targetIdea.ProductType == 'Stocks' ? 'selected' : ''}>Stocks</option>
+                    <option value="Bonds" ${targetIdea.ProductType == 'Bonds' ? 'selected' : ''}>Bonds</option>
+                    <option value="ETFs" ${targetIdea.ProductType == 'ETFs' ? 'selected' : ''}>ETFs</option>
+                    <option value="Mutual Funds" ${targetIdea.ProductType == 'Mutual Funds' ? 'selected' : ''}>Mutual Funds</option>
+                    <option value="Security Derivatives" ${targetIdea.ProductType == 'Security Derivatives' ? 'selected' : ''}>Security Derivatives</option>
+                    <option value="FX and Money Market" ${targetIdea.ProductType == 'FX and Money Market' ? 'selected' : ''}>FX and Money Market</option>
+                    <option value="Credit Derivatives" ${targetIdea.ProductType == 'Credit Derivatives' ? 'selected' : ''}>Credit Derivatives</option>
+                    <option value="Insurance Derivatives" ${targetIdea.ProductType == 'Insurance Derivatives' ? 'selected' : ''}>Insurance Derivatives</option>
                   </select>
-                </div>
-                <div class="form-group">
-                  <label for="derivative">Derivatives:</label>
-                  <select id="derivative" name="Derivatives">
-                    <option value="" disabled ${targetIdea.Derivatives == '' || targetIdea.Derivative == null ? 'selected' : ''}>-- Select a Derivative --</option>
-                    <option value="Security Derivatives" ${targetIdea.Derivatives == 'Security Derivatives' ? 'selected' : ''}>Security Derivatives</option>
-                    <option value="FX and Money Market" ${targetIdea.Derivatives == 'FX and Money Market' ? 'selected' : ''}>FX and Money Market</option>
-                    <option value="Credit Derivatives" ${targetIdea.Derivatives == 'Credit Derivatives' ? 'selected' : ''}>Credit Derivatives</option>
-                    <option value="Insurance Derivatives" ${targetIdea.Derivatives == 'Insurance Derivatives' ? 'selected' : ''}>Insurance Derivatives</option>
-                </select>
                 </div>
                 <div class="form-group">
                   <label for="industry">Industry:</label>
@@ -313,6 +307,10 @@ class IdeasTable extends HTMLElement {
                   <input type="text" id="closingPrice" name="ClosingPrice" value='${targetIdea.ClosingPrice}' >
                 </div>
                 <div class="form-group">
+                  <label for="PriceClosingDate">Price Closing Date:</label>
+                  <input type="date" id="PriceClosingDate" name="PriceClosingDate" value='${targetIdea.PriceClosingDate}' >
+                </div>
+                <div class="form-group">
                   <label for="stockExchange">Stock Exchange:</label>
                   <input type="text" id="stockExchange" name="StockExchange" value='${targetIdea.StockExchange}' >
                 </div>
@@ -343,31 +341,31 @@ class IdeasTable extends HTMLElement {
                   <label for="country">Country:</label>
                   <select id="country" name="Country">
                     <option value="" disabled  ${targetIdea.Country == '' ? 'selected' : ''}>-- Select a Country --</option>
-                    <option value="United States" ${targetIdea.Country == 'United States' && 'selected'}>United States</option>
-                    <option value="Nigeria" ${targetIdea.Country == 'Nigeria' && 'selected'}>Nigeria</option>
-                    <option value="Algeria" ${targetIdea.Country == 'Algeria' && 'selected'}>Algeria</option>
-                    <option value="Argentina" ${targetIdea.Country == 'Argentina' && 'selected'}>Argentina</option>
-                    <option value="China" ${targetIdea.Country == 'China' && 'selected'}>China</option>
-                    <option value="Albania" ${targetIdea.Country == 'Albania' && 'selected'}>Albania</option>
-                    <option value="Australia" ${targetIdea.Country == 'Australia' && 'selected'}>Australia</option>
-                    <option value="Austria" ${targetIdea.Country == 'Austria' && 'selected'}>Austria</option>
-                    <option value="Belgium" ${targetIdea.Country == 'Belgium' && 'selected'}>Belgium</option>
-                    <option value="Brazil" ${targetIdea.Country == 'Brazil' && 'selected'}>Brazil</option>
-                    <option value="Canada" ${targetIdea.Country == 'Canada' && 'selected'}>Canada</option>
-                    <option value="France" ${targetIdea.Country == 'France' && 'selected'}>France</option>
-                    <option value="Germany" ${targetIdea.Country == 'Germany' && 'selected'}>Germany</option>
-                    <option value="Greece" ${targetIdea.Country == 'Greece' && 'selected'}>Greece</option>
-                    <option value="India" ${targetIdea.Country == 'India' && 'selected'}>India</option>
-                    <option value="Indonesia" ${targetIdea.Country == 'Indonesia' && 'selected'}>Indonesia</option>
-                    <option value="Italy" ${targetIdea.Country == 'Italy' && 'selected'}>Italy</option>
-                    <option value="Japan" ${targetIdea.Country == 'Japan' && 'selected'}>Japan</option>
-                    <option value="Mexico" ${targetIdea.Country == 'Mexico' && 'selected'}>Mexico</option>
-                    <option value="Russia" ${targetIdea.Country == 'Russia' && 'selected'}>Russia</option>
-                    <option value="South Africa" ${targetIdea.Country == 'South Africa' && 'selected'}>South Africa</option>
-                    <option value="Spain" ${targetIdea.Country == 'Spain' && 'selected'}>Spain</option>
-                    <option value="Switzerland" ${targetIdea.Country == 'Switzerland' && 'selected'}>Switzerland</option>
-                    <option value="United Kingdom" ${targetIdea.Country == 'United Kingdom' && 'selected'}>United Kingdom</option>
-                    <option value="Ghana" ${targetIdea.Country == 'Ghana' && 'selected'}>Ghana</option>
+                    <option value="United States" ${targetIdea.Country == 'United States' ? 'selected' : ''}>United States</option>
+                    <option value="Nigeria" ${targetIdea.Country == 'Nigeria' ? 'selected' : ''}>Nigeria</option>
+                    <option value="Algeria" ${targetIdea.Country == 'Algeria' ? 'selected' : ''}>Algeria</option>
+                    <option value="Argentina" ${targetIdea.Country == 'Argentina' ? 'selected' : ''}>Argentina</option>
+                    <option value="China" ${targetIdea.Country == 'China' ? 'selected' : ''}>China</option>
+                    <option value="Albania" ${targetIdea.Country == 'Albania' ? 'selected' : ''}>Albania</option>
+                    <option value="Australia" ${targetIdea.Country == 'Australia' ? 'selected' : ''}>Australia</option>
+                    <option value="Austria" ${targetIdea.Country == 'Austria' ? 'selected' : ''}>Austria</option>
+                    <option value="Belgium" ${targetIdea.Country == 'Belgium' ? 'selected' : ''}>Belgium</option>
+                    <option value="Brazil" ${targetIdea.Country == 'Brazil' ? 'selected' : ''}>Brazil</option>
+                    <option value="Canada" ${targetIdea.Country == 'Canada' ? 'selected' : ''}>Canada</option>
+                    <option value="France" ${targetIdea.Country == 'France' ? 'selected' : ''}>France</option>
+                    <option value="Germany" ${targetIdea.Country == 'Germany' ? 'selected' : ''}>Germany</option>
+                    <option value="Greece" ${targetIdea.Country == 'Greece' ? 'selected' : ''}>Greece</option>
+                    <option value="India" ${targetIdea.Country == 'India' ? 'selected' : ''}>India</option>
+                    <option value="Indonesia" ${targetIdea.Country == 'Indonesia' ? 'selected' : ''}>Indonesia</option>
+                    <option value="Italy" ${targetIdea.Country == 'Italy' ? 'selected' : ''}>Italy</option>
+                    <option value="Japan" ${targetIdea.Country == 'Japan' ? 'selected' : ''}>Japan</option>
+                    <option value="Mexico" ${targetIdea.Country == 'Mexico' ? 'selected' : ''}>Mexico</option>
+                    <option value="Russia" ${targetIdea.Country == 'Russia' ? 'selected' : ''}>Russia</option>
+                    <option value="South Africa" ${targetIdea.Country == 'South Africa' ? 'selected' : ''}>South Africa</option>
+                    <option value="Spain" ${targetIdea.Country == 'Spain' ? 'selected' : ''}>Spain</option>
+                    <option value="Switzerland" ${targetIdea.Country == 'Switzerland' ? 'selected' : ''}>Switzerland</option>
+                    <option value="United Kingdom" ${targetIdea.Country == 'United Kingdom' ? 'selected' : ''}>United Kingdom</option>
+                    <option value="Ghana" ${targetIdea.Country == 'Ghana' ? 'selected' : ''}>Ghana</option>
                   </select>
                 </div>
                 <button type="submit">Submit</button>

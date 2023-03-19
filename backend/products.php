@@ -6,13 +6,16 @@
     echo "Connection successful";
 
     $IdeaID = $_POST["IdeaID"];
+    $RmID = $_POST['RmID'];
     $instrumentName = $_POST["InstrumentName"];
     $instrumentDn = $_POST["InstrumentDn"];
+    // $ProductType = $_POST["ProductType"];
     $Industry = $_POST["Industry"];
     $RiskLevel = $_POST["RiskLevel"];
     $Denomination = $_POST["Denomination"];
     $PriceCurrency = $_POST["PriceCurrency"];
     $ClosingPrice = $_POST["ClosingPrice"];
+    $PriceClosingDate = $_POST["PriceClosingDate"];
     $StockExchange = $_POST["StockExchange"];
     $Issuer = $_POST["Issuer"];
     $Isin = $_POST["Isin"];
@@ -21,14 +24,10 @@
     $Country = $_POST["Country"];
     $Ticker = $_POST["Ticker"];
     
-    if(isset($_POST["BasicSecurities"])) {
-        $BasicSecurities = $_POST["BasicSecurities"];
-        echo $BasicSecurities;
-    }
 
-    if(isset($_POST["Derivatives"])) {
-        $Derivatives = $_POST["Derivatives"];
-        echo $Derivatives;
+    if(isset($_POST["ProductType"])) {
+        $ProductType = $_POST["ProductType"];
+        // echo $ProductType;
     }
 
     $RiskLevelBrief;
@@ -51,14 +50,20 @@
     }
 
 
-    // mysqli_query($databaseConnection, "INSERT INTO `products`(`InstrumentName`, `InstrumentDn`, `BasicSecurities`, `Derivatives`, `Industry`, `RiskLevel`, `Denomination`, `PriceCurrency`, `ClosingPrice`, `PriceClosingDate`, `StockExchange`, `Issuer`, `Isin`, `Ticker`, `Region`, `Country`, `IdeaID`, `RiskLevelBrief`, `RiskLevelDescription`) 
-    // VALUES ('$instrumentName','$instrumentDn','$BasicSecurities','$Derivatives','$Industry','$RiskLevel','$Denomination','$PriceCurrency','$ClosingPrice','$StockExchange','$Issuer','$Isin','$Ticker','$Region','$Country','$IdeaID','$RiskLevel','$RiskLevelBrief','$RiskLevelDescription')");
+    mysqli_query($databaseConnection, "INSERT INTO `products`(`InstrumentName`, `InstrumentDn`, 
+    `ProductType`, `Industry`, `RiskLevel`, `Denomination`, `PriceCurrency`, `ClosingPrice`, 
+    `PriceClosingDate`, `StockExchange`, `Issuer`, `Isin`, `Ticker`, `Region`, `Country`, 
+    `RiskLevelBrief`, `RiskLevelDescription`, `IdeaID`, `RmID`) 
+    VALUES ('$instrumentName','$instrumentDn',
+    '$ProductType','$Industry','$RiskLevel','$Denomination','$PriceCurrency','$ClosingPrice',
+    '$PriceClosingDate','$StockExchange','$Issuer','$Isin','$Ticker','$Region','$Country',
+    '$RiskLevelBrief','$RiskLevelDescription','$IdeaID','$RmID')");
+    
     // echo "Data posted <br>";
     // echo $IdeaID;
     // echo $instrumentName;
     // echo $instrumentDn;
-    // echo $BasicSecurities;
-    // echo $Derivatives;
+    // echo $ProductType;
     // echo $Industry;
     // echo $RiskLevel;
     // echo $RiskLevelBrief;
@@ -66,13 +71,16 @@
     // echo $Denomination;
     // echo $PriceCurrency;
     // echo $ClosingPrice;
+    // echo $PriceClosingDate;
     // echo $StockExchange;
     // echo $Issuer;
     // echo $Isin;
     // echo $Ticker;
     // echo $Region;
     // echo $Country;
-    // echo $Ticker;
+    // echo $RmID;
+    mysqli_close($databaseConnection);
+
 
 
 ?>
