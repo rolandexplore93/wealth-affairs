@@ -37,9 +37,9 @@ const span = document.getElementsByClassName("close")[0];
 // })
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
 
 // When the user clicks anywhere outside of the modal, close it
 // window.onclick = function(event) {
@@ -47,11 +47,13 @@ span.onclick = function() {
 //     modal.style.display = "none";
 //   }
 // }
-function myFunction() {
-  alert('Button Clicked!');
-}
+// function myFunction() {
+//   alert('Button Clicked!');
+//   console.log("Working")
+// }
 
 // document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
 fetch('http://localhost/wealth-affairs/backend/getProducts.php')
   .then(response => response.json())
   .then(products => {
@@ -87,16 +89,15 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
 
         const modal = document.createElement('div');
         modal.className = "modal";
+        modal.id = "mm";
         modal.innerHTML = `
-          <div class="modal-content" product-details>
+          <div class="modal-content product-details">
             <span class="close">&times;</span>
             <div class="product-cards" style="isplay: flex"></div>
           </div>
         `;
         document.body.appendChild(modal);
         const content1 = modal.querySelector('.product-cards');
-        // const content2 = modal.querySelector('.product-details-r2');
-        // const content3 = modal.querySelector('.product-details-r3');
         const closeModal = modal.querySelector('.close');
         closeModal.onclick = function(){
           modal.style.display = 'none';
@@ -155,31 +156,67 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
               </div>
             `;
             modal.style.display = 'block';
+            
+            function myFunction() {
+              alert('Button Clicked!');
+              console.log(`Working: ${targetProduct.Industry}`);
 
-            // function myFunction() {
-            //   alert('Button Clicked!');
-            // }
+              const productData = {
+                productID: targetProduct.ProductID,
+                riskLevel: targetProduct.RiskLevel,
+                productType: targetProduct.ProductType,
+                industry: targetProduct.Industry,
+                country: targetProduct.Country,
+                region: targetProduct.Region
+              };
 
-            // window.onload = function(){
-            //   const aa = document.querySelector('#rec-to-client');
-            //   aa.click();
-            // }
-            // aa.onload = function(){
-            //   alert("Yippe")
-            // }
-
-
-
+              console.log("Product Data:", productData)
+            
+              //  Call the API backend/matchClients.php
+              fetch('http://localhost/wealth-affairs/backend/matchClients.php', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+              })
+              .then(response => response.text())
+              // .then(data => console.log(data))
+              // .catch(error => console.error(error));
+              // .then(response => response.json())
+              .then(data => {
+                console.log(data);
+              })
+              .catch(error => {
+                console.log('Error:', error)
+              })
+            }
+            
+            myFunction();
 
           }
         })
       };
     };
-  customElements.define('created-investment-cards', CreatedInvestmentCards);
+    customElements.define('created-investment-cards', CreatedInvestmentCards);
+  })
+  .catch(error => console.error(error));
+  // })
 })
-.catch(error => console.error(error));
-// })
 
+// function myFunction() {
+//   alert('Button Clicked!');
+//   console.log(`Working: ${targetProduct.Country}`);
+// }
+
+  //  fetch('http://localhost/wealth-affairs/backend/matchClients.php')
+  //  .then(response => response.json())
+  //  .then(clients => {
+  //    const filterClientButton = document.getElementById('filter-client');
+  //    filterClientButton.innerHTML = `Matched Clients (${clients.length})`;
+  //  })
+  //  .catch(error => console.error(error));
+// }
 
 fetch('http://localhost/wealth-affairs/backend/getIdeas.php')
   .then(response => response.json())
