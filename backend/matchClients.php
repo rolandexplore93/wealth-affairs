@@ -57,13 +57,16 @@ if (isset($request_data['region'])) {
         left join regions b on aa.ClientID=b.ClientID
         left join industries c on aa.ClientID=c.ClientID
         left join producttypes pdt on aa.ClientID=pdt.ClientID)
-        select DISTINCT a.*, pp.InstrumentName, pp.RiskLevel from products pp left join CTE a on pp.risklevel=a.selectedrisklevel
+        select DISTINCT a.*, pp.InstrumentName, pp.RiskLevel 
+        from products pp left join CTE a on pp.risklevel=a.selectedrisklevel
         WHERE RiskLevel=$RiskLevel
         AND ProductID=$ProductID
-        AND FIND_IN_SET('$ProductType', a.ProductType)
         AND FIND_IN_SET('$Industry', a.Industry)
-        AND FIND_IN_SET('$Country', a.Country)
-        AND FIND_IN_SET('$Region', a.region)
+        AND (
+            FIND_IN_SET('$ProductType', a.ProductType)
+            OR FIND_IN_SET('$Country', a.Country)
+            OR FIND_IN_SET('$Region', a.region)
+        )
     ");
 
     if (mysqli_num_rows($query) > 0) {

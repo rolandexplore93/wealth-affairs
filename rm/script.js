@@ -70,15 +70,15 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
                     <p class="product-name">${product.InstrumentName}</p>
                   </div>
                   <div class="product-type">
-                      <p class="product-cat">${product.ProductType}</p>
-                      <p class="product-risklevel">Risk Level: ${product.RiskLevel}</p>
+                    <p class="product-cat">${product.ProductType}</p>
+                    <p class="product-risklevel">Risk Level: ${product.RiskLevel}</p>
                   </div>
                   <div class="product-stock">
-                      <p class="product-stock-title">Stock Exchange:</p>
-                      <p class="product-stock-category">${product.StockExchange}</p>
+                    <p class="product-stock-title">Stock Exchange:</p>
+                    <p class="product-stock-category">${product.StockExchange}</p>
                   </div>
                   <div class="product-deal">
-                      <p class="product-offer">Offer: ${product.PriceCurrency} ${product.ClosingPrice} per ${product.Denomination} units </p>
+                    <p class="product-offer">Offer: ${product.PriceCurrency} ${product.ClosingPrice} per ${product.Denomination} units </p>
                   </div>
                   <button class="product-view" data-id="${product.ProductID}" id="product-view" style="cursor: pointer;">View product</button>
                 </div>
@@ -158,8 +158,8 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
             modal.style.display = 'block';
             
             function myFunction() {
-              alert('Button Clicked!');
-              console.log(`Working: ${targetProduct.Industry}`);
+              // alert('Button Clicked!');
+              // console.log(`Working: ${targetProduct.Industry}`);
 
               const productData = {
                 productID: targetProduct.ProductID,
