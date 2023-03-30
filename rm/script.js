@@ -107,9 +107,9 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
         viewProductButton.forEach((eachProduct) => {
           eachProduct.onclick = function(){
             const productId = eachProduct.dataset.id;
-            console.log(productId);
+            // console.log(productId);
             const targetProduct = products.find(product => product.ProductID === productId);
-            console.log(targetProduct);
+            // console.log(targetProduct);
 
             content1.innerHTML = `
               <div class="product-details-r1" style="display: flex;">
@@ -170,7 +170,7 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
                 region: targetProduct.Region
               };
 
-              console.log("Product Data:", productData)
+              // console.log("Product Data:", productData)
             
               //  Call the API backend/matchClients.php
               fetch('http://localhost/wealth-affairs/backend/matchClients.php', {
@@ -181,8 +181,6 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
                 body: JSON.stringify(productData)
               })
               .then(response => response.text())
-              // .then(data => console.log(data))
-              // .catch(error => console.error(error));
               // .then(response => response.json())
               .then(data => {
                 console.log(data);
@@ -202,21 +200,7 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
   })
   .catch(error => console.error(error));
   // })
-})
-
-// function myFunction() {
-//   alert('Button Clicked!');
-//   console.log(`Working: ${targetProduct.Country}`);
-// }
-
-  //  fetch('http://localhost/wealth-affairs/backend/matchClients.php')
-  //  .then(response => response.json())
-  //  .then(clients => {
-  //    const filterClientButton = document.getElementById('filter-client');
-  //    filterClientButton.innerHTML = `Matched Clients (${clients.length})`;
-  //  })
-  //  .catch(error => console.error(error));
-// }
+});
 
 fetch('http://localhost/wealth-affairs/backend/getIdeas.php')
   .then(response => response.json())
