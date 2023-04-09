@@ -3,5 +3,6 @@
     if ($databaseConnection -> connect_error){
         die("Connection failed. " . $databaseConnection -> connect_error);
     };
-    echo "Connection successful";
+    // echo "Connection successful";
 ?>
+

@@ -1,9 +1,10 @@
 <?php
-    $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
-    if ($databaseConnection -> connect_error){
-        die("Connection failed. " . $databaseConnection -> connect_error);
-    };
-    echo "Connection successful";
+    // $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
+    // if ($databaseConnection -> connect_error){
+    //     die("Connection failed. " . $databaseConnection -> connect_error);
+    // };
+    // echo "Connection successful";
+    include "databaseConnection.php";
 
     $IdeaID = $_POST["IdeaID"];
     $RmID = $_POST['RmID'];

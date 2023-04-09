@@ -1,5 +1,4 @@
 <?php 
-
-echo "Working";
+    include "databaseConnection.php";
 
 ?>

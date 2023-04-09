@@ -1,71 +1,61 @@
 <?php 
-    $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
-    if ($databaseConnection -> connect_error){
-        die("Connection failed. " . $databaseConnection -> connect_error);
-    };
+    include "dbconnection.php";
 
-$request_body = file_get_contents('php://input');
-$request_data = json_decode($request_body, true);
+    $request_body = file_get_contents('php://input');
+    $request_data = json_decode($request_body, true);
 
-if (isset($request_data['productID'])) {
-    $ProductID = $request_data['productID'];
-} else {
-    $ProductID = null;
-}
+    if (isset($request_data['productID'])) {
+        $ProductID = $request_data['productID'];
+    } else {
+        $ProductID = null;
+    }
 
-if (isset($request_data['riskLevel'])) {
-    $RiskLevel = $request_data['riskLevel'];
-} else {
-    $RiskLevel = null;
-}
+    if (isset($request_data['riskLevel'])) {
+        $RiskLevel = $request_data['riskLevel'];
+    } else {
+        $RiskLevel = null;
+    }
 
-if (isset($request_data['productType'])) {
-    $ProductType = $request_data['productType'];
-} else {
-    $ProductType = null;
-}
+    if (isset($request_data['productType'])) {
+        $ProductType = $request_data['productType'];
+    } else {
+        $ProductType = null;
+    }
 
-if (isset($request_data['industry'])) {
-    $Industry = $request_data['industry'];
-} else {
-    $Industry = null;
-}
+    if (isset($request_data['industry'])) {
+        $Industry = $request_data['industry'];
+    } else {
+        $Industry = null;
+    }
 
-if (isset($request_data['country'])) {
-    $Country = $request_data['country'];
-} else {
-    $Country = null;
-}
+    if (isset($request_data['country'])) {
+        $Country = $request_data['country'];
+    } else {
+        $Country = null;
+    }
 
-if (isset($request_data['region'])) {
-    $Region = $request_data['region'];
-} else {
-    $Region = null;
-}
+    if (isset($request_data['region'])) {
+        $Region = $request_data['region'];
+    } else {
+        $Region = null;
+    }
+    // echo "productType: " . $ProductType . "<br>";
 
-// echo "productID: " . $ProductID . "<br>";
-// echo "riskLevel: " . $RiskLevel . "<br>";
-// echo "productType: " . $ProductType . "<br>";
-// echo "industry: " . $Industry . "<br>";
-// echo "country: " . $Country . "<br>";
-// echo "region: " . $Region . "<br>";
-
-
-    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT aa.ClientID, firstname, lastname, selectedRiskLevel, ProductType, Country, region, Industry 
-        FROM client aa
-        left join COUNTRIES a on a.ClientID=aa.ClientID
-        left join regions b on aa.ClientID=b.ClientID
-        left join industries c on aa.ClientID=c.ClientID
-        left join producttypes pdt on aa.ClientID=pdt.ClientID)
-        select DISTINCT a.*, pp.InstrumentName, pp.RiskLevel 
+    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, firstname, lastname, selectedRiskLevel, ProductType as ProductTypePref, Country as CountryPref, region as RegionPref, Industry as IndustryPref 
+        FROM client cl
+        left join COUNTRIES co on co.ClientID=cl.ClientID
+        left join regions re on re.ClientID=cl.ClientID
+        left join industries ind on ind.ClientID=cl.ClientID
+        left join producttypes pdt on pdt.ClientID=cl.ClientID)
+        select DISTINCT a.*, pp.*
         from products pp left join CTE a on pp.risklevel=a.selectedrisklevel
         WHERE RiskLevel=$RiskLevel
         AND ProductID=$ProductID
-        AND FIND_IN_SET('$Industry', a.Industry)
+        AND FIND_IN_SET('$ProductType', a.ProductTypePref)
         AND (
-            FIND_IN_SET('$ProductType', a.ProductType)
-            OR FIND_IN_SET('$Country', a.Country)
-            OR FIND_IN_SET('$Region', a.region)
+            FIND_IN_SET('$Industry', a.IndustryPref)
+            OR FIND_IN_SET('$Country', a.CountryPref)
+            OR FIND_IN_SET('$Region', a.RegionPref)
         )
     ");
 
@@ -74,9 +64,8 @@ if (isset($request_data['region'])) {
         while ($row = mysqli_fetch_assoc($query)) {
             // Display the data from each row
             // echo "Idea ID: " . $row['IdeaID'] . "<br>";
+            // echo "productType: " . $ProductType . "<br>";
             // echo "Instrument Name: " . $row['InstrumentName'] . "<br>";
-            // echo "Basic Securities: " . $row['BasicSecurities'] . "<br>";
-            // echo "Derivatives: " . $row['Derivatives'] . "<br>";
             // echo "Industry: " . $row['Industry'] . "<br>";
             // echo "Created At: " . $row['CreatedAt'] . "<br>";
             // echo "Updated At: " . $row['updated_at'] . "<br><br>";
@@ -85,13 +74,14 @@ if (isset($request_data['region'])) {
         }
         // Convert PHP array to JSON string and send it to the client
         $json = json_encode($matchedClients);
+        header('HTTP/1.1 200 OK'); // Set HTTP status code to 200 OK
         echo $json;
     } else {
-        echo "No Client found.";
+        // If no client is found, format the error message as JSON
+        $error = array('error' => 'No Client matched');
+        $json = json_encode($error);
+        header('HTTP/1.1 200 OK'); // Set HTTP status code to 200 OK
+        echo $json;
     }
-
-    // mysqli_free_result($result);
-
     mysqli_close($databaseConnection);
-
 ?>

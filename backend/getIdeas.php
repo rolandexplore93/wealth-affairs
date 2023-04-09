@@ -1,9 +1,5 @@
 <?php 
-    $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
-    if ($databaseConnection -> connect_error){
-        die("Connection failed. " . $databaseConnection -> connect_error);
-    };
-
+    include "dbconnection.php";
     $result = mysqli_query($databaseConnection, "SELECT * FROM `ideas`");
     
     if (mysqli_num_rows($result) > 0) {

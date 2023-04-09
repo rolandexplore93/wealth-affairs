@@ -293,23 +293,15 @@ button {
 }
 
 .product-details-risk {
-    flex: 1;
-    justify-content: flex-end;
-    gap: 7px;
+    gap: 10px;
 }
 
 #risk-rating {
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: green;
+    padding: 0 3px;
 }
 
-#risk-brief {
+#risk-brief, #risk-description {
     background: green;
     align-self: flex-start;
     padding: 0 3px;

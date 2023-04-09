@@ -127,7 +127,7 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
                 </div>
               </div>
 
-              <div class="product-details-r2 " style="display: flex;">
+              <div class="product-details-r2 " style="">
                 <div class="product-details-stock-info" style="border: 1px solid black;">
                     <p class="product-details-stock">Stock Exchange: <span id="stock">${targetProduct.StockExchange}</span></p>
                     <p class="product-details-issuer">Issuer: <span id="issuer">${targetProduct.Issuer}</span></p>
@@ -151,16 +151,26 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
                 </div>
                 <div class="product-details-recom" style="display: flex;">
                   <button id="filter-client">Matched Clients (2)</button>
-                  <button id="rec-to-client" onclick="myFunction()">Recommend to Clients</button>
+                  <button id="rec-to-client" onclick="recommendToClients()">Recommend to Clients</button>
                 </div>
               </div>
             `;
             modal.style.display = 'block';
-            
-            function myFunction() {
-              // alert('Button Clicked!');
-              // console.log(`Working: ${targetProduct.Industry}`);
 
+            const recommendToClients = () => {
+              console.log("WOrjd")
+            }
+
+            // const productData = {
+            //   productID: targetProduct.ProductID,
+            //   riskLevel: targetProduct.RiskLevel,
+            //   productType: targetProduct.ProductType,
+            //   industry: targetProduct.Industry,
+            //   country: targetProduct.Country,
+            //   region: targetProduct.Region
+            // };
+            
+            const myFunction = () => {
               const productData = {
                 productID: targetProduct.ProductID,
                 riskLevel: targetProduct.RiskLevel,
@@ -180,18 +190,59 @@ fetch('http://localhost/wealth-affairs/backend/getProducts.php')
                 },
                 body: JSON.stringify(productData)
               })
-              .then(response => response.text())
-              // .then(response => response.json())
+              .then(response => response.json())
               .then(data => {
                 console.log(data);
+                console.log(targetProduct.InstrumentName);
+                let numberOfClientsMatched = document.getElementById('filter-client');
+                let recommendToClientsMatched = document.getElementById('rec-to-client');
+                if (Array.isArray(data) && data.hasOwnProperty('length')) {
+                  // console.log(data.length);
+                  numberOfClientsMatched.innerHTML = `${data.length} client${data.length == 1 ? '' : 's'} matched`;
+
+                  // Recommend product to clients matched
+                  recommendToClientsMatched.onclick = function(){
+                    console.log("Working")
+                    data.map((recomProduct) => {
+                      console.log(recomProduct)
+
+                      fetch('http://localhost/wealth-affairs/backend/recommendedProducts.php', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(recomProduct)
+                      })
+                      .then(response => response.json())
+                      .then(result => {
+                        console.log(result)
+                        // Redirect to recommendedProducts.php
+                        // window.location.href = 'http://localhost/wealth-affairs/backend/recommendedProducts.php';
+                        // window.open('http://localhost/wealth-affairs/backend/recommendedProducts.php', '_blank');
+                      })
+                      .catch(error => {
+                        console.error('Error:', error); // Handle any errors
+                      });
+                    });
+
+
+                  }
+
+                } else {
+                  // If data is not an array or doesn't have a length property, set length to 0
+                  data.length = 0;
+                  // console.log(data.length);
+                  numberOfClientsMatched.innerHTML = `${data.length} client matched`;
+                  recommendToClientsMatched.onclick = function(){
+                    alert(`${targetProduct.InstrumentName} cannot be recommended to 0 client`)
+                  }
+                }
               })
               .catch(error => {
                 console.log('Error:', error)
               })
             }
-            
             myFunction();
-
           }
         })
       };

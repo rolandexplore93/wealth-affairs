@@ -1,26 +1,22 @@
 <?php
-    $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
-    if ($databaseConnection -> connect_error){
-        die("Connection failed. " . $databaseConnection -> connect_error);
-    };
-    echo "Connection successful";
+    include "dbconnection.php";
 
-   $instrumentName = $_POST["InstrumentName"];
-   $instrumentDn = $_POST["InstrumentDn"];
-   $BasicSecurities = $_POST["BasicSecurities"];
-   $Derivatives = $_POST["Derivatives"];
-   $Industry = $_POST["Industry"];
-   $RiskLevel = $_POST["RiskLevel"];
-   $Denomination = $_POST["Denomination"];
-   $PriceCurrency = $_POST["PriceCurrency"];
-   $ClosingPrice = $_POST["ClosingPrice"];
-   $StockExchange = $_POST["StockExchange"];
-   $Issuer = $_POST["Issuer"];
-   $Isin = $_POST["Isin"];
-   $Ticker = $_POST["Ticker"];
-   $Region = $_POST["Region"];
-   $Country = $_POST["Country"];
-   $Ticker = $_POST["Ticker"];
+    $instrumentName = $_POST["InstrumentName"];
+    $instrumentDn = $_POST["InstrumentDn"];
+    $BasicSecurities = $_POST["BasicSecurities"];
+    $Derivatives = $_POST["Derivatives"];
+    $Industry = $_POST["Industry"];
+    $RiskLevel = $_POST["RiskLevel"];
+    $Denomination = $_POST["Denomination"];
+    $PriceCurrency = $_POST["PriceCurrency"];
+    $ClosingPrice = $_POST["ClosingPrice"];
+    $StockExchange = $_POST["StockExchange"];
+    $Issuer = $_POST["Issuer"];
+    $Isin = $_POST["Isin"];
+    $Ticker = $_POST["Ticker"];
+    $Region = $_POST["Region"];
+    $Country = $_POST["Country"];
+    $Ticker = $_POST["Ticker"];
 
     if ($_POST["Derivatives"] == ''){
         $Derivatives = NULL;

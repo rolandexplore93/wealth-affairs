@@ -1,13 +1,9 @@
 <?php 
-    $databaseConnection = new mysqli("localhost", "root", "", "wealth_affairs");
-    if ($databaseConnection -> connect_error){
-        die("Connection failed. " . $databaseConnection -> connect_error);
-    };
-
+    require_once "dbconnection.php";
     $result = mysqli_query($databaseConnection, "SELECT * FROM `products`");
     
     if (mysqli_num_rows($result) > 0) {
-        $resultas = array();
+        $allProducts = array();
         while ($row = mysqli_fetch_assoc($result)) {
             // Display the data from each row
             // echo "Product ID: " . $row['ProductID'] . "<br>";
@@ -17,14 +13,15 @@
             // echo "Industry: " . $row['Industry'] . "<br>";
             // echo "Created At: " . $row['CreatedAt'] . "<br>";
             // echo "Updated At: " . $row['updated_at'] . "<br><br>";
+            
             // Covert the data to a PHP array
-            $resultas[] = $row;
+            $allProducts[] = $row;
         }
         // Convert PHP array to JSON string and send it to the client
-        $json = json_encode($resultas);
+        $json = json_encode($allProducts);
         echo $json;
     } else {
-        echo "No results found.";
+        echo "No product found.";
     }
 
     mysqli_free_result($result);
