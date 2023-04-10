@@ -1,6 +1,6 @@
 <?php 
     include "dbconnection.php";
-    $ClientID = 1;
+    $ClientID = 1; // this value should be the clientId from the session
 
     $getRecommendedProducts = mysqli_query($databaseConnection, "SELECT * FROM `recommendedideas` WHERE ClientID = $ClientID");
     
@@ -14,7 +14,7 @@
         $json = json_encode($allProducts);
         echo $json;
     } else {
-        echo json_encode("No product found.");
+        echo json_encode("You do not have recommended products yet");
     }
 
     mysqli_free_result($getRecommendedProducts);

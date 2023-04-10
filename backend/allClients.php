@@ -1,10 +1,10 @@
 <?php 
-    require_once "dbconnection.php";
-    $result = mysqli_query($databaseConnection, "SELECT * FROM `products`");
+    include "dbconnection.php";
+    $clients = mysqli_query($databaseConnection, "SELECT * FROM `client`");
     
-    if (mysqli_num_rows($result) > 0) {
-        $allProducts = array();
-        while ($row = mysqli_fetch_assoc($result)) {
+    if (mysqli_num_rows($clients) > 0) {
+        $allClients = array();
+        while ($row = mysqli_fetch_assoc($clients)) {
             // Display the data from each row
             // echo "Product ID: " . $row['ProductID'] . "<br>";
             // echo "Instrument Name: " . $row['InstrumentName'] . "<br>";
@@ -15,17 +15,16 @@
             // echo "Updated At: " . $row['updated_at'] . "<br><br>";
 
             // Covert the data to a PHP array
-            $allProducts[] = $row;
+            $allClients[] = $row;
         }
         // Convert PHP array to JSON string and send it to the client
-        $json = json_encode($allProducts);
+        $json = json_encode($allClients);
         echo $json;
     } else {
-        // echo "No product found.";
-        echo json_encode("No product found");
+        echo json_encode("No client found");
     }
 
-    mysqli_free_result($result);
+    // mysqli_free_result($clients);
     mysqli_close($databaseConnection);
-?>
 
+?>
