@@ -4,6 +4,7 @@
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $InstrumentName = $_POST["InstrumentName"];
         $InstrumentDn = $_POST["InstrumentDn"];
+        $IdeaDescription = $_POST["IdeaDescription"];
         $ProductType = $_POST["ProductType"];
         $Industry = $_POST["Industry"];
         $RiskLevel = $_POST["RiskLevel"];
@@ -11,15 +12,17 @@
         $PriceCurrency = $_POST["PriceCurrency"];
         $ClosingPrice = $_POST["ClosingPrice"];
         $PriceClosingDate = $_POST["PriceClosingDate"];
+        $IssueDate = $_POST["IssueDate"];;
+        $MaturityDate =$_POST["MaturityDate"];
         $StockExchange = $_POST["StockExchange"];
         $Issuer = $_POST["Issuer"];
-        $Isin = $_POST["Isin"];
+        // $Isin = $_POST["Isin"];
         $Ticker = $_POST["Ticker"];
         $Region = $_POST["Region"];
         $Country = $_POST["Country"];
     
         do {
-            if ( empty($InstrumentName) || empty($InstrumentDn) || empty($ProductType) || empty($Industry) || empty($RiskLevel) || empty($Denomination) || empty($PriceCurrency) || empty($ClosingPrice) || empty($PriceClosingDate) || empty($StockExchange) || empty($Issuer) || empty($Isin) || empty($Ticker) || empty($Region) || empty($Country) 
+            if ( empty($InstrumentName) || empty($InstrumentDn) || empty($IdeaDescription)|| empty($ProductType) || empty($Industry) || empty($RiskLevel) || empty($Denomination) || empty($PriceCurrency) || empty($ClosingPrice) || empty($PriceClosingDate) || empty($IssueDate) || empty($MaturityDate) || empty($StockExchange) || empty($Issuer) || empty($Ticker) || empty($Region) || empty($Country) 
         ) { 
             $errorMessage = "All the fields are required";
             echo $errorMessage;
@@ -28,6 +31,7 @@
 
     echo $InstrumentName;
     echo $InstrumentDn;
+    echo $IdeaDescription;
     echo $ProductType;
     echo $Industry;
     echo $RiskLevel;
@@ -35,16 +39,18 @@
     echo $PriceCurrency;
     echo $ClosingPrice;
     echo $PriceClosingDate;
+    echo $IssueDate;
+    echo $MaturityDate;
     echo $StockExchange;
     echo $Issuer;
-    echo $Isin;
+    // echo $Isin;
     echo $Ticker;
     echo $Region;
     echo $Country;
 
     $successMessage = "Idea successfully created";
-    $sql = "INSERT INTO ideas (InstrumentName, InstrumentDn, ProductType, Industry, RiskLevel, Denomination, PriceCurrency, ClosingPrice, PriceClosingDate, StockExchange, Issuer, Isin, Ticker, Region, Country)
-    VALUES('$InstrumentName','$InstrumentDn','$ProductType','$Industry','$RiskLevel', '$Denomination', '$PriceCurrency', '$ClosingPrice', '$PriceClosingDate', '$StockExchange', '$Issuer', '$Isin', '$Ticker', '$Region', '$Country')
+    $sql = "INSERT INTO ideas (InstrumentName, InstrumentDn, ProductType, Industry, RiskLevel, Denomination, PriceCurrency, ClosingPrice, PriceClosingDate, IssueDate, MaturityDate, StockExchange, Issuer, Ticker, Region, Country)
+    VALUES('$InstrumentName','$InstrumentDn', '$IdeaDescription','$ProductType','$Industry','$RiskLevel', '$Denomination', '$PriceCurrency', '$ClosingPrice', '$PriceClosingDate', '$IssueDate', '$MaturityDate','$StockExchange', '$Issuer','$Ticker', '$Region', '$Country')
     ";
     $result = $databaseconnection->query($sql);
 

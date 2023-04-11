@@ -20,16 +20,17 @@
 
 $InstrumentName ="";
 $InstrumentDn ="";
+$IdeaDescription ="";
 $ProductType ="";
 $Industry ="";
 $RiskLevel ="";
 $Issuer ="";
 $Denomination ="";
 $Ticker ="";
-$Isin ="";
 $ClosingPrice = "";
 $PriceClosingDate ="";
-// $Maturity_date ="";
+$IssueDate ="";
+$MaturityDate ="";
 $StockExchange = "";
 $Issuer ="";
 $PriceCurrency ="";
@@ -42,6 +43,7 @@ $successMessage = "";
 // if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 //     $InstrumentName = $_POST["InstrumentName"];
 //     $InstrumentDn = $_POST["InstrumentDn"];
+//     $IdeaDescription = $_POST["IdeaDescription"];
 //     $ProductType = $_POST["ProductType"];
 //     $Industry = $_POST["Industry"];
 //     $RiskLevel = $_POST["RiskLevel"];
@@ -49,6 +51,8 @@ $successMessage = "";
 //     $PriceCurrency = $_POST["PriceCurrency"];
 //     $ClosingPrice = $_POST["ClosingPrice"];
 //     $PriceClosingDate = $_POST["PriceClosingDate"];
+//     $IssueDate = $_POST["IssueDate"];
+//     $MaturityDate = $_POST["MaturityDate"];
 //     $StockExchange = $_POST["StockExchange"];
 //     $Issuer = $_POST["Issuer"];
 //     $Isin = $_POST["Isin"];
@@ -72,6 +76,7 @@ $successMessage = "";
 
     // echo $InstrumentName;
     // echo $InstrumentDn;
+    // echo $IdeaDescription;
     // echo $ProductType;
     // echo $Industry;
     // echo $RiskLevel;
@@ -79,6 +84,8 @@ $successMessage = "";
     // echo $PriceCurrency;
     // echo $ClosingPrice;
     // echo $PriceClosingDate;
+    // echo $IssueDate;
+    // echo $MaturityDate;
     // echo $StockExchange;
     // echo $Issuer;
     // echo $Isin;
@@ -118,6 +125,11 @@ $successMessage = "";
         <div class="form-group">
         <label for="InstrumentDn">InstrumentDn:</label>
         <input type="text" id="InstrumentDn" name="InstrumentDn" value="<?php echo $InstrumentDn; ?>">
+        </div>
+        <hr />
+        <div class="form-group">
+        <label for="IdeaDescription">IdeaDescription:</label>
+        <input type="text" id="IdeaDescription" name="IdeaDescription" value="<?php echo $IdeaDescription; ?>">
         </div>
         <hr />
         <div class="form-group">
@@ -172,6 +184,16 @@ $successMessage = "";
         </div>
         <hr />
         <div class="form-group">
+        <label for="IssueDate">IssueDate:</label>
+        <input type="text" id="IssueDate" name="IssueDate" value="<?php  echo $IssueDate; ?>" >
+        </div>
+        <hr />
+        <div class="form-group">
+        <label for="MaturityDate">MaturityDate:</label>
+        <input type="text" id="MaturityDate" name="MaturityDate" value="<?php  echo $MaturityDate; ?>" >
+        </div>
+        <hr />
+        <div class="form-group">
         <label for="Stock Exchange">StockExchange:</label>
         <input type="text" id="Stock Exchange" name="StockExchange" value="<?php  echo $StockExchange; ?>" >
         </div>
@@ -180,11 +202,11 @@ $successMessage = "";
         <label for="Issuer">Issuer:</label>
         <input type="text" id="Issuer" name="Issuer" value="<?php  echo $Issuer; ?>"  >
         </div>
-        <hr />
+        <!-- <hr />
         <div class="form-group">
         <label for="Isin">Isin:</label>
-        <input type="text" id="Isin" name="Isin" value="<?php  echo $Isin; ?>">
-        </div>
+        <input type="text" id="Isin" name="Isin" value="">
+        </div> -->
         <hr />
         <div class="form-group">
         <label for="Ticker">Ticker:</label>
@@ -225,7 +247,7 @@ $successMessage = "";
         }
         ?>
 
-        <button type="submit"><a href="index.php">Submit</a> </button>
+        <button type="submit"><a href="">Submit</a> </button>
         <!-- <button type="submit"><a href="/wealth-affairs/fa/index.php">Submit</a></button> -->
     </form>
   </div>

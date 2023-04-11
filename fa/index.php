@@ -8,6 +8,21 @@
     <title>Idea form</title>
 </head>
 <body>
+<div class="wrapper">
+        <div class="sidebar">
+            <div class="rm">
+                <img class="photo" src="../images/relational-manager-photo.jfif" alt="rm-image" />
+                <p class="name">Francis, O. A</p>
+                <p class="title">Funds Administrator</p>
+            </div>
+            <div class="">
+                <p><a href="">Dashboard</a></p>
+                <p><a href="">Profile</a></p>
+            </div>
+            <div class="logout">
+                <button>Logout</button>
+                <p><a href="../index.html">Go to homepage</a></p>
+            </div>
             <div class="main">
             <div>
                 <h1>FA Ideas Uploading Dashboard</h1>  
@@ -17,6 +32,23 @@
                 <!-- <button><a href="">All ideas</a></button> -->
                 <h2 id="investment-ideas">Investment Ideas</h2>
                 <table>
+                <style>
+                        table {
+                          font-family: arial, sans-serif;
+                          border-collapse: collapse;
+                          width: 100%;
+                        }
+                        
+                        td, th {
+                          border: 1px solid #dddddd;
+                          text-align: left;
+                          padding: 8px;
+                        }
+                        
+                        tr:nth-child(even) {
+                          background-color: #dddddd;
+                        }
+                        </style>
                     <thead>
                     <tr>
                     <th>ID</th>
