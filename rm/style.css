@@ -61,8 +61,19 @@
 
 .products {
     padding: 10px;
+    width: 100%;
     display: flex;
+    /* gap: 10px; */
+    /* border: 4px solid red; */
+}
+
+.cards {
+    width: 100%;
+    display: grid;
     gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* flex: 1; */
+    overflow: auto;
 }
 
 .card {
@@ -71,7 +82,7 @@
     padding: 5px;
 }
 
-.product-title, .product-type, .product-stock {
+.product-title, .product-stock {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -101,6 +112,7 @@
     padding: 3px;
     font-size: 12px;
     border: 1px solid black;
+    width: fit-content;
 }
 
 
@@ -281,23 +293,15 @@ button {
 }
 
 .product-details-risk {
-    flex: 1;
-    justify-content: flex-end;
-    gap: 7px;
+    gap: 10px;
 }
 
 #risk-rating {
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: green;
+    padding: 0 3px;
 }
 
-#risk-brief {
+#risk-brief, #risk-description {
     background: green;
     align-self: flex-start;
     padding: 0 3px;

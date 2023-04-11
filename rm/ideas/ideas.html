@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +6,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 500px;
+    margin: 50px auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+    </style>
 </head>
 <body>
-    <div>
-        <ideas-project></ideas-project>
-    </div>
+    <!-- <div>
+        <ideas-project></ideas-project>C:\xampp\htdocs\wealth-affairs\backend\idea.php
+    </div> -->
+  <div class="container">
+    <h1>Investment Ideas Upload</h1>
+    <form action="http://localhost/wealth-affairs/backend/idea.php" method="post">
+      <div class="form-group">
+        <label for="instrument-name">Instrument Name:</label>
+        <input type="text" id="InstrumentName" name="InstrumentName" >
+      </div>
+      <div class="form-group">
+        <label for="instrument-dn">Instrument-Dn:</label>
+        <input type="text" id="InstrumentDn" name="InstrumentDn" >
+      </div>
+      <div class="form-group">
+        <label for="basic instrument">Basic Instrument:</label>
+        <select id="basic instrument" name="BasicSecurities">
+          <option value="" disabled selected>-- Select an Instrument --</option>
+          <option value="Stocks">Stocks</option>
+          <option value="Bonds">Bonds</option>
+          <option value="ETFs">ETFs</option>
+          <option value="Mutual Funds">Mutual Funds</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="derivative">Derivatives:</label>
+        <select id="derivative" name="Derivatives">
+        <option value="" disabled selected>-- Select a Derivative --</option>
+        <option value="Security Derivatives">Security Derivatives</option>
+        <option value="FX and Money Market">FX and Money Market</option>
+        <option value="Credit Derivatives">Credit Derivatives</option>
+        <option value="Insurance Derivatives">Insurance Derivatives</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label for="industry">Industry:</label>
+        <select id="industry" name="Industry">
+          <option value="" disabled selected>-- Select an Industry --</option>
+          <option value="Technology">Technology</option>
+          <option value="Finance">Finance</option>
+          <option value="Renewable Energy">Renewable Energy</option>
+          <option value="Healthcare">Healthcare</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="risk-level">Risk Level:</label>
+        <select id= "risk-level" name="RiskLevel" onchange="performIt()">
+          <option value="" disabled selected>-- Select a Risk Level --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="denomination">Denomination:</label>
+        <input type="text" id="denomination" name="Denomination" >
+      </div>
+      <div class="form-group">
+        <label for="priceCurrency">Price Currency:</label>
+        <input type="text" id="priceCurrency" name="PriceCurrency" >
+      </div>
+      <div class="form-group">
+        <label for="closingPrice">Closing Price:</label>
+        <input type="text" id="closingPrice" name="ClosingPrice" >
+      </div>
+      <div class="form-group">
+        <label for="stockExchange">Stock Exchange:</label>
+        <input type="text" id="stockExchange" name="StockExchange" >
+      </div>
+      <div class="form-group">
+        <label for="issuer">Issuer:</label>
+        <input type="text" id="issuer" name="Issuer" >
+      </div>
+      <div class="form-group">
+        <label for="isin">ISIN:</label>
+        <input type="text" id="isin" name="Isin" >
+      </div>
+      <div class="form-group">
+        <label for="ticker">Ticker:</label>
+        <input type="text" id="ticker" name="Ticker" >
+      </div>
+      <div class ="form-group">
+      <label for="region">Region:</label>
+      <select id="region" name="Region">
+        <option value="" disabled selected>-- Select a Region --</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia">Asia</option>
+        <option value="Africa">Africa</option>
+        <option value="Oceania">Oceania</option>
+      </select>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" name="Country">
+          <option value="" disabled selected>-- Select a Country --</option>
+          <option value="United States">United States</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Argentina">Argentina</option>
+          <option value="China">China</option>
+          <option value="Albania">Albania</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Canada">Canada</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Greece">Greece</option>
+          <option value="India">India</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Italy">Italy</option>
+          <option value="Japan">Japan</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Russia">Russia</option>
+          <option value="South Africa">South Africa</option>
+          <option value="Spain">Spain</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Ghana">Ghana</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+    <!-- <script src="./ideas.js"></script> -->
 
-    <script src="./ideas.js"></script>
+    <script>
+        function performIt(){
+            console.log("YUYYY")
+        }
+    </script>
 </body>
-</html> -->
+</html>
