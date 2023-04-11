@@ -1,6 +1,6 @@
 <?php 
     include "dbconnection.php";
-    $ClientID = 1; // this value should be the clientId from the session
+    $ClientID = 4; // this value should be the clientId from the session
 
     $getRecommendedProducts = mysqli_query($databaseConnection, "SELECT * FROM `recommendedideas` WHERE ClientID = $ClientID");
     
@@ -11,10 +11,12 @@
             $allProducts[] = $row;
         }
         // Convert PHP array to JSON string and send it to the client
-        $json = json_encode($allProducts);
-        echo $json;
+        // $json = json_encode($allProducts);
+        // echo $json;
+        echo  $allProducts;
     } else {
-        echo json_encode("You do not have recommended products yet");
+        // echo json_encode("You do not have recommended products yet");
+        echo "You do not have recommended products yet";
     }
 
     mysqli_free_result($getRecommendedProducts);
