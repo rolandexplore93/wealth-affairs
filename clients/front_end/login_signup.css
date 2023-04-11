@@ -3,6 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* login buttons */
+.button-wrapper {
+  display: inline-block;
+  margin-right: 20px; /* change the value to adjust the spacing */
+}
+
 
 body {
   /* border: 1px solid red; */
@@ -90,3 +96,4 @@ input[type=text]:focus, input[type=password]:focus {
   height: inherit;
   width: inherit;
 }
+

@@ -8,8 +8,9 @@
     /* border: 1px solid red; */
     height: 100vh;
     width: 100%;
+    font-family: "Tw Cen MT", sans-serif;
   }
-  
+ 
   .wrapper {
     height: 100%;
     width: 100%;
@@ -101,17 +102,17 @@
   bottom: 0;
 }
 
-/* #bInstrument #derivative #riskLevel #industry {
+/* #productType #derivative #riskLevel #industry {
   display: none;
   border: 1px #dadada solid;
 } */
 
-#bInstrument #derivative #riskLevel #industry label {
+#productType  #riskLevel #industry #countries label {
   display: none;
 }
 
 
-#bInstrument #derivative #riskLevel #industry label:hover {
+#productType #riskLevel #industry #countries label:hover {
   background-color: #1e90ff;
 }
 

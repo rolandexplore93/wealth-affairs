@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-UK">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to login CSS File-->
+    <link rel="stylesheet" href="http://localhost/wealth-affairs/clients/front_end/login_signup.css">
+     <script src="http://localhost/wealth-affairs/clients/front_end/main.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <noscript>
+        <p>Please enable JavaScript to use this website.</p>
+      </noscript>
+
+     <!-- Script to validate signup details-->
+     <script>
+     function validateForm() {
+        var fname = document.forms["signupForm"]["fname"].value;
+        var lname = document.forms["signupForm"]["lname"].value;
+        var email = document.forms["signupForm"]["email"].value;
+        var password = document.forms["signupForm"]["password"].value;
+        var password_rpt = document.forms["signupForm"]["password_rpt"].value;
+
+        // Check if all fields are filled in
+        if (fname == "" || lname == "" || email == "" || password == "" || password_rpt == "") {
+            alert("Please fill in all fields.");
+            return false;
+        }
+
+        // Check if email is in a valid format
+        var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (!email.match(emailRegex)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        // Check if passwords match
+        if (password != password_rpt) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
+        // Check if password is at least 8 characters long
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            return false;
+        }
+
+        // If all fields are valid, return true
+        return true;
+    }   
+    </script>
+    <title>Sign up</title>
+</head>
+<body>
+    <div class="wrapper">
+        <section class="Left">
+            <div class="title"><h1>Wealth Management</h1></div>
+
+            <form name="signupForm" method="post" action="http://localhost/wealth-affairs/clients/back_end/insertInDB.php" onsubmit="return validateForm()">
+                <h2 id="form-directive">Sign Up</h2>
+                <p id="form-guide">Please fill in this form to create an account.</p>
+                <label for="fname" class="fname"><b>First name</b>:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="lname"><b>Last name:</b></label>
+                <input type="text" id="lname" name="lname" ><br><br>
+                <label for="email"><b>Email:</b></label>
+                <input type="text" id="email" placeholder="Enter Email" name="email" ><br><br>
+                <label for="password"><b>Password:</b></label>
+                <input type="password" id="password" placeholder="Enter Password" name="password" ><br><br>
+                <label for="password_rpt"><b>Confirm Password:</b></label>
+                <input type="password" id="password_rpt"placeholder="Confirm Password" name="password_rpt" ><br><br>
+                <span>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</span>
+                <div class="button-wrapper">
+                    <button type="submit" id="signupbtn" value="submit">Sign Up</a></b></button>
+                </div>
+                <div class="button-wrapper">
+                 <button><a href="http://localhost/wealth-affairs/clients/front_end/login.php">Already Registered User? Click here to login</a></button>
+                </div>
+                <style>
+                    .button-wrapper {
+                        display: inline-block;
+                        margin-right: 20px; /* change the value to adjust the spacing */
+                    }
+                    </style>
+            </form>
+        </section>
+        <section class="Right">
+            <div class="onboarding-image-cover">
+                <img class="onboarding-image" src="./Images/invest 2.jpg" alt="female on a her mobile devices">
+            </div>
+        </section>
+    </div>
+</body>
+</html>
