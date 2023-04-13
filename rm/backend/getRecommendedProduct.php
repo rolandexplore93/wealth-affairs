@@ -1,6 +1,6 @@
 <?php 
     include "dbconnection.php";
-    $ClientID = 1; // this value should be the clientId from the session
+    $ClientID = 4; // this value should be the clientId from the session
 
     $getRecommendedProducts = mysqli_query($databaseConnection, "SELECT * FROM `recommendedideas` WHERE ClientID = $ClientID");
     

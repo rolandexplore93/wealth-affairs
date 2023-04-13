@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     },
 // ]
 
-fetch('http://localhost/wealth-affairs/backend/allClients.php')
+fetch('http://localhost/wealth_affairs/rm/backend/allClients.php')
 .then(response => response.json())
 .then(clients => {
     // Define ClientsTable to display all registered clients

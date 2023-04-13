@@ -77,7 +77,7 @@ label {
 
 input {
   width: 60%;
-  height: 20%;
+  /* height: 20%; */
   font: 1.2em;
   box-sizing: border-box;
   border: 2px solid #261f1f;
