@@ -20,7 +20,7 @@
         $json = json_encode($resultas);
         echo $json;
     } else {
-        echo "No results found.";
+        echo json_encode("No results found.");
     }
 
     mysqli_free_result($result);

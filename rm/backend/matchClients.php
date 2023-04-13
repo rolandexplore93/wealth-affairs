@@ -4,8 +4,8 @@
     $request_body = file_get_contents('php://input');
     $request_data = json_decode($request_body, true);
 
-    if (isset($request_data['productID'])) {
-        $ProductID = $request_data['productID'];
+    if (isset($request_data['ApprovedID'])) {
+        $ProductID = $request_data['ApprovedID'];
     } else {
         $ProductID = null;
     }
@@ -47,10 +47,10 @@
         left join regions re on re.ClientID=cl.ClientID
         left join industries ind on ind.ClientID=cl.ClientID
         left join producttypes pdt on pdt.ClientID=cl.ClientID)
-        select DISTINCT a.*, pp.*
-        from products pp left join CTE a on pp.risklevel=a.selectedrisklevel
+        select DISTINCT a.*, ai.*
+        from approvedIdeas ai left join CTE a on ai.risklevel=a.selectedrisklevel
         WHERE RiskLevel=$RiskLevel
-        AND ProductID=$ProductID
+        AND ApprovedID=$ProductID
         AND FIND_IN_SET('$ProductType', a.ProductTypePref)
         AND (
             FIND_IN_SET('$Industry', a.IndustryPref)

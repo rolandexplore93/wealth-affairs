@@ -1,6 +1,6 @@
 <?php 
     require_once "dbconnection.php";
-    $result = mysqli_query($databaseConnection, "SELECT * FROM `products`");
+    $result = mysqli_query($databaseConnection, "SELECT * FROM `approvedideas`");
     
     if (mysqli_num_rows($result) > 0) {
         $allProducts = array();
