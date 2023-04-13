@@ -3,7 +3,7 @@
     session_start();
 
     // Check if the user is logged in
-    if (!isset($_SESSION['Client_ID'])) {
+    if (!isset($_SESSION['ClientID'])) {
         // User is not logged in
         header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
         exit();
@@ -82,100 +82,12 @@
                 </div>
 
                 <h1>Personalised ideas by your Relationship Manager...</h1>
-                <div class="equity" style="border: 1px solid gray; flex: 1;">
-                        
-                        <!-- Equity Instrument -->
-                        <div class="card">
-                            <div class="product-title">
-                                <p class="product-symbol">IBM</p>
-                                <p class="product-name">IBM Common Stock</p>
-                            </div>
-                            <div class="product-type">
-                                <p class="product-cat">Basic Securities</p>
-                                <p class="product-group">Equities</p>
-                                <div>
-                                    <p>2</p>
-                                </div>
-                            </div>
-                            <div class="product-stock">
-                                <p class="product-stock-title">Stock Exchange:</p>
-                                <p class="product-stock-category">NYSE</p>
-                            </div>
-                            <div class="product-deal">
-                                <p class="product-offer">Offer: 127.57 stocks / 1 USD</p>
-                            </div>
-                            <button class="product-view" id="product-view" style="cursor: pointer;">View product</button>
-                        </div>
-                        <div class="card">
-                            <div class="product-title">
-                                <p class="product-symbol">IBM</p>
-                                <p class="product-name">IBM Common Stock</p>
-                            </div>
-                            <div class="product-type">
-                                <p class="product-cat">Basic Securities</p>
-                                <p class="product-group">Equities</p>
-                                <div>
-                                    <p>2</p>
-                                </div>
-                            </div>
-                            <div class="product-stock">
-                                <p class="product-stock-title">Stock Exchange:</p>
-                                <p class="product-stock-category">NYSE</p>
-                            </div>
-                            <div class="product-deal">
-                                <p class="product-offer">Offer: 127.57 stocks / 1 USD</p>
-                            </div>
-                            <button class="product-view" id="product-view" style="cursor: pointer;">View product</button>
-                        </div>
-                        <div class="card">
-                            <div class="product-title">
-                                <p class="product-symbol">IBM</p>
-                                <p class="product-name">IBM Common Stock</p>
-                            </div>
-                            <div class="product-type">
-                                <p class="product-cat">Basic Securities</p>
-                                <p class="product-group">Equities</p>
-                                <div>
-                                    <p>2</p>
-                                </div>
-                            </div>
-                            <div class="product-stock">
-                                <p class="product-stock-title">Stock Exchange:</p>
-                                <p class="product-stock-category">NYSE</p>
-                            </div>
-                            <div class="product-deal">
-                                <p class="product-offer">Offer: 127.57 stocks / 1 USD</p>
-                            </div>
-                            <button class="product-view" id="product-view" style="cursor: pointer;">View product</button>
-                        </div>
-                        <div class="card">
-                            <div class="product-title">
-                                <p class="product-symbol">IBM</p>
-                                <p class="product-name">IBM Common Stock</p>
-                            </div>
-                            <div class="product-type">
-                                <p class="product-cat">Basic Securities</p>
-                                <p class="product-group">Equities</p>
-                                <div>
-                                    <p>2</p>
-                                </div>
-                            </div>
-                            <div class="product-stock">
-                                <p class="product-stock-title">Stock Exchange:</p>
-                                <p class="product-stock-category">NYSE</p>
-                            </div>
-                            <div class="product-deal">
-                                <p class="product-offer">Offer: 127.57 stocks / 1 USD</p>
-                            </div>
-                            <button class="product-view" id="product-view" style="cursor: pointer;">View product</button>
-                        </div>
-                        <div class="card">
-                            <div class="product-title">
-                            <div class="product-deal">
-                                <p class="product-offer">Offer: 127.57 stocks / 1 USD</p>
-                            </div> 
-                            <button class="product-view" id="product-view" style="cursor: pointer;">View all equities</button>
-                        </div>
+                <div class="equity" style="border: 1px solid gray; flex: 1; flex-direction: column;">
+                <div class="product-title">
+                    <?php  
+                        // Include the tailored products from php script file
+                        require_once('../back_end/getRecommendedProduct.php');
+                    ?>
                     </div>
             </section> 
              <!-- Sidebar -->
@@ -200,8 +112,12 @@
                     <!-- for client Relationship Manager Sidebar -->
                     <div class="rm side-profile" style="border: 1px solid gray; flex: 1;">
                             <img src="../front_end/images/computer-science-gbb745b0cd_640.png" alt="rm-image" />
-                        <p class="name">Roland, O. O</p>
-                        <p class="title">My Relational Manager</p>
+                        <p class="name"><?php echo $_SESSION['rm_fname'].' '. $_SESSION['rm_lname']; ?></p>
+                        <p class="name"><?php echo $_SESSION['rm_email']; ?></p>
+                        <p class="title">Meet Your Relational Manager</p>
+                        <button class="product-view" style="cursor: pointer;">
+                        <a href="http://localhost/wealth-affairs/clients/front_end/all_rm_recommeded_ideas.php">View all recommended ideas</a>
+                    </button>
                     </div>
                     
             </section>

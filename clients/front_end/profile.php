@@ -3,7 +3,7 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['Client_ID'])) {
+if (!isset($_SESSION['ClientID'])) {
     // User is not logged in
     header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
     exit();
@@ -72,8 +72,6 @@ $_SESSION['session_time'] = time();
                         <input type="email" id="email" placeholder="Enter email" name="email">
                         <label for="pnmuber">Phone Number:</label>
                         <input type="pnumber" id="pnumber" placeholder="Enter Phone Number" name="pnumber">
-                        <label for="ninsurance">National I:</label>
-                        <input type="ninsurance" id="ninsurance" placeholder="National Insurance" name="ninsurance">
                         <label for="adds">Address:</label>
                         <input type="adds" id="adds" placeholder="Enter Address" name="adds">
                         <label for="pcode">Post Code:</label>

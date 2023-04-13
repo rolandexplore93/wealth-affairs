@@ -60,7 +60,7 @@
     <div class="wrapper">
                <section class="Left">
             <div class="title"><h1>Wealth Management</h1></div>
-                <form class="myForm" name="myForm" onsubmit="return validateForm()" method="POST" action="http://localhost/wealth-affairs/clients/Login/updatepassword.php">
+                <form class="myForm" name="myForm" onsubmit="return validateForm()" method="POST" action="http://localhost/wealth-affairs/clients/back_end/updatepassword.php">
                 <h2 id="form-directive">Change Password</h2>
                 <label for="email"><b>Email:</b></label>
                 <input type="text" placeholder="Enter Email" name="email" ><br><br>

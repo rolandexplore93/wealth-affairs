@@ -3,16 +3,16 @@
 session_start();
 
 // Check if the user is logged in
-if (isset($_SESSION['Client_ID'])) {
+if (isset($_SESSION['ClientID'])) {
     // User is already logged in, no need for authentication
-    $current_clientid = $_SESSION['Client_ID'];
+    $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
     require_once 'basicAuth_v3_PDO.php';
 }
 
-// Create database connection
-$conn = new mysqli('localhost', 'root', '', 'wealthaffairsdb');
+// Establish database connection
+require_once 'dbconnect.php';
 
 // Check for errors
 if ($conn->connect_error) {
@@ -26,11 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = !empty($_POST['adds']) ? $_POST['adds'] : '';
     $postcode = !empty($_POST['pcode']) ? $_POST['pcode'] : '';
     $country = !empty($_POST['country']) ? $_POST['country'] : '';
+    $email = !empty($_POST['email']) ? $_POST['email'] : '';
 
 
      // Check if email already exists in database
      if (!empty($email)) {
-        $stmt = $conn->prepare("SELECT Client_ID FROM client WHERE Email = ?");
+        $stmt = $conn->prepare("SELECT ClientID FROM clients WHERE Email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
@@ -46,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if phone number already exists in database
     if (!empty($phone)) {
-        $stmt = $conn->prepare("SELECT Client_ID FROM client WHERE PhoneNo = ?");
+        $stmt = $conn->prepare("SELECT ClientID FROM clients WHERE PhoneNo = ?");
         $stmt->bind_param("s", $phone);
         $stmt->execute();
         $stmt->store_result();
@@ -65,6 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $params = array();
 
     if (!empty($phone)) {
+        $setClause .= 'Email=?, ';
+        $params[] = $phone;
+    }
+
+    if (!empty($phone)) {
         $setClause .= 'PhoneNo=?, ';
         $params[] = $phone;
     }
@@ -80,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!empty($country)) {
-        $setClause .= 'Country=?, ';
+        $setClause .= 'ClientCountry=?, ';
         $params[] = $country;
     }
 
@@ -92,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $params[] = $current_clientid;
 
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("UPDATE client SET $setClause WHERE Client_ID=?");
+        $stmt = $conn->prepare("UPDATE clients SET $setClause WHERE ClientID=?");
         $stmt->bind_param(str_repeat('s', count($params)), ...$params);
 
         if ($stmt->execute() === TRUE) {

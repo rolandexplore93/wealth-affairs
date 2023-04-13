@@ -1,7 +1,7 @@
 <?php
 
 // Check if the user is logged in
-if (!isset($_SESSION['Client_ID'])) {
+if (!isset($_SESSION['ClientID'])) {
     // Check if a password change form was submitted with an email, old password, new password and confirm password
     if (isset($_POST['email']) && isset($_POST['oldpassword']) && isset($_POST['newpassword']) && isset($_POST['confirmpassword'])) {
         // Get the email, old password, new password and confirm password
@@ -16,42 +16,30 @@ if (!isset($_SESSION['Client_ID'])) {
         } elseif ($newpassword !== $confirmpassword) {
             exit("New password and Confirm password do not match");
         } else {
-            // Connect to the database
-            $dsn = 'mysql:host=localhost;dbname=wealthaffairsdb';
-            $user = 'root';
-            $dbpassword = '';
 
-            try {
-                $db = new PDO($dsn, $user, $dbpassword);
-            } catch (PDOException $e) {
-                die('Sorry, database problem');
-            }
+            // Connect to the database
+            include "dbconnect.php";
 
             // Look up the user-provided credentials
-            $query = 'SELECT  Email, Password FROM client WHERE Email = :email';
-            $params = array('email' => $email);
-
-            $result = $db->prepare($query);
-            $result->execute($params);
+            $stmt = $conn->prepare('SELECT Email, Password FROM clients WHERE Email = ?');
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
 
             $found = false;
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
                 if (password_verify($oldpassword, $row['Password'])) {
                     // Update the password
-                    $query = 'UPDATE client SET Password = :password WHERE Email = :email';
-                    $params = array(
-                        'password' => password_hash($newpassword, PASSWORD_DEFAULT),
-                        'email' => $row['Email']
-                    );
-
-                    $result = $db->prepare($query);
-                    $result->execute($params);
-
-                    // Redirect to the login page
-                    header("Location: login.php");
-                    exit();
+                    $stmt = $conn->prepare('UPDATE clients SET Password = ? WHERE Email = ?');
+                    $newpassword_hash = password_hash($newpassword, PASSWORD_DEFAULT);
+                    $stmt->bind_param('ss', $newpassword_hash, $row['Email']);
+                    $stmt->execute();
+                    $found = true;
+                    break;
                 }
             }
+            $stmt->close();
+            $conn->close();
 
             // If the $result contains 0 lines in the email and password and are not valid. Ask the user to re-enter them
             if (!$found) {
@@ -61,6 +49,10 @@ if (!isset($_SESSION['Client_ID'])) {
                 echo "</script>";
                 exit();
             }
+
+            // Redirect to the login page
+            header("Location: ../front_end/login.php");
+            exit();
         }
     } else {
         // The user is not logged in and a password change form was not submitted, so show the password change form
@@ -69,6 +61,3 @@ if (!isset($_SESSION['Client_ID'])) {
     }
     exit();
 } 
-    
-
-?>

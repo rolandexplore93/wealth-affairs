@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 // Start the session if it hasn't been started already
 if (session_status() == PHP_SESSION_NONE) {
@@ -13,33 +13,14 @@ if (isset($_SESSION['ClientID'])) {
     // Require authentication
     require_once 'basicAuth_v3_PDO.php';
 }
+    include "dbconnect.php";
 
-// Establish database connection
-require_once 'dbconnect.php';
-
-$db = $conn;
-
-// Define SQL query
-$sql = "SELECT *
-        FROM approvedideas 
-        INNER JOIN clients ON clients.RiskLevel = approvedideas.RiskLevel
-        INNER JOIN countries ON countries.ClientID = clients.ClientID
-        INNER JOIN industries ON industries.ClientID = clients.ClientID
-        INNER JOIN producttypes ON producttypes.ClientID = clients.ClientID
-        WHERE clients.ClientID = $current_clientid
-        AND approvedideas.Industry = industries.Industry
-        AND approvedideas.ProductType = producttypes.ProductType
-        AND approvedideas.Country = countries.Country
-        ORDER BY RAND()";
-
-// Execute SQL query
-$result = mysqli_query($db, $sql);
-
-
-// Output result set in cards
+    $getRecommendedProducts = mysqli_query($conn, "SELECT * FROM `recommendedideas` WHERE ClientID = $current_clientid");
+    
+  // Output result set in cards
 $counter = 0;
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
+if (mysqli_num_rows($getRecommendedProducts) > 0) {
+    while ($row = mysqli_fetch_assoc($getRecommendedProducts)) {
         echo '<div class="card d-inline-block" style="width: 20%;">'; // Set the width to 25% or any other appropriate value based on your design
          // Limit to 4 cards
          if ($counter >= 5) {
@@ -110,7 +91,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 // Close database connection
-mysqli_close($db);
+mysqli_close($conn);
 
 ?>
 
@@ -139,5 +120,3 @@ function addToWishlist(productId) {
   xhr.send('ApprovedID=' + productId);
 }
 </script>
-
-

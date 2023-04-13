@@ -5,7 +5,7 @@
     // Check if the user is logged in
     if (!isset($_SESSION['ClientID'])) {
         // User is not logged in
-        header("Location: http://localhost/wealth-affairs/clients/front_end/login.phpp");
+        header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
         exit();
     }
     
@@ -28,7 +28,7 @@
         echo "<button onclick='extendSession()'>Extend Session</button>";
         // Add a script to handle the button click
         echo "<script>function extendSession() {
-            window.location.href = 'http://localhost/wealth-affairs/clients/front_end/products.php';
+            window.location.href = 'http://localhost/wealth-affairs/clients/front_end/dashboard.php';
         }</script>";
     }
     
@@ -48,7 +48,7 @@
     <noscript>
     <p>Please enable JavaScript to use this website.</p>
     </noscript>
-       <title>All Products
+       <title>Dashboard
     </title>
 </head>
 <body>
@@ -56,9 +56,9 @@
     <div class="wrapper">
         <header style="border: 1px solid purple; display:flex;">
         <a href="http://localhost/wealth-affairs/clients/front_end/dashboard.php">
-            <div class="company-logo" style="border: 1px solid purple;"> <img src="WealthManagement-logo/logo.png"/></div>
+            <div class="company-logo" style="border: 1px solid gray;"> <img src="WealthManagement-logo/logo.png"/></div>
         </a>
-            <div class="welcome" style="border: 1px solid gray; flex:4;"><h2>Welcome, <?php echo $_SESSION['fname']; ?>!</h2></div>
+            <div class="welcome" style="border: 1px solid purple; flex:4;"><h2>Welcome, <?php echo $_SESSION['fname']; ?>!</h2></div>
             <h1>Dashboard</h1>
                 <p>You are now logged in to the dashboard.</p>
                 <a href="http://localhost/wealth-affairs/clients/back_end/logout.php">Logout</a>
@@ -66,14 +66,14 @@
         </header>
         
          <!-- Product section -->
-        <section class="product-section" style="border: 3px solid purple; flex: 1; display: flex;;">
+        <section class="product-section" style="border: 3px solid gray; flex: 1; display: flex;;">
        
             <!-- Product display -->
             <section class="products" style="border: 1px solid gray; flex: 4; display: flex; flex-direction: column;">
             <?php
                         
-                        // Include the header.php file
-                        include ('../back_end/all_products.php');
+                // Include the header.php file
+                include ('../back_end/rm_recommendedideas.php');
         
             ?>
                 
@@ -90,26 +90,23 @@
                         <button><a href="http://localhost/wealth-affairs/clients/front_end/dashboard.php">Dashboard</a></button><br>
                         <button><a href="http://localhost/wealth-affairs/clients/front_end/wishlist.php">View Wishlist</a></button>
                         <div style="display: flex; flex-direction: column; align-items: center;">
-                    <button class="product-view" style="cursor: pointer; margin-bottom: 00px;">
-                        <a href="http://localhost/wealth-affairs/clients/front_end/all_recommeded_products.php">View all tailored products</a>
+                         <button class="product-view" style="cursor: pointer;">
+                        <a href="http://localhost/wealth-affairs/clients/front_end/products.php">View all products</a>
                     </button>
                     </div>
                     </div>
                     <!-- for client Relationship Manager Sidebar -->
-                    <div class="rm side-profile" style="border: 1px solid gray; flex: 1;">
+                    <div class="rm side-profile" style="border: 1px solid purple; flex: 1;">
                             <img src="../front_end/images/computer-science-gbb745b0cd_640.png" alt="rm-image" />
                             <p class="name"><?php echo $_SESSION['rm_fname'].' '. $_SESSION['rm_lname']; ?></p>
                         <p class="name"><?php echo $_SESSION['rm_email']; ?></p>
                         <p class="title">Meet Your Relational Manager</p>
-                        <button class="product-view" style="cursor: pointer;">
-                        <a href="http://localhost/wealth-affairs/clients/front_end/all_rm_recommeded_ideas.php">View all recommended ideas</a>
-                    </button>
                     </div>
                     
             </section>
         </section>
          <!-- Footer -->
-        <footer style="border: 1px solid purple">Copyright © 2023 WealthManagement. All Rights Reserved</footer>
+        <footer style="border: 1px solid gray">Copyright © 2023 WealthManagement. All Rights Reserved</footer>
       
     </div>
 </body>
