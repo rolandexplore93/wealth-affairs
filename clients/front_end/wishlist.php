@@ -3,7 +3,7 @@
  session_start();
 
  // Check if the user is logged in
- if (!isset($_SESSION['Client_ID'])) {
+ if (!isset($_SESSION['ClientID'])) {
      // User is not logged in
      header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
      exit();
@@ -47,8 +47,8 @@
      <p>Please enable JavaScript to use this website.</p>
     </noscript>
     <script>
-    // Make an AJAX request to get the wishlist products
-$.getJSON('http://localhost/wealth-affairs/clients/back_end/view_wishlist.php', function(products) {
+    // Make an AJAX request to get the wishlist approvedideas
+$.getJSON('http://localhost/wealth-affairs/clients/back_end/view_wishlist.php', function(approvedideas) {
     // Create a table and add a header row
     var table = $('<table class="table table-bordered table-striped" style="border: 1px solid black;"></table>');
     var thead = $('<thead class="thead-dark"></thead>');
@@ -71,31 +71,31 @@ $.getJSON('http://localhost/wealth-affairs/clients/back_end/view_wishlist.php', 
 
     // Loop through the products and add them to the table
     var tbody = $('<tbody></tbody>');
-    for (var i = 0; i < products.length; i++) {
-        var product = products[i];
+    for (var i = 0; i < approvedideas.length; i++) {
+        var approvedidea = approvedideas[i];
         var row = $('<tr></tr>');
-        row.append('<td>' + product.ProductID + '</td>');
-        row.append('<td>' + product.InstrumentName + '</td>');
-        row.append('<td>' + product.InstrumentDesc + '</td>');
-        row.append('<td>' + product.Industry + '</td>');
-        row.append('<td>' + product.RiskLevel + '</td>');
-        row.append('<td>' + product.ProductCountry + '</td>');
-        row.append('<td>' + product.Denomination + '</td>');
-        row.append('<td>' + product.ProductType + '</td>');
-        row.append('<td>' + product.PriceCurrency + '</td>');
-        row.append('<td>' + product.Issuer + '</td>');
-        row.append('<td>' + product.Ticker + '</td>');
-        row.append('<td>' + product.Region + '</td>');
+        row.append('<td>' + approvedidea.ApprovedID + '</td>');
+        row.append('<td>' + approvedidea.InstrumentName + '</td>');
+        row.append('<td>' + approvedidea.InstrumentDesc + '</td>');
+        row.append('<td>' + approvedidea.Industry + '</td>');
+        row.append('<td>' + approvedidea.RiskLevel + '</td>');
+        row.append('<td>' + approvedidea.Country + '</td>');
+        row.append('<td>' + approvedidea.Denomination + '</td>');
+        row.append('<td>' + approvedidea.ProductType + '</td>');
+        row.append('<td>' + approvedidea.PriceCurrency + '</td>');
+        row.append('<td>' + approvedidea.Issuer + '</td>');
+        row.append('<td>' + approvedidea.Ticker + '</td>');
+        row.append('<td>' + approvedidea.Region + '</td>');
         
         // Add a "delete" button for each product
         var deleteButton = $('<button>Delete</button>');
-        deleteButton.click(function(product) {
+        deleteButton.click(function(approvedidea) {
             // Send a request to the PHP script to delete the corresponding product from the wishlist
-            $.post('http://localhost/wealth-affairs/clients/back_end/delete_wishlist.php', {ProductID: product.ProductID}, function() {
+            $.post('http://localhost/wealth-affairs/clients/back_end/delete_wishlist.php', {ApprovedID: approvedidea.ApprovedID}, function() {
                 // Reload the wishlist page after deleting the product
                 location.reload();
             });
-        }.bind(this, product));
+        }.bind(this, approvedidea));
         var deleteCell = $('<td></td>');
         deleteCell.append(deleteButton);
         row.append(deleteCell);
@@ -158,8 +158,12 @@ $.getJSON('http://localhost/wealth-affairs/clients/back_end/view_wishlist.php', 
                     <!-- for client Relationship Manager Sidebar -->
                     <div class="rm side-profile" style="border: 1px solid gray; flex: 1;">
                             <img src="../front_end/images/computer-science-gbb745b0cd_640.png" alt="rm-image" />
-                        <p class="name">Roland, O. O</p>
-                        <p class="title">My Relational Manager</p>
+                            <p class="name"><?php echo $_SESSION['rm_fname'].' '. $_SESSION['rm_lname']; ?></p>
+                        <p class="name"><?php echo $_SESSION['rm_email']; ?></p>
+                        <p class="title">Meet Your Relational Manager</p>
+                        <button class="product-view" style="cursor: pointer;">
+                        <a href="http://localhost/wealth-affairs/clients/front_end/all_rm_recommeded_ideas.php">View all recommended ideas</a>
+                    </button>
                     </div>
                     
             </section>

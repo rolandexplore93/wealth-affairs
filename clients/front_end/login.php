@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    if (isset($_SESSION['Client_ID'])) {
+    if (isset($_SESSION['ClientID'])) {
         unset($_SESSION['email']);
         session_destroy();
     }

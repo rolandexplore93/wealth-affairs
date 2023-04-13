@@ -15,19 +15,15 @@ if (isset($_SESSION['ClientID'])) {
 }
 
 // Establish database connection
-require_once 'dbconnect.php';
-$db = $conn;
+include "dbconnect.php";
+
+$db =$conn;
 
 // Define SQL query
-$sql = "SELECT *
-        FROM approvedideas 
-        ORDER BY RAND()";
-
-// Execute SQL query
-$result = mysqli_query($db, $sql);
+$getRecommendedProducts = mysqli_query($conn, "SELECT * FROM `recommendedideas` WHERE ClientID = $current_clientid");
 
 // Check if there are any products
-if (mysqli_num_rows($result) > 0) {
+if (mysqli_num_rows($getRecommendedProducts) > 0) {
     // Start table
     echo '<table class="my-table">';
     echo '<thead>';
@@ -44,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tbody>';
     
     // Loop through results and output each product in a row
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($getRecommendedProducts)) {
         echo '<tr>';
         echo '<td>' . $row['InstrumentName'] . '</td>';
         echo '<td>' . $row['InstrumentDn'] . '</td>';

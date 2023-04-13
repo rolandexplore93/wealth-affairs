@@ -20,7 +20,7 @@
         }
 
         //connect to the database
-        $dsn = 'mysql:host=localhost;dbname=wealthaffairsdb';
+        $dsn = 'mysql:host=localhost;dbname=wealth_affairs';
         $user = 'root';
         $passwordDB = '';
         
@@ -31,7 +31,7 @@
             die('Sorry, database problem');
         }
         // Look up the user-provided credentials
-        $query = 'SELECT Client_ID, Email, Password FROM client WHERE Email = :email';
+        $query = 'SELECT ClientID, Email, Password FROM clients WHERE Email = :email';
         $params = array(
                         'email' => $email
                         );
@@ -44,7 +44,7 @@
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {	
             if (password_verify($password, $row['Password'])) {
                 $found = true;
-                $current_clientid = $row['Client_ID'];
+                $current_clientid = $row['ClientID'];
                 $current_email = $row['Email'];
                 break;
             }

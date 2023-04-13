@@ -6,28 +6,30 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Check if the user is logged in
-if (isset($_SESSION['Client_ID'])) {
+if (isset($_SESSION['ClientID'])) {
     // User is already logged in, no need for authentication
-    $current_clientid = $_SESSION['Client_ID'];
+    $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
     require_once 'basicAuth_v3_PDO.php';
 }
 
 // Establish database connection
-$db = mysqli_connect('localhost', 'root', '', 'wealthaffairsdb');
+include "dbconnect.php";
+
+$db =$conn;
 
 // Define SQL query
 $sql = "SELECT *
-        FROM product 
-        INNER JOIN client ON client.SelectRiskLevel = product.RiskLevel
-        INNER JOIN country ON country.Client_ID = client.Client_ID
-        INNER JOIN industry ON industry.Client_ID = client.Client_ID
-        INNER JOIN producttype ON producttype.ClientID = client.Client_ID
-        WHERE client.Client_ID = $current_clientid
-        AND product.Industry = industry.Industries
-        AND product.ProductType = producttype.Products
-        AND product.ProductCountry = country.Countries
+        FROM approvedideas 
+        INNER JOIN clients ON clients.RiskLevel = approvedideas.RiskLevel
+        INNER JOIN countries ON countries.ClientID = clients.ClientID
+        INNER JOIN industries ON industries.ClientID = clients.ClientID
+        INNER JOIN producttypes ON producttypes.ClientID = clients.ClientID
+        WHERE clients.ClientID = $current_clientid
+        AND approvedideas.Industry = industries.Industry
+        AND approvedideas.ProductType = producttypes.ProductType
+        AND approvedideas.Country = countries.Country
         ORDER BY RAND()";
 
 // Execute SQL query
@@ -57,7 +59,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . $row['InstrumentDn'] . '</td>';
         echo '<td>' . $row['Industry'] . '</td>';
         echo '<td>' . $row['RiskLevel'] . '</td>';
-        echo '<td>' . $row['ProductCountry'] . '</td>';
+        echo '<td>' . $row['Country'] . '</td>';
         echo '<td>';
         
         // Check if there is data in the "details" section
@@ -71,7 +73,7 @@ if (mysqli_num_rows($result) > 0) {
         
         echo '</td>';
         echo '<td>';
-        echo '<button class="add-to-wishlist-btn" onclick="addToWishlist(' . $row['ProductID'] . ')">Add to Wishlist</button>';
+        echo '<button class="add-to-wishlist-btn" onclick="addToWishlist(' . $row['ApprovedID'] . ')">Add to Wishlist</button>';
         echo '</td>';
         echo '</tr>';
     }
@@ -88,8 +90,8 @@ mysqli_close($db);
 ?>
 
 <script>
-    productId = 'ProductID'
-function addToWishlist(productId) {
+    approvedId = 'ApprovedID'
+function addToWishlist(approvedId) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
@@ -98,7 +100,7 @@ function addToWishlist(productId) {
   };
   xhr.open('POST', 'http://localhost/wealth-affairs/clients/back_end/add_to_wishlist.php', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xhr.send('ProductID=' + productId);
+  xhr.send('ApprovedID=' + approvedId);
 }
 </script>
 

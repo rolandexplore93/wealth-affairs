@@ -3,7 +3,7 @@
     session_start();
 
     // Check if the user is logged in
-    if (!isset($_SESSION['Client_ID'])) {
+    if (!isset($_SESSION['ClientID'])) {
         // User is not logged in
         header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
         exit();
@@ -98,9 +98,13 @@
                     <!-- for client Relationship Manager Sidebar -->
                     <div class="rm side-profile" style="border: 1px solid purple; flex: 1;">
                             <img src="../front_end/images/computer-science-gbb745b0cd_640.png" alt="rm-image" />
-                        <p class="name">Roland, O. O</p>
-                        <p class="title">My Relational Manager</p>
-                    </div>
+                            <p class="name"><?php echo $_SESSION['rm_fname'].' '. $_SESSION['rm_lname']; ?></p>
+                        <p class="name"><?php echo $_SESSION['rm_email']; ?></p>
+                        <p class="title">Meet Your Relational Manager</p>
+                        <button class="product-view" style="cursor: pointer;">
+                        <a href="http://localhost/wealth-affairs/clients/front_end/all_rm_recommeded_ideas.php">View all recommended ideas</a>
+                    </button>
+                    </div>>
                     
             </section>
         </section>
