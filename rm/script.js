@@ -104,51 +104,51 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
           modal.style.display = 'none';
         };
 
-        const viewProductButton = this.querySelectorAll('.product-view');
-        viewProductButton.forEach((eachProduct) => {
-          eachProduct.onclick = function(){
-            const productId = eachProduct.dataset.id;
-            // console.log(productId);
-            const targetProduct = approvedIdeas.find(product => product.ApprovedID === productId);
-            // console.log(targetProduct);
+        // View each approved idea created
+        const viewApprovedIdeaButton = this.querySelectorAll('.product-view');
+        viewApprovedIdeaButton.forEach((eachInvIdea) => {
+          eachInvIdea.onclick = function(){
+            const approvedIdeaId = eachInvIdea.dataset.id;
+            console.log(approvedIdeaId);
+            const targetApprovedIdea = approvedIdeas.find(invIdea => invIdea.ApprovedID === approvedIdeaId);
+            console.log(targetApprovedIdea);
 
             content1.innerHTML = `
               <div class="product-details-r1" style="display: flex;">
                 <div class="product-details-tag" style="display: flex;">
-                    <div class="product-details-logo"><p>${targetProduct.InstrumentDn}</p></div>
-                    <p class="product-details-name">${targetProduct.InstrumentName}</p>
+                    <div class="product-details-logo"><p>${targetApprovedIdea.InstrumentDn}</p></div>
+                    <p class="product-details-name">${targetApprovedIdea.InstrumentName}</p>
                 </div>
                 <div class="product-details-preferences">
                     <div class="multi-select">
-                      <p>${targetProduct.ProductType}</p>
+                      <p>${targetApprovedIdea.ProductType}</p>
                     </div>
                 </div>
                 <div class="product-details-offer">
-                  <p>Offer: ${targetProduct.PriceCurrency} ${targetProduct.ClosingPrice} per ${targetProduct.Denomination} units</p>
+                  <p>Offer: ${targetApprovedIdea.PriceCurrency} ${targetApprovedIdea.ClosingPrice} per ${targetApprovedIdea.Denomination} units</p>
                 </div>
               </div>
 
               <div class="product-details-r2 " style="">
                 <div class="product-details-stock-info" style="border: 1px solid black;">
-                    <p class="product-details-stock">Stock Exchange: <span id="stock">${targetProduct.StockExchange}</span></p>
-                    <p class="product-details-issuer">Issuer: <span id="issuer">${targetProduct.Issuer}</span></p>
+                    <p class="product-details-stock">Stock Exchange: <span id="stock">${targetApprovedIdea.StockExchange}</span></p>
+                    <p class="product-details-issuer">Issuer: <span id="issuer">${targetApprovedIdea.Issuer}</span></p>
                     <div class="product-details-codes">
-                        <p>ISIN: <span id="isin">${targetProduct.Isin}</span></p>
-                        <p>Ticker: <span id="ticker">${targetProduct.Ticker}</span></p>
+                        <p>Ticker: <span id="ticker">${targetApprovedIdea.Ticker}</span></p>
                     </div>
                 </div>
                 <div class="product-details-risk" style="display: flex;">
-                    <p id="risk-rating">Risk level: ${targetProduct.RiskLevel}</p>
-                    <p id="risk-brief">${targetProduct.RiskLevelBrief}</p>
-                    <p id="risk-description">${targetProduct.RiskLevelDescription}</p>
+                    <p id="risk-rating">Risk level: ${targetApprovedIdea.RiskLevel}</p>
+                    <p id="risk-brief">${targetApprovedIdea.RiskLevelBrief}</p>
+                    <p id="risk-description">${targetApprovedIdea.RiskLevelDescription}</p>
                 </div>
               </div>
 
               <div class="product-details-r3" style="display: flex;">
                 <div class="product-details-preferences-2">
-                  <p class="industry-cat" style="display: fle;">Industry: ${targetProduct.Industry}</p>
-                  <p class="industry-cat" style="display: fle;">Country: ${targetProduct.Country}</p>
-                  <p class="industry-cat" style="display: fle;">Region: ${targetProduct.Region}</p>
+                  <p class="industry-cat" style="display: fle;">Industry: ${targetApprovedIdea.Industry}</p>
+                  <p class="industry-cat" style="display: fle;">Country: ${targetApprovedIdea.Country}</p>
+                  <p class="industry-cat" style="display: fle;">Region: ${targetApprovedIdea.Region}</p>
                 </div>
                 <div class="product-details-recom" style="display: flex;">
                   <button id="filter-client">Matched Clients (2)</button>
@@ -162,26 +162,26 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
               console.log("WOrjd")
             }
 
-            // const productData = {
-            //   productID: targetProduct.ApprovedID,
-            //   riskLevel: targetProduct.RiskLevel,
-            //   productType: targetProduct.ProductType,
-            //   industry: targetProduct.Industry,
-            //   country: targetProduct.Country,
-            //   region: targetProduct.Region
+            // const approvedIdeaData = {
+            //   approvedIdeaDataID: targetApprovedIdea.ApprovedID,
+            //   riskLevel: targetApprovedIdea.RiskLevel,
+            //   productType: targetApprovedIdea.ProductType,
+            //   industry: targetApprovedIdea.Industry,
+            //   country: targetApprovedIdea.Country,
+            //   region: targetApprovedIdea.Region
             // };
             
             const myFunction = () => {
-              const productData = {
-                productID: targetProduct.ApprovedID,
-                riskLevel: targetProduct.RiskLevel,
-                productType: targetProduct.ProductType,
-                industry: targetProduct.Industry,
-                country: targetProduct.Country,
-                region: targetProduct.Region
+              const approvedIdeaData = {
+                approvedIdeaDataID: targetApprovedIdea.ApprovedID,
+                riskLevel: targetApprovedIdea.RiskLevel,
+                productType: targetApprovedIdea.ProductType,
+                industry: targetApprovedIdea.Industry,
+                country: targetApprovedIdea.Country,
+                region: targetApprovedIdea.Region
               };
 
-              // console.log("Product Data:", productData)
+              console.log("approvedIdea Data:", approvedIdeaData)
             
               //  Call the API backend/matchClients.php
               fetch('http://localhost/wealth_affairs/rm/backend/matchClients.php', {
@@ -189,16 +189,16 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
                 headers: {
                   'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(productData)
+                body: JSON.stringify(approvedIdeaData)
               })
               .then(response => response.json())
               .then(data => {
                 console.log(data);
-                console.log(targetProduct.InstrumentName);
+                // console.log(targetApprovedIdea.InstrumentName);
                 let numberOfClientsMatched = document.getElementById('filter-client');
                 let recommendToClientsMatched = document.getElementById('rec-to-client');
                 if (Array.isArray(data) && data.hasOwnProperty('length')) {
-                  // console.log(data.length);
+                  console.log(data.length);
                   numberOfClientsMatched.innerHTML = `${data.length} client${data.length == 1 ? '' : 's'} matched`;
 
                   // Recommend product to clients matched
@@ -207,7 +207,7 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
                     data.map((recomProduct) => {
                       console.log(recomProduct)
 
-                      fetch('http://localhost/wealth_affairs/rm/backend/recommendedProducts.php', {
+                      fetch('http://localhost/wealth_affairs/rm/backend/recommendedIdeas.php', {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json'
@@ -232,16 +232,17 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
                 } else {
                   // If data is not an array or doesn't have a length property, set length to 0
                   data.length = 0;
-                  // console.log(data.length);
+                  console.log(data.length);
                   numberOfClientsMatched.innerHTML = `${data.length} client matched`;
                   recommendToClientsMatched.onclick = function(){
-                    alert(`${targetProduct.InstrumentName} cannot be recommended to 0 client`)
+                    alert(`${targetApprovedIdea.InstrumentName} does not match any client`)
                   }
                 }
               })
               .catch(error => {
                 console.log('Error:', error)
               })
+              
             }
             myFunction();
           }

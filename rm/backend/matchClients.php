@@ -4,10 +4,10 @@
     $request_body = file_get_contents('php://input');
     $request_data = json_decode($request_body, true);
 
-    if (isset($request_data['ApprovedID'])) {
-        $ProductID = $request_data['ApprovedID'];
+    if (isset($request_data['approvedIdeaDataID'])) {
+        $ApprovedID = $request_data['approvedIdeaDataID'];
     } else {
-        $ProductID = null;
+        $ApprovedID = null;
     }
 
     if (isset($request_data['riskLevel'])) {
@@ -41,16 +41,16 @@
     }
     // echo "productType: " . $ProductType . "<br>";
 
-    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, firstname, lastname, selectedRiskLevel, ProductType as ProductTypePref, Country as CountryPref, region as RegionPref, Industry as IndustryPref 
-        FROM client cl
+    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, firstname, lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, region as RegionPref, Industry as IndustryPref 
+        FROM clients cl
         left join COUNTRIES co on co.ClientID=cl.ClientID
         left join regions re on re.ClientID=cl.ClientID
         left join industries ind on ind.ClientID=cl.ClientID
         left join producttypes pdt on pdt.ClientID=cl.ClientID)
         select DISTINCT a.*, ai.*
-        from approvedIdeas ai left join CTE a on ai.risklevel=a.selectedrisklevel
+        from approvedideas ai left join CTE a on ai.risklevel=a.RiskLevelPref
         WHERE RiskLevel=$RiskLevel
-        AND ApprovedID=$ProductID
+        AND ApprovedID=$ApprovedID
         AND FIND_IN_SET('$ProductType', a.ProductTypePref)
         AND (
             FIND_IN_SET('$Industry', a.IndustryPref)
