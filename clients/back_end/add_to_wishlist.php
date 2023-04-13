@@ -5,14 +5,14 @@ session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['ClientID'])) {
     // User is not logged in, redirect to login page
-    header('Location: http://localhost/wealth-affairs/clients/front_end/login.php');
+    header('Location: http://localhost/wealth_affairs/clients/front_end/login.php');
     exit();
 }
 
 // Check if the product ID was submitted
 if (!isset($_POST['ApprovedID'])) {
     // Product ID was not submitted, redirect to homepage
-    header('Location: http://localhost/wealth-affairs/clients/front_end/dashboard.php');
+    header('Location: http://localhost/wealth_affairs/clients/front_end/dashboard.php');
     exit();
 }
 
@@ -31,7 +31,7 @@ $sql = "SELECT * FROM approvedideas WHERE ApprovedID = $approved_id";
 $result = mysqli_query($db, $sql);
 if (mysqli_num_rows($result) == 0) {
     // Product does not exist, redirect to homepage
-    header('Location: http://localhost/wealth-affairs/clients/front_end/dashboard.php');
+    header('Location: http://localhost/wealth_affairs/clients/front_end/dashboard.php');
     exit();
 }
 
@@ -55,6 +55,6 @@ mysqli_query($db, $sql);
 mysqli_close($db);
 
 // Redirect to the wishlist page
-header('Location: http://localhost/wealth-affairs/clients/back_end/add_to_wishlist.php');
+header('Location: http://localhost/wealth_affairs/clients/back_end/add_to_wishlist.php');
 exit();
 ?>

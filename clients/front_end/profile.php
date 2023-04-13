@@ -5,7 +5,7 @@ session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['ClientID'])) {
     // User is not logged in
-    header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
+    header("Location: http://localhost/wealth_affairs/clients/front_end/login.php");
     exit();
 }
 
@@ -18,7 +18,7 @@ if ($elapsed_time > $inactive) {
     // User has been inactive for too long, log them out
     session_unset();
     session_destroy();
-    header("Location: http://localhost/wealth-affairs/clients/front_end/login.php");
+    header("Location: http://localhost/wealth_affairs/clients/front_end/login.php");
     exit();
 } else if ($elapsed_time > ($inactive - 300)) {
     // User has been inactive for almost 20 minutes, provide a warning
@@ -28,7 +28,7 @@ if ($elapsed_time > $inactive) {
     echo "<button onclick='extendSession()'>Extend Session</button>";
     // Add a script to handle the button click
     echo "<script>function extendSession() {
-        window.location.href = 'http://localhost/wealth-affairs/clients/front_end/profile.php';
+        window.location.href = 'http://localhost/wealth_affairs/clients/front_end/profile.php';
     }</script>";
 }
 
@@ -40,8 +40,8 @@ $_SESSION['session_time'] = time();
 <html lang="en-UK">
 <html>
 <head>
-    <link rel="stylesheet" href="http://localhost/wealth-affairs/clients/front_end/main.css">
-    <script src="http://localhost/wealth-affairs/clients/front_end/main.js"></script>
+    <link rel="stylesheet" href="http://localhost/wealth_affairs/clients/front_end/main.css">
+    <script src="http://localhost/wealth_affairs/clients/front_end/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <title>Edit profile
@@ -52,13 +52,13 @@ $_SESSION['session_time'] = time();
     <div class="wrapper">
         <header style="border: 1px solid purple; display:flex;">
             <div class="company-logo" style="border: 1px solid purple;"> 
-            <a href="http://localhost/wealth-affairs/clients/front_end/dashboard.php">
+            <a href="http://localhost/wealth_affairs/clients/front_end/dashboard.php">
               <img src="WealthManagement-logo/logo.png"/>
             </a>
           </div>
             <div class="welcome" style="border: 1px solid purple; flex:4;"><h2>Edit Your Profile</h2></div>
             <p>You are now logged in to the dashboard.</p>
-            <a href="http://localhost/wealth-affairs/clients/back_end/logout.php">Logout</a>
+            <a href="http://localhost/wealth_affairs/clients/back_end/logout.php">Logout</a>
         </header>
          <!-- Form section -->
         <section class="personal-section" style="border: 3px solid gray; flex: 1; display: flex; flex-direction: column;">
@@ -67,7 +67,7 @@ $_SESSION['session_time'] = time();
                 <!-- Profile Page -->
                 <div class="profile-page" style="border: 1px solid purple; flex: 3;">Basic Instrument
                    <!-- Form for personal data -->
-                    <form class="form-inline" method='post' action="http://localhost/wealth-affairs/clients/back_end/bio_data.php">
+                    <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/bio_data.php">
                          <label for="email">Email:</label>
                         <input type="email" id="email" placeholder="Enter email" name="email">
                         <label for="pnmuber">Phone Number:</label>
@@ -129,8 +129,8 @@ $_SESSION['session_time'] = time();
                     <p class="name" ><?php echo $_SESSION['fname']; ?>
                     <p class="name" ><?php echo $_SESSION['email']; ?>
                     <p class="title">Client</p>
-                    <button><a href="http://localhost/wealth-affairs/clients/front_end/dashboard.php">Dashboard</a></button><br>
-                    <button><a href="http://localhost/wealth-affairs/clients/front_end/forgot_password.php">Change Password</a></button>
+                    <button><a href="http://localhost/wealth_affairs/clients/front_end/dashboard.php">Dashboard</a></button><br>
+                    <button><a href="http://localhost/wealth_affairs/clients/front_end/forgot_password.php">Change Password</a></button>
                 </div>
             </section> 
 
@@ -139,7 +139,7 @@ $_SESSION['session_time'] = time();
                     <h1>Select preference</h1>
 
                      <!-- Form for preference -->
-                        <form class="form-inline" method='post' action="http://localhost/wealth-affairs/clients/back_end/selected_preferences.php">
+                        <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/selected_preferences.php">
                     
                           <!-- Product type checkbox -->
                             <div class="multiselect">
@@ -164,8 +164,8 @@ $_SESSION['session_time'] = time();
                                     <input type="checkbox" id="Security Derivatives" name="productType[]" value="Security Derivatives"/>Security Derivatives</label><br>
                                 <label for="Stocks">
                                     <input type="checkbox" id="Stocks" name="productType[]" value="Stocks"/>Stocks</label><br>
-                                <label for="Mutaul Funds">
-                                    <input type="checkbox" id="Mutaul Funds" name="productType[]" value="Mutaul Funds"/>Mutaul Funds</label><br>
+                                <label for="Mutual Funds">
+                                    <input type="checkbox" id="Mutual Funds" name="productType[]" value="Mutual Funds"/>Mutaul Funds</label><br>
                               </div>
                               </div>
                               

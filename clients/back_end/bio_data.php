@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->num_rows > 0) {
             echo "<script>alert('Error: Email already exists in the database.'); 
                   setTimeout(function() 
-                   { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/profile.php'; }, 1000);
+                   { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/profile.php'; }, 1000);
                     </script>";
             exit();
         }
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->num_rows > 0) {
             echo "<script>alert('Error: Phone number already exists in the database'); 
                   setTimeout(function() 
-                    { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/profile.php'; }, 1000);
+                    { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/profile.php'; }, 1000);
                     </script>";
             exit();
         }
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute() === TRUE) {
             echo "<script>alert('Record updated successfully'); 
                   setTimeout(function() 
-                    { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/profile.php'; }, 1000);
+                    { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/profile.php'; }, 1000);
                     </script>";
             exit();
         } else {

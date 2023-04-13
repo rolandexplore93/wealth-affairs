@@ -41,7 +41,7 @@
                 $_SESSION['rm_email'] = $row['rm_email'];
 
                 // Redirect to the next page
-                header("Location: http://localhost/wealth-affairs/clients/front_end/dashboard.php");
+                header("Location: http://localhost/wealth_affairs/clients/front_end/dashboard.php");
                 $found = true;
                 break;
                 }
@@ -51,7 +51,7 @@
                 if (!$found) {
                     echo "<script>";
                     echo "alert('Invalid email or password');";
-                    echo "window.location.href='http://localhost/wealth-affairs/clients/front_end/login.php';";
+                    echo "window.location.href='http://localhost/wealth_affairs/clients/front_end/login.php';";
                     echo "</script>";
                     exit();
                 }
@@ -63,7 +63,7 @@
             }
         } else {
             // The user is already logged in, so redirect to the next page
-            header("Location: http://localhost/wealth-affairs/clients/front_end/dashboard.php");
+            header("Location: http://localhost/wealth_affairs/clients/front_end/dashboard.php");
         }
     
    
