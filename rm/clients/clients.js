@@ -1,33 +1,5 @@
 // Prevent javascript code from loading until html code has been completely loaded
 document.addEventListener('DOMContentLoaded', () => {
-  
-//   const clients = [
-//     {
-//         id: '1112',
-//         firstname: 'John',
-//         lastname: 'Stones',
-//         phoneNumber: '0748596321',
-//         email: 'john@honf.com',
-//         country: 'United Kingdom',
-//     },
-//     {
-//         id: '1113',
-//         firstname: 'Scottish',
-//         lastname: 'Brat',
-//         phoneNumber: '0779593452',
-//         email: 'braty@mail.com',
-//         country: 'Scotland',
-//     },
-//     {
-//         id: '4112',
-//         firstname: 'Adebisi',
-//         lastname: 'Berry',
-//         phoneNumber: '23478696321',
-//         email: 'debisi@gmail.com',
-//         country: 'Nigeria',
-//     },
-// ]
-
 fetch('http://localhost/wealth_affairs/rm/backend/allClients.php')
 .then(response => response.json())
 .then(clients => {
@@ -59,12 +31,12 @@ fetch('http://localhost/wealth_affairs/rm/backend/allClients.php')
                                     <td><button class="idme" data-id="${client.ClientID}">View Profile</button></td>
                                 </tr>`
                                 )).join('')
-                            };
+                            }
                         </table>
                     </div>
                 `;
                 
-                // const viewClient = this.querySelectorAll('idme');
+                // const viewClient = this.querySelectorAll('idme')
                 // console.log(viewClient)
     
             }

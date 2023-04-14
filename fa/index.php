@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="./style.css">
     <title>Wealth Affairs - Fund Administrator</title>
 </head>
+<?php 
+session_start();
+if ( !isset($_SESSION['FaID'] )){
+    header('Location: http://localhost/wealth_affairs/auth/login.html');
+    exit();
+}
+
+?>
 <body>
 <div class="wrapper">
     <div class="sidebar">
@@ -20,7 +28,10 @@
             <p><a href="">Profile</a></p>
         </div>
         <div class="logout">
-            <button>Logout</button>
+            <!-- <button>Logout</button> -->
+            <button>
+                <a href="http://localhost/wealth_affairs/auth/logout.php">Logout</a>
+            </button>
             <!-- <p><a href="../index.html">Go to homepage</a></p> -->
         </div>
         <div class="main">
@@ -94,5 +105,6 @@
             </table>
         </div>
     </div>
+    <script src="../auth/validateLogin.js"></script>
 </body>
 </html>

@@ -85,7 +85,7 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
               `
             ))
             .join('')
-          };
+          }
         `;
 
         const modal = document.createElement('div');
@@ -202,6 +202,9 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
                   numberOfClientsMatched.innerHTML = `${data.length} client${data.length == 1 ? '' : 's'} matched`;
 
                   // Recommend product to clients matched
+                  var receivedObjects = []; // Array to store received objects
+                  var expectedObjects = data.length; // Total number of objects expected to receive
+                  var counter = 0; // Counter to keep track of received objects
                   recommendToClientsMatched.onclick = function(){
                     console.log("Working")
                     data.map((recomProduct) => {
@@ -217,9 +220,12 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
                       .then(response => response.json())
                       .then(result => {
                         console.log(result)
-                        // Redirect to recommendedProducts.php
-                        // window.location.href = 'http://localhost/wealth-affairs/backend/recommendedProducts.php';
-                        // window.open('http://localhost/wealth-affairs/backend/recommendedProducts.php', '_blank');
+                        receivedObjects.push(recomProduct); // Add received object to the array
+                        counter++; // Increment the counter
+                        if (counter === expectedObjects) {
+                          alert("Investment successfully recommended to clients");
+                          window.location.href = 'http://localhost/wealth_affairs/rm/index.php';
+                        }
                       })
                       .catch(error => {
                         console.error('Error:', error); // Handle any errors
@@ -467,10 +473,6 @@ fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
           //   // window.location.href = "/rm/index.html";
           // };
 
-          // const selectRisk = document.getElementById('risk-level');
-          // selectRisk.onchange = function(){
-          //   console.log("Risk:" + selectRisk.value)
-          // }
           
         };
       })

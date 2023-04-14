@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="./style3.css">
     <title>Wealth Affairs - Create Idea</title>
 </head>
+<?php 
+session_start();
+if ( !isset($_SESSION['FaID'] )){
+    header('Location: http://localhost/wealth_affairs/auth/login.html');
+    exit();
+}
+?>
 <body>
     <?php
         $InstrumentName ="";

@@ -41,7 +41,7 @@
     }
     // echo "productType: " . $ProductType . "<br>";
 
-    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, firstname, lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, region as RegionPref, Industry as IndustryPref 
+    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, Firstname, Lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, Region as RegionPref, Industry as IndustryPref 
         FROM clients cl
         left join COUNTRIES co on co.ClientID=cl.ClientID
         left join regions re on re.ClientID=cl.ClientID

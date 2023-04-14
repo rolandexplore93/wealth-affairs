@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if ( !isset($_SESSION['RmID']) ){
+        header('Location: http://localhost/wealth_affairs/auth/login.html');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +27,10 @@
                 <p><a href="javascript:void(0)" onclick="expanded()">Dashboard</a></p>
                 <p><a href="">Profile</a></p>
             </div>
-            <div class="logout">
-                <button>Logout</button>
+            <div class="logout"> 
+                <button>
+                    <a href="http://localhost/wealth_affairs/auth/logout.php">Logout</a>
+                </button>
                 <p><a href="../index.html">Go to homepage</a></p>
             </div>
         </div>
@@ -205,7 +214,8 @@
 
     <!-- Javascript files -->
     <script src="./script.js" type="text/javascript"></script>
-    <!-- <script type="text/javascript" src="./clients/clients.js"></script> -->
+    <script type="text/javascript" src="./clients/clients.js"></script>
+    <script src="../auth/validateLogin.js"></script>
     <!-- <script type="text/javascript" src="../data.js"></script> -->
 </body>
 </html>

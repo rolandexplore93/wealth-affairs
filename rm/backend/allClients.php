@@ -1,6 +1,6 @@
 <?php 
     include "dbconnection.php";
-    $clients = mysqli_query($databaseConnection, "SELECT * FROM `client`");
+    $clients = mysqli_query($databaseConnection, "SELECT * FROM `clients`");
     
     if (mysqli_num_rows($clients) > 0) {
         $allClients = array();
