@@ -9,5 +9,5 @@
     if ($databaseconnection->connect_error) {
         die("Error connecting to: " . $databaseconnection->connect_error);
     }
-    echo "Connected to database";
+    // echo "Connected to database";
 ?>

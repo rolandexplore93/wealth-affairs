@@ -158,19 +158,6 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php')
             `;
             modal.style.display = 'block';
 
-            const recommendToClients = () => {
-              console.log("WOrjd")
-            }
-
-            // const approvedIdeaData = {
-            //   approvedIdeaDataID: targetApprovedIdea.ApprovedID,
-            //   riskLevel: targetApprovedIdea.RiskLevel,
-            //   productType: targetApprovedIdea.ProductType,
-            //   industry: targetApprovedIdea.Industry,
-            //   country: targetApprovedIdea.Country,
-            //   region: targetApprovedIdea.Region
-            // };
-            
             const myFunction = () => {
               const approvedIdeaData = {
                 approvedIdeaDataID: targetApprovedIdea.ApprovedID,
@@ -486,8 +473,3 @@ fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
 
 })
 .catch(error => console.error(error));
-
-
-
-
-// });

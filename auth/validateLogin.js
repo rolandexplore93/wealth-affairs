@@ -1,38 +1,13 @@
-// Check for inactivity every 1 minute (60000 milliseconds)
-console.log('wwww');
-// var inactivityTimeout = 5000;
-// var checkInactivity = setInterval(function() {
-//     // Make an AJAX request to a PHP file that checks the session
-//     // and returns the last activity timestamp
-//     fetch('http://localhost/wealth_affairs/auth/check_session_activity.php') // Replace with your PHP file that checks session activity
-//         .then(response => response.json())
-//         .then(data => {
-//             var lastActivity = parseInt(data.last_activity);
-//             // console.log(lastActivity)
-//             var currentTime = new Date().getTime() / 1000; // Convert to seconds
-//             // console.log(currentTime)
-//             var elapsed = currentTime - lastActivity;
-//             console.log(elapsed)
-//             // Check if elapsed time is greater than 30 minutes (1800 seconds)
-//             if (elapsed > 60) {
-//                 // Perform logout operation, e.g. redirect to logout page
-//                 window.location.href = 'http://localhost/wealth_affairs/auth/logout.php'; // Replace with your logout page or script
-//             }
-//         })
-//         .catch(error => console.error(error));
-// }, inactivityTimeout);
-
-// fetch('http://localhost/wealth_affairs/auth/login.php')
-// .then(response => response.json())
-// .then(data => {
-//     console.log(data)
-// })
-// .catch(error => console.log("Error message: " + error))
-
 fetch('http://localhost/wealth_affairs/auth/isLoggedIn.php')
 .then(response => response.json())
 .then(data => {
     console.log(data)
+    // let userRole = document.getElementById('title-role').innerHTML = (data.Role == 'RM' ? 'RMM00' : 'RMMMMMM');
+    let userRole = document.getElementById('title-role').innerHTML = (data.Role == 'RM' && `Relationship Manager` || data.Role == 'FA' && 'Funds Administrator');
+    let name = document.getElementById('name').innerHTML = (data.Role == 'RM' && `${data.Firstname} ${data.Lastname}` || data.Role == 'FA' && `${data.Firstname} ${data.Lastname}`);
+    let email = document.getElementById('email').innerHTML = (data.Role == 'RM' && `${data.Email}` || data.Role == 'FA' && `${data.Email}`);
+    let phoneno = document.getElementById('phoneno').innerHTML = (data.Role == 'RM' && `${data.PhoneNo}` || data.Role == 'FA' && `${data.PhoneNo}`);
+
 })
 .catch(error => console.log("Error message: " + error))
 

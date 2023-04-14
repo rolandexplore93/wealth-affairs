@@ -20,19 +20,19 @@ if ( !isset($_SESSION['FaID'] )){
     <div class="sidebar">
         <div class="rm">
             <img class="photo" src="../images/relational-manager-photo.jfif" alt="rm-image" />
-            <p class="name">Francis, O. A</p>
-            <p class="title">Funds Administrator</p>
+            <p class="name" id="name"></p>
+            <p class="title">Role: <span id="title-role"></span></p>
+            <p>Email: <span id="email"></span></p>
+            <p>Phone: <span id="phoneno"></span></p>
         </div>
         <div class="">
             <p><a href="">Dashboard</a></p>
             <p><a href="">Profile</a></p>
         </div>
         <div class="logout">
-            <!-- <button>Logout</button> -->
             <button>
                 <a href="http://localhost/wealth_affairs/auth/logout.php">Logout</a>
             </button>
-            <!-- <p><a href="../index.html">Go to homepage</a></p> -->
         </div>
         <div class="main">
         <div>
