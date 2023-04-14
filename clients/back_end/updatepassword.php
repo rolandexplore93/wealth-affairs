@@ -45,7 +45,7 @@ if (!isset($_SESSION['ClientID'])) {
             if (!$found) {
                 echo "<script>";
                 echo "alert('Invalid email or old password');";
-                echo "window.location.href='http://localhost/wealth-affairs/clients/front_end/forgot_password.php';";
+                echo "window.location.href='http://localhost/wealth_affairs/clients/front_end/forgot_password.php';";
                 echo "</script>";
                 exit();
             }

@@ -34,7 +34,7 @@
                 // Email already exists, show error message or redirect to the signup page with an error message
                 echo "<script>alert('This email address is already taken. Please choose another one'); 
                     setTimeout(function() 
-                        { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/signup.html'; }, 1000);
+                        { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/signup.html'; }, 1000);
                         </script>";
                 return;
             }
@@ -57,7 +57,7 @@
             if ($query) {
                 echo "<script>alert('Congratulations! Your account has been created. You are now being redirected to login'); 
                   setTimeout(function() 
-                    { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/login.php'; }, 1000);
+                    { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/login.php'; }, 1000);
                     </script>";
                 exit;
             }
@@ -65,7 +65,7 @@
                 // print the error generated
                 echo "<script>alert('Unable to create your account. Please try again'); 
                   setTimeout(function() 
-                    { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/signup.html'; }, 1000);
+                    { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/signup.html'; }, 1000);
                     </script>";
             }
     

@@ -4,7 +4,7 @@ session_start();
 // Check if the product ID was submitted
 if (!isset($_POST['ApprovedID'])) {
     // Product ID was not submitted, redirect to homepage
-    header('Location: http://localhost/wealth-affairs/clients/front_end/dashboard.php');
+    header('Location: http://localhost/wealth_affairs/clients/front_end/dashboard.php');
     exit();
 }
 

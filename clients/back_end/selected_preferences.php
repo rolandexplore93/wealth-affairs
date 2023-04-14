@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($updated) {
         echo "<script>alert('Preferences updated successfully'); 
                   setTimeout(function() 
-                    { window.location.href = 'http://localhost/wealth-affairs/clients/front_end/profile.php'; }, 1000);
+                    { window.location.href = 'http://localhost/wealth_affairs/clients/front_end/profile.php'; }, 1000);
                     </script>";
         exit();
     }

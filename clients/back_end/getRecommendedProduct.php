@@ -115,7 +115,7 @@ function addToWishlist(productId) {
       alert('Product added to wishlist successfully!');
     }
   };
-  xhr.open('POST', 'http://localhost/wealth-affairs/clients/back_end/add_to_wishlist.php', true);
+  xhr.open('POST', 'http://localhost/wealth_affairs/clients/back_end/add_to_wishlist.php', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.send('ApprovedID=' + productId);
 }

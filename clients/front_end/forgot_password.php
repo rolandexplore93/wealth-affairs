@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link to login CSS File-->
-    <link rel="stylesheet" href="http://localhost/wealth-affairs/clients/front_end/login_signup.css">
-    <script src="http://localhost/wealth-affairs/clients/editprofile.js"></script>
+    <link rel="stylesheet" href="http://localhost/wealth_affairs/clients/front_end/login_signup.css">
+    <script src="http://localhost/wealth_affairs/clients/editprofile.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <noscript>
   <p>Please enable JavaScript to use this website.</p>
@@ -60,7 +60,7 @@
     <div class="wrapper">
                <section class="Left">
             <div class="title"><h1>Wealth Management</h1></div>
-                <form class="myForm" name="myForm" onsubmit="return validateForm()" method="POST" action="http://localhost/wealth-affairs/clients/back_end/updatepassword.php">
+                <form class="myForm" name="myForm" onsubmit="return validateForm()" method="POST" action="http://localhost/wealth_affairs/clients/back_end/updatepassword.php">
                 <h2 id="form-directive">Change Password</h2>
                 <label for="email"><b>Email:</b></label>
                 <input type="text" placeholder="Enter Email" name="email" ><br><br>
@@ -75,7 +75,7 @@
 
                 <div class="submit">
                     <button type="submit" class="continuebtn"><b>Change Password</b></button>
-                    <button class="button-wrapper"> <a href="http://localhost/wealth-affairs/clients/front_end/login.php">Login to your account</a></button>
+                    <button class="button-wrapper"> <a href="http://localhost/wealth_affairs/clients/front_end/login.php">Login to your account</a></button>
                 </div>
                 <style>
                 .button-wrapper {
