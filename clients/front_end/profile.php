@@ -40,9 +40,16 @@ $_SESSION['session_time'] = time();
 <html lang="en-UK">
 <html>
 <head>
+  <!-- This is the link to the CSS file. -->
     <link rel="stylesheet" href="http://localhost/wealth_affairs/clients/front_end/main.css">
+     <!-- This is the link to the main JavaScript file. -->
     <script src="http://localhost/wealth_affairs/clients/front_end/main.js"></script>
+     <!-- This is the link to the jQuery library. -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!-- This is a message for users who do not have JavaScript enabled. -->
+     <noscript>
+    <p>Please enable JavaScript to use this website.</p>
+    </noscript>
     
     <title>Edit profile
     </title>
@@ -65,10 +72,10 @@ $_SESSION['session_time'] = time();
             <!-- Profile display -->
             <section class="profiles" style="border: 1px solid purple; flex: 2; display: flex;">
                 <!-- Profile Page -->
-                <div class="profile-page" style="border: 1px solid purple; flex: 3;">Basic Instrument
+                <div class="profile-page" style="border: 1px solid purple; flex: 3;">Profile Section
                    <!-- Form for personal data -->
                     <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/bio_data.php">
-                         <label for="email">Email:</label>
+                         <label for="email">Update Email:</label>
                         <input type="email" id="email" placeholder="Enter email" name="email">
                         <label for="pnmuber">Phone Number:</label>
                         <input type="pnumber" id="pnumber" placeholder="Enter Phone Number" name="pnumber">
@@ -77,7 +84,7 @@ $_SESSION['session_time'] = time();
                         <label for="pcode">Post Code:</label>
                         <input type="pcode" id="pcode" placeholder="Enter Post Code" name="pcode">
                         <label for="country">Country</label>
-                        
+                        <!-- created a varirable to store all country data for reuse -->
                         <select id="country" name="country" placeholder="Select Country">
                         <?php
                         $countries = array("Select Country",
@@ -134,11 +141,11 @@ $_SESSION['session_time'] = time();
                 </div>
             </section> 
 
-                <!--Select preference  -->
+                <!--Select investment preferences  -->
                 <div class="preference" style="border: 1px solid gray; flex: 2;">   
-                    <h1>Select preference</h1>
+                    <h1>Select your investment preferences</h1>
 
-                     <!-- Form for preference -->
+                     <!-- Form for preferences -->
                         <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/selected_preferences.php">
                     
                           <!-- Product type checkbox -->

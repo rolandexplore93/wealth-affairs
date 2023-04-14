@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link to login CSS File-->
     <link rel="stylesheet" href="http://localhost/wealth_affairs/clients/front_end/login_signup.css">
+    <!-- Link to main.js file -->
      <script src="http://localhost/wealth_affairs/clients/front_end/main.js"></script>
+     <!-- Link to the jQuery library from a CDN -->
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Display a message asking the user to enable JavaScript if it is disabled -->
      <noscript>
         <p>Please enable JavaScript to use this website.</p>
       </noscript>
@@ -52,45 +55,55 @@
     }   
     </script>
     <title>Sign up</title>
+<!-- The HTML page for user signup -->
+<html>
+<head>
+    <title>Sign up</title>
 </head>
 <body>
     <div class="wrapper">
+        <!-- The left section of the page -->
         <section class="Left">
             <div class="title"><h1>Wealth Management</h1></div>
-
-            <form name="signupForm" method="post" action="http://localhost/wealth_affairs/clients/back_end/insertInDB.php" onsubmit="return validateForm()">
-                <h2 id="form-directive">Sign Up</h2>
-                <p id="form-guide">Please fill in this form to create an account.</p>
-                <label for="fname" class="fname"><b>First name</b>:</label>
-                <input type="text" id="fname" name="fname"><br><br>
-                <label for="lname"><b>Last name:</b></label>
-                <input type="text" id="lname" name="lname" ><br><br>
-                <label for="email"><b>Email:</b></label>
-                <input type="text" id="email" placeholder="Enter Email" name="email" ><br><br>
-                <label for="password"><b>Password:</b></label>
-                <input type="password" id="password" placeholder="Enter Password" name="password" ><br><br>
-                <label for="password_rpt"><b>Confirm Password:</b></label>
-                <input type="password" id="password_rpt"placeholder="Confirm Password" name="password_rpt" ><br><br>
-                <span>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</span>
-                <div class="button-wrapper">
-                    <button type="submit" id="signupbtn" value="submit">Sign Up</a></b></button>
-                </div>
-                <div class="button-wrapper">
-                 <button><a href="http://localhost/wealth_affairs/clients/front_end/login.php">Already Registered User? Click here to login</a></button>
-                </div>
-                <style>
-                    .button-wrapper {
-                        display: inline-block;
-                        margin-right: 20px; /* change the value to adjust the spacing */
-                    }
-                    </style>
-            </form>
-        </section>
-        <section class="Right">
-            <div class="onboarding-image-cover">
-                <img class="onboarding-image" src="./Images/invest 2.jpg" alt="female on a her mobile devices">
+        <!-- The signup form -->
+        <form name="signupForm" method="post" action="http://localhost/wealth_affairs/clients/back_end/insertInDB.php" onsubmit="return validateForm()">
+            <h2 id="form-directive">Sign Up</h2>
+            <p id="form-guide">Please fill in this form to create an account.</p>
+            <label for="fname" class="fname"><b>First name</b>:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname"><b>Last name:</b></label>
+            <input type="text" id="lname" name="lname" ><br><br>
+            <label for="email"><b>Email:</b></label>
+            <input type="text" id="email" placeholder="Enter Email" name="email" ><br><br>
+            <label for="password"><b>Password:</b></label>
+            <input type="password" id="password" placeholder="Enter Password" name="password" ><br><br>
+            <label for="password_rpt"><b>Confirm Password:</b></label>
+            <input type="password" id="password_rpt"placeholder="Confirm Password" name="password_rpt" ><br><br>
+            <span>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</span>
+            <div class="button-wrapper">
+                <!-- Submit button for the form -->
+                <button type="submit" id="signupbtn" value="submit">Sign Up</a></b></button>
             </div>
-        </section>
-    </div>
+            <div class="button-wrapper">
+                <!-- Button to redirect to the login page -->
+                <button><a href="http://localhost/wealth_affairs/clients/front_end/login.php">Already Registered User? Click here to login</a></button>
+            </div>
+            <!-- CSS styling for the buttons -->
+            <style>
+                .button-wrapper {
+                    display: inline-block;
+                    margin-right: 20px; /* change the value to adjust the spacing */
+                }
+            </style>
+        </form>
+    </section>
+    <!-- The right section of the page -->
+    <section class="Right">
+        <div class="onboarding-image-cover">
+            <!-- An image of a person using a mobile device -->
+            <img class="onboarding-image" src="./Images/invest 2.jpg" alt="female on a her mobile devices">
+        </div>
+    </section>
+</div>
 </body>
 </html>
