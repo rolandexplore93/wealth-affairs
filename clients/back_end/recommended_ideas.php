@@ -11,13 +11,11 @@ if (isset($_SESSION['ClientID'])) {
     $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
-    require_once 'basicAuth_v3_PDO.php';
+    require_once 'basicAuth_c.php';
 }
 
 // Establish database connection
 include "dbconnect.php";
-
-$db =$conn;
 
 // Define SQL query
 $sql = "SELECT *
@@ -33,7 +31,7 @@ $sql = "SELECT *
         ORDER BY RAND()";
 
 // Execute SQL query
-$result = mysqli_query($db, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Check if there are any ideas
 if (mysqli_num_rows($result) > 0) {
@@ -86,7 +84,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Close database connection
-mysqli_close($db);
+mysqli_close($conn);
 ?>
 
 <script>

@@ -16,17 +16,16 @@ $approved_id = $_POST['ApprovedID'];
 
 // Connect to database
 include "dbconnect.php";
-$db = $conn;
 
 // Prepare and execute the query to delete the idea from the wishlist
 $sql = "DELETE FROM wishlist WHERE ClientID = ? AND ApprovedID = ?";
-$stmt = mysqli_prepare($db, $sql);
+$stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "ii", $current_clientid, $approved_id);
 mysqli_stmt_execute($stmt);
 
 // Close statement and database connection
 mysqli_stmt_close($stmt);
-mysqli_close($db);
+mysqli_close($conn);
 
 exit();
 ?>

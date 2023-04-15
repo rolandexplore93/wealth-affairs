@@ -9,12 +9,12 @@ if (isset($_SESSION['ClientID'])) {
     $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
-    require_once 'basicAuth_v3_PDO.php';
+    require_once 'basicAuth_c.php';
 }
 
 // Establish database connection
 include "dbconnect.php";
-$db = $conn;
+
 // Define SQL query to get the ideas in the user's wishlist
 $sql = "SELECT approvedideas. *
         FROM   approvedideas
@@ -22,7 +22,7 @@ $sql = "SELECT approvedideas. *
         WHERE wishlist.ClientID = $current_clientid";
 
 // Execute SQL query
-$result = mysqli_query($db, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Create an array to hold the ideas
 $approvedideas = array();
@@ -36,6 +36,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 echo json_encode($approvedideas);
 
 // Close database connection
-mysqli_close($db);
+mysqli_close($conn);
 
 ?>

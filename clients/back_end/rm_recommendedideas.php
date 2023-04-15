@@ -11,13 +11,11 @@ if (isset($_SESSION['ClientID'])) {
     $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
-    require_once 'basicAuth_v3_PDO.php';
+    require_once 'basicAuth_c.php';
 }
 
 // Establish database connection
 include "dbconnect.php";
-
-$db =$conn;
 
 // Define SQL query
 $getRecommendedProducts = mysqli_query($conn, "SELECT * FROM `recommendedideas` WHERE ClientID = $current_clientid");
@@ -73,7 +71,7 @@ if (mysqli_num_rows($getRecommendedProducts) > 0) {
 }
 
 // Close database connection
-mysqli_close($db);
+mysqli_close($conn);
 ?>
 
 <script>

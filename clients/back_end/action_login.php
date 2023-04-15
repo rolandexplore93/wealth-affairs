@@ -16,7 +16,6 @@
                 
                // Connect to the database
                 require_once 'dbconnect.php';
-                $db = $conn;
 
                 // Look up the user-provided credentials
                 $query = "SELECT c.ClientID, c.Firstname, c.Email, c.Password, 
@@ -24,7 +23,7 @@
                 FROM clients c
                 INNER JOIN rm ON c.RmID = rm.RmID
                 WHERE c.Email = ?";
-                $stmt = mysqli_prepare($db, $query);
+                $stmt = mysqli_prepare($conn, $query);
                 mysqli_stmt_bind_param($stmt, "s", $email);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
