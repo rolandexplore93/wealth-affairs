@@ -31,7 +31,7 @@ if (!isset($_SESSION['RmID']) || !isset($_SESSION['FaID'])){
 
             if ($result && mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
-                if ($password == $row['Password']) {
+                if (password_verify($password, $row['Password'])) {
                     if ($row['Role'] == 'FA') {
                         $_SESSION['FaID'] = $row['FaID'];
                         $_SESSION['Firstname'] = $row['Firstname'];
@@ -96,23 +96,9 @@ if (!isset($_SESSION['RmID']) || !isset($_SESSION['FaID'])){
         
         
     } 
-    
-    // else {
-    //     // The user is not logged in and a login form was not submitted, so show the login form
-    //     echo "Enter your login details";
-    //     echo "<script>
-    //         setTimeout(function() {
-    //             window.location.href = 'http://localhost/wealth_affairs/auth/login.html';
-    //         }, 2000);
-    //         </script>";
-    //         // header('Location: http://localhost/wealth_affairs/auth/login.html');
-    //     exit();
-    // }
-    
-    
 } else {
-    // The user is already logged in, so redirect to the next page
-    if ($password == $row['Password']) {
+    // The user is already logged in, so redirect to the next page  
+    if (password_verify($password, $row['Password'])){
         if ($row['Role'] == 'FA') {
             $_SESSION['FaID'] = $row['FaID'];
             $_SESSION['Firstname'] = $row['Firstname'];
