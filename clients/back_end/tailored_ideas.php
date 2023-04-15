@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Start the session if it hasn't been started already
 if (session_status() == PHP_SESSION_NONE) {
@@ -13,15 +13,34 @@ if (isset($_SESSION['ClientID'])) {
     // Require authentication
     require_once 'basicAuth_v3_PDO.php';
 }
-    include "dbconnect.php";
 
-    $getRecommendedProducts = mysqli_query($conn, "SELECT * FROM `recommendedideas` WHERE ClientID = $current_clientid");
-    
-  // Output result set in cards
+// Establish database connection
+require_once 'dbconnect.php';
+
+$db = $conn;
+
+// Define SQL query
+$sql = "SELECT *
+        FROM approvedideas 
+        INNER JOIN clients ON clients.RiskLevel = approvedideas.RiskLevel
+        INNER JOIN countries ON countries.ClientID = clients.ClientID
+        INNER JOIN industries ON industries.ClientID = clients.ClientID
+        INNER JOIN producttypes ON producttypes.ClientID = clients.ClientID
+        WHERE clients.ClientID = $current_clientid
+        AND approvedideas.Industry = industries.Industry
+        AND approvedideas.ProductType = producttypes.ProductType
+        AND approvedideas.Country = countries.Country
+        ORDER BY RAND()";
+
+// Execute SQL query
+$result = mysqli_query($db, $sql);
+
+
+// Output result set in cards
 $counter = 0;
-if (mysqli_num_rows($getRecommendedProducts) > 0) {
-    while ($row = mysqli_fetch_assoc($getRecommendedProducts)) {
-        echo '<div class="card d-inline-block" style="width: 20%;">'; // Set the width to 25% or any other appropriate value based on your design
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div class="card d-inline-block" style="width: 20%;">'; // Set the width to 20%
          // Limit to 4 cards
          if ($counter >= 5) {
             break;
@@ -91,14 +110,14 @@ if (mysqli_num_rows($getRecommendedProducts) > 0) {
 
 
 // Close database connection
-mysqli_close($conn);
+mysqli_close($db);
 
 ?>
 
 <script>
-    productId = 'ApprovedID'
-function toggleDetails(productId) {
-    var detailsElement = document.getElementById('details-' + productId);
+    approvedId = 'ApprovedID'
+function toggleDetails(approvedId) {
+    var detailsElement = document.getElementById('details-' + approvedId);
     if (detailsElement.style.display === 'none') {
         detailsElement.style.display = 'block';
     } else {
@@ -107,16 +126,18 @@ function toggleDetails(productId) {
 }
 </script>
 <script>
-    productId = 'ApprovedID'
-function addToWishlist(productId) {
+    approvedId = 'ApprovedID'
+function addToWishlist(approvedId) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
-      alert('Product added to wishlist successfully!');
+      alert('Idea added to wishlist successfully!');
     }
   };
   xhr.open('POST', 'http://localhost/wealth_affairs/clients/back_end/add_to_wishlist.php', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xhr.send('ApprovedID=' + productId);
+  xhr.send('ApprovedID=' + approvedId);
 }
 </script>
+
+

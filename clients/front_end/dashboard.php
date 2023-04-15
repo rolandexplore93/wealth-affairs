@@ -24,9 +24,9 @@
         // User has been inactive for almost 20 minutes, provide a warning
         $remaining_time = $inactive - $elapsed_time;
         echo "<p>Your session will expire in $remaining_time seconds. Would you like to extend your session?</p>";
-        // Add a button to extend the session if the user clicks it
+        // button to extend the session if the user clicks it
         echo "<button onclick='extendSession()'>Extend Session</button>";
-        // Add a script to handle the button click
+        // script to handle the button click
         echo "<script>function extendSession() {
             window.location.href = 'http://localhost/wealth_affairs/clients/front_end/dashboard.php';
         }</script>";
@@ -82,22 +82,22 @@
                     <!-- This is the wrraper for tailored ideas available -->
                     <div class="basic-instrument" style="border: 1px solid grey; flex: 1; flex-direction: column; ">
                         
-                        <!-- This section displays the title of the tailored products -->
+                        <!-- This section displays the title of the tailored ideas -->
                         <div class="product-title">
                             <?php  
-                                // Include the tailored products from all approved ideas based on client's preferences from php script file
-                                require_once('../back_end/tailored_products.php');
+                                // Include the tailored productsideas from all approved ideas based on client's preferences from php script file
+                                require_once('../back_end/tailored_ideas.php');
                             ?>
                         </div>
                         
                         <!-- This section displays the personalized ideas by the Relationship Manager -->
                         <h1>Personalised ideas by your Relationship Manager...</h1>
                         <div class="equity" style="border: 1px solid gray; flex: 1; flex-direction: column;">
-                            <!-- This section displays the title of the recommended products -->
+                            <!-- This section displays the title of the recommended ideas -->
                             <div class="product-title">
                                 <?php  
                                     // Include the recommended ideas from the RM from php script file
-                                    require_once('../back_end/getRecommendedProduct.php');
+                                    require_once('../back_end/getRecommendedideas.php');
                                 ?>
                             </div>
                         </div>
@@ -116,16 +116,16 @@
                         <!-- Client's title -->
                         <p class="title">Client</p>
                         <!-- Edit profile button for client -->
-                        <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Edit profile</a></button><br>
+                        <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Profile</a></button><br>
                         <!-- View wishlist button for client -->
                         <button><a href="http://localhost/wealth_affairs/clients/front_end/wishlist.php">View Wishlist</a></button>
                         <!-- Buttons for viewing all tailored ideas and all ideas for client -->
                         <div style="display: flex; flex-direction: column; align-items: center;">
                             <button class="product-view" style="cursor: pointer; margin-bottom: 0px;">
-                                <a href="http://localhost/wealth_affairs/clients/front_end/all_recommeded_products.php">View all tailored ideas</a>
+                                <a href="http://localhost/wealth_affairs/clients/front_end/all_recommeded_ideas.php">View all tailored ideas</a>
                             </button>
                             <button class="product-view" style="cursor: pointer;">
-                                <a href="http://localhost/wealth_affairs/clients/front_end/products.php">View all ideas</a>
+                                <a href="http://localhost/wealth_affairs/clients/front_end/ideas.php">View all ideas</a>
                             </button>
                         </div>
                     </div>

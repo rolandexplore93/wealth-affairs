@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Check if the product ID was submitted
+// Check if the idea ID was submitted
 if (!isset($_POST['ApprovedID'])) {
-    // Product ID was not submitted, redirect to homepage
+    // Idea ID was not submitted, redirect to homepage
     header('Location: http://localhost/wealth_affairs/clients/front_end/dashboard.php');
     exit();
 }
@@ -11,14 +11,14 @@ if (!isset($_POST['ApprovedID'])) {
 // Get the current client ID
 $current_clientid = $_SESSION['ClientID'];
 
-// Get the product ID from the POST parameter
+// Get the idea ID from the POST parameter
 $approved_id = $_POST['ApprovedID'];
 
 // Connect to database
 include "dbconnect.php";
 $db = $conn;
 
-// Prepare and execute the query to delete the product from the wishlist
+// Prepare and execute the query to delete the idea from the wishlist
 $sql = "DELETE FROM wishlist WHERE ClientID = ? AND ApprovedID = ?";
 $stmt = mysqli_prepare($db, $sql);
 mysqli_stmt_bind_param($stmt, "ii", $current_clientid, $approved_id);

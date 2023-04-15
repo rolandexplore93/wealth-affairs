@@ -24,9 +24,9 @@ if ($elapsed_time > $inactive) {
     // User has been inactive for almost 20 minutes, provide a warning
     $remaining_time = $inactive - $elapsed_time;
     echo "<p>Your session will expire in $remaining_time seconds. Would you like to extend your session?</p>";
-    // Add a button to extend the session if the user clicks it
+    // button to extend the session if the user clicks it
     echo "<button onclick='extendSession()'>Extend Session</button>";
-    // Add a script to handle the button click
+    // script to handle the button click
     echo "<script>function extendSession() {
         window.location.href = 'http://localhost/wealth_affairs/clients/front_end/profile.php';
     }</script>";
@@ -51,7 +51,7 @@ $_SESSION['session_time'] = time();
     <p>Please enable JavaScript to use this website.</p>
     </noscript>
     
-    <title>Edit profile
+    <title>Profile Section
     </title>
 </head>
 <body>
@@ -63,7 +63,7 @@ $_SESSION['session_time'] = time();
               <img src="WealthManagement-logo/logo.png"/>
             </a>
           </div>
-            <div class="welcome" style="border: 1px solid purple; flex:4;"><h2>Edit Your Profile</h2></div>
+            <div class="welcome" style="border: 1px solid purple; flex:4;"><h2>Profile Section</h2></div>
             <p>You are now logged in to the dashboard.</p>
             <a href="http://localhost/wealth_affairs/clients/back_end/logout.php">Logout</a>
         </header>
@@ -72,7 +72,7 @@ $_SESSION['session_time'] = time();
             <!-- Profile display -->
             <section class="profiles" style="border: 1px solid purple; flex: 2; display: flex;">
                 <!-- Profile Page -->
-                <div class="profile-page" style="border: 1px solid purple; flex: 3;">Profile Section
+                <div class="profile-page" style="border: 1px solid purple; flex: 3;"><span><strong><p>Personal Details</p></strong></span>
                    <!-- Form for personal data -->
                     <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/bio_data.php">
                          <label for="email">Update Email:</label>
@@ -140,14 +140,11 @@ $_SESSION['session_time'] = time();
                     <button><a href="http://localhost/wealth_affairs/clients/front_end/forgot_password.php">Change Password</a></button>
                 </div>
             </section> 
-
+                      <!-- Investment prefernces section -->
                 <!--Select investment preferences  -->
-                <div class="preference" style="border: 1px solid gray; flex: 2;">   
-                    <h1>Select your investment preferences</h1>
-
+                <div class="preference" style="border: 1px solid gray; flex: 2;"><strong><p>Select your investment preferences</p></strong>
                      <!-- Form for preferences -->
                         <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/selected_preferences.php">
-                    
                           <!-- Product type checkbox -->
                             <div class="multiselect">
                               <div class="selectBox" onclick="showCheckboxes('productType')">
@@ -179,7 +176,7 @@ $_SESSION['session_time'] = time();
                                 <!-- Risk levels radio button -->
                                 <div class="multiselect">
                                 <div id="riskLevel">
-                                <h3>Select a Risk Level:</h3>
+                                <strong><p>Select a Risk Level:</p></strong>
                                   <input type="radio" name='riskLevel' value="1">Risk Level 1</label><br>
                                   <input type="radio" name="riskLevel" value=2>Risk Level 2</label><br>
                                   <input type="radio" name="riskLevel" value=3>Risk Level 3</label><br>
@@ -222,7 +219,7 @@ $_SESSION['session_time'] = time();
                                       <!-- Country checkbox -->
                                         <div class="multiselect">
                                         <div class="selectBox">
-                                              <h3>Choose preferred countries</h3>
+                                              <strong><p>Choose preferred countries</p></strong>
                                          <div class="overSelect"></div>
                                           </div>
                                           <div id="Pcountry" style="height: 200px; overflow-y: scroll;">

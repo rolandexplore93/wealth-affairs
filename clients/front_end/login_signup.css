@@ -1,3 +1,5 @@
+
+/* Remove all default properties */
 * {
   padding: 0;
   margin: 0;
@@ -11,36 +13,27 @@
 
 
 body {
-  /* border: 1px solid red; */
   height: 100vh;
   width: 100%;
 }
 
 .wrapper {
-  /* border: 1px solid blue; */
   height: 100%;
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
   gap: 10px;
 }
 
 /* Left section */
 .Left {
-  /* float:left;  */
-  /* width: 40%; */
   background-color: white;
   padding: 50px;
-  /* border: 1px solid blue; */
   height: 100%;
   flex: 2;
 }
 
 /* Right section */
 .Right {
-  /* float: right; */
-  /* width: 60%; */
-  /* border: 1px solid red; */
   height: 100%;
   flex: 3;
 }
@@ -57,7 +50,6 @@ form {
   padding: 20px;
   background-color: #ddd;
   margin: 20px 0;
-  /* border: 1px solid red; */
 }
  
 
@@ -89,7 +81,6 @@ input[type=text]:focus, input[type=password]:focus {
 .onboarding-image-cover {
   width: 100%;
   height: 100%;
-  /* border: 1px solid red; */
 }
 
 .onboarding-image {

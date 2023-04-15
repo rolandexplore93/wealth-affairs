@@ -24,9 +24,9 @@
         // User has been inactive for almost 20 minutes, provide a warning
         $remaining_time = $inactive - $elapsed_time;
         echo "<p>Your session will expire in $remaining_time seconds. Would you like to extend your session?</p>";
-        // Add a button to extend the session if the user clicks it
+        // button to extend the session if the user clicks it
         echo "<button onclick='extendSession()'>Extend Session</button>";
-        // Add a script to handle the button click
+        // script to handle the button click
         echo "<script>function extendSession() {
             window.location.href = 'http://localhost/wealth_affairs/clients/front_end/all_rm_recommeded_ideas.php';
         }</script>";
@@ -65,10 +65,10 @@
                 
         </header>
         
-         <!-- Product section -->
+         <!-- Ideas section -->
         <section class="product-section" style="border: 3px solid gray; flex: 1; display: flex;;">
        
-            <!-- Product display -->
+            <!-- Ideas display -->
             <section class="products" style="border: 1px solid gray; flex: 4; display: flex; flex-direction: column;">
             <div class="recommended-ideas" style="overflow:auto; height: 100vh;">
             <?php
@@ -87,12 +87,12 @@
                         <p class="name" ><?php echo $_SESSION['fname']; ?>
                         <p class="email" ><?php echo $_SESSION['email']; ?>
                         <p class="title">Client</p>
-                        <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Edit profile</a></button><br>
+                        <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Profile</a></button><br>
                         <button><a href="http://localhost/wealth_affairs/clients/front_end/dashboard.php">Dashboard</a></button><br>
                         <button><a href="http://localhost/wealth_affairs/clients/front_end/wishlist.php">View Wishlist</a></button>
                         <div style="display: flex; flex-direction: column; align-items: center;">
                          <button class="product-view" style="cursor: pointer;">
-                        <a href="http://localhost/wealth_affairs/clients/front_end/products.php">View all ideas</a>
+                        <a href="http://localhost/wealth_affairs/clients/front_end/ideas.php">View all ideas</a>
                     </button>
                     </div>
                     </div>

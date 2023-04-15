@@ -15,7 +15,7 @@ if (isset($_SESSION['ClientID'])) {
 // Establish database connection
 include "dbconnect.php";
 $db = $conn;
-// Define SQL query to get the products in the user's wishlist
+// Define SQL query to get the ideas in the user's wishlist
 $sql = "SELECT approvedideas. *
         FROM   approvedideas
         INNER JOIN wishlist ON wishlist.ApprovedID = approvedideas.ApprovedID
@@ -24,15 +24,15 @@ $sql = "SELECT approvedideas. *
 // Execute SQL query
 $result = mysqli_query($db, $sql);
 
-// Create an array to hold the products
+// Create an array to hold the ideas
 $approvedideas = array();
 
-// Loop through the result set and add each product to the array
+// Loop through the result set and add each idea to the array
 while ($row = mysqli_fetch_assoc($result)) {
     $approvedideas[] = $row;
 }
 
-// Output the products as JSON data
+// Output the ideas as JSON data
 echo json_encode($approvedideas);
 
 // Close database connection

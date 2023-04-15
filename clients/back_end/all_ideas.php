@@ -15,27 +15,18 @@ if (isset($_SESSION['ClientID'])) {
 }
 
 // Establish database connection
-include "dbconnect.php";
-
-$db =$conn;
+require_once 'dbconnect.php';
+$db = $conn;
 
 // Define SQL query
 $sql = "SELECT *
         FROM approvedideas 
-        INNER JOIN clients ON clients.RiskLevel = approvedideas.RiskLevel
-        INNER JOIN countries ON countries.ClientID = clients.ClientID
-        INNER JOIN industries ON industries.ClientID = clients.ClientID
-        INNER JOIN producttypes ON producttypes.ClientID = clients.ClientID
-        WHERE clients.ClientID = $current_clientid
-        AND approvedideas.Industry = industries.Industry
-        AND approvedideas.ProductType = producttypes.ProductType
-        AND approvedideas.Country = countries.Country
         ORDER BY RAND()";
 
 // Execute SQL query
 $result = mysqli_query($db, $sql);
 
-// Check if there are any products
+// Check if there are any ideas
 if (mysqli_num_rows($result) > 0) {
     // Start table
     echo '<table class="my-table">';
@@ -52,7 +43,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '</thead>';
     echo '<tbody>';
     
-    // Loop through results and output each product in a row
+    // Loop through results and output each ideas in a row
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
         echo '<td>' . $row['InstrumentName'] . '</td>';
@@ -95,7 +86,7 @@ function addToWishlist(approvedId) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
-      alert('Product added to wishlist successfully!');
+      alert('Idea added to wishlist successfully!');
     }
   };
   xhr.open('POST', 'http://localhost/wealth_affairs/clients/back_end/add_to_wishlist.php', true);
