@@ -52,7 +52,7 @@
 
                 // Prevent SQL injection attacks by using parameterized queries
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "http://localhost/wealth_affairs/clients/Back_end/login_PDO.php", true);
+                xhr.open("POST", "http://localhost/wealth_affairs/clients/back_end/action_login.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -78,7 +78,7 @@
         <section class="Left">  
         <!-- The left section contains the login form for the user to login. -->
             <div class="title"><h1>Wealth Management</h1></div>
-        <form name="loginForm" method="post" action="http://localhost/wealth_affairs/clients/back_end/login_PDO.php" onsubmit="return validateForm()">
+        <form name="loginForm" method="post" action="http://localhost/wealth_affairs/clients/back_end/action_login.php" onsubmit="return validateForm()">
         <!-- The form contains the login form with the email and password fields, the Remember Me checkbox and two buttons, Login and Register. -->
             <h2 id="form-directive">Login </h2>
             <p id="form-guide">Login to WealthManagement.</p>

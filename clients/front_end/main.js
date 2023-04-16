@@ -52,22 +52,6 @@ function validateForm() {
   }
   
 
-$(document).ready(function() {
-    // Fetch data from the server
-    $.ajax({
-        url: 'http://localhost/wealth-affairs/clients/rand.php',
-        method: 'GET',
-        dataType: 'html',
-        success: function(data) {
-            // Update the container element with the fetched data
-            $('#results').html(data);
-        },
-        error: function(xhr, textStatus, errorThrown) {
-            console.log('Error: ' + errorThrown);
-        }
-    });
-});
-
  // Make an AJAX request to get the wishlist products
  
     $.getJSON('http://localhost/wealth-affairs/clients/view_wishlist.php', function(products) {

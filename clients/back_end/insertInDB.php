@@ -23,10 +23,9 @@
            //connect to the DB
         require_once 'dbconnect.php';
 
-        $db = $conn;
            // Check if email already exists in the database
            $sql = "SELECT * FROM clients WHERE Email = ?";
-            $query = $db->prepare($sql);
+            $query = $conn->prepare($sql);
             $query->bind_param('s', $email);
             $query->execute();
             $result = $query->get_result();
@@ -43,7 +42,7 @@
             $sqlQuery = "INSERT INTO clients (Firstname, Lastname, Email, Password) VALUES (?, ?, ?, ?)";
 
             //prepare the query
-            $query = $db->prepare($sqlQuery);
+            $query = $conn->prepare($sqlQuery);
             
             //execute the query
             $query->execute(array(

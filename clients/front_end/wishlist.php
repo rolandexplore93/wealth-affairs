@@ -24,9 +24,9 @@
      // User has been inactive for almost 20 minutes, provide a warning
      $remaining_time = $inactive - $elapsed_time;
      echo "<p>Your session will expire in $remaining_time seconds. Would you like to extend your session?</p>";
-     // Add a button to extend the session if the user clicks it
+     // button to extend the session if the user clicks it
      echo "<button onclick='extendSession()'>Extend Session</button>";
-     // Add a script to handle the button click
+     // script to handle the button click
      echo "<script>function extendSession() {
          window.location.href = 'http://localhost/wealth_affairs/clients/front_end/wishlist.php';
      }</script>";
@@ -53,7 +53,7 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
     var table = $('<table class="table table-bordered table-striped" style="border: 1px solid black;"></table>');
     var thead = $('<thead class="thead-dark"></thead>');
     var headerRow = $('<tr></tr>');
-    headerRow.append('<th>ProductID</th>');
+    headerRow.append('<th>ApprovedID</th>');
     headerRow.append('<th>Instrument Name</th>');
     headerRow.append('<th>Instrument Description</th>');
     headerRow.append('<th>Industry</th>');
@@ -69,7 +69,7 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
     thead.append(headerRow);
     table.append(thead);
 
-    // Loop through the products and add them to the table
+    // Loop through the ideas and add them to the table
     var tbody = $('<tbody></tbody>');
     for (var i = 0; i < approvedideas.length; i++) {
         var approvedidea = approvedideas[i];
@@ -87,12 +87,12 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
         row.append('<td>' + approvedidea.Ticker + '</td>');
         row.append('<td>' + approvedidea.Region + '</td>');
         
-        // Add a "delete" button for each product
+        // Add a "delete" button for each idea
         var deleteButton = $('<button>Delete</button>');
         deleteButton.click(function(approvedidea) {
-            // Send a request to the PHP script to delete the corresponding product from the wishlist
+            // Send a request to the PHP script to delete the corresponding idea from the wishlist
             $.post('http://localhost/wealth_affairs/clients/back_end/delete_wishlist.php', {ApprovedID: approvedidea.ApprovedID}, function() {
-                // Reload the wishlist page after deleting the product
+                // Reload the wishlist page after deleting the idea
                 location.reload();
             });
         }.bind(this, approvedidea));
@@ -124,15 +124,15 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
                 <a href="http://localhost/wealth_affairs/clients/back_end/logout.php">Logout</a>   
         </header>
         
-         <!-- Product section -->
+         <!-- Idea section -->
         <section class="product-section" style="border: 3px solid gray; flex: 1; display: flex;;">
-            <!-- Product display -->
+            <!-- Idea display -->
             <section class="products" style="border: 1px solid purple ; flex: 4; display: flex; flex-direction: column;">
                 
                 <h1>View your saved product wishlist</h1>
                 
            ` <div class="basic-instrument" style="border: 1px solid purple; flex: 1;">
-                 <!-- The wishlist products will be dynamically added here -->  
+                 <!-- The wishlist ideas will be dynamically added here -->  
                 <div id="wishlist" class="wishlist" style="overflow:auto; height: 100vh;">
             </section> 
              <!-- Sidebar -->
@@ -144,14 +144,14 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
                         <p class="email" ><?php echo $_SESSION['email']; ?>
                         <p class="title">Client</p>
                         
-                        <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Edit profile</a></button><br>
-                        <button><a href="http://localhost/wealth-affairs/clients/front_end/dashboard.php">Dashboard</a></button>
+                        <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Profile</a></button><br>
+                        <button><a href="http://localhost/wealth_affairs/clients/front_end/dashboard.php">Dashboard</a></button>
                         <div style="display: flex; flex-direction: column; align-items: center;">
                     <button class="product-view" style="cursor: pointer; margin-bottom: 00px;">
-                        <a href="http://localhost/wealth_affairs/clients/front_end/all_recommeded_products.php">View all tailored ideas</a>
+                        <a href="http://localhost/wealth_affairs/clients/front_end/all_recommeded_ideas.php">View all tailored ideas</a>
                     </button>
                     <button class="product-view" style="cursor: pointer;">
-                        <a href="http://localhost/wealth_affairs/clients/front_end/products.php">View all ideas</a>
+                        <a href="http://localhost/wealth_affairs/clients/front_end/ideas.php">View all ideas</a>
                     </button>
                     </div>
                     </div>

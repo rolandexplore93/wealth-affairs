@@ -11,12 +11,11 @@ if (isset($_SESSION['ClientID'])) {
     $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
-    require_once 'basicAuth_v3_PDO.php';
+    require_once 'basicAuth_c.php';
 }
 
 // Establish database connection
 require_once 'dbconnect.php';
-$db = $conn;
 
 // Define SQL query
 $sql = "SELECT *
@@ -24,9 +23,9 @@ $sql = "SELECT *
         ORDER BY RAND()";
 
 // Execute SQL query
-$result = mysqli_query($db, $sql);
+$result = mysqli_query($conn, $sql);
 
-// Check if there are any products
+// Check if there are any ideas
 if (mysqli_num_rows($result) > 0) {
     // Start table
     echo '<table class="my-table">';
@@ -43,7 +42,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '</thead>';
     echo '<tbody>';
     
-    // Loop through results and output each product in a row
+    // Loop through results and output each ideas in a row
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
         echo '<td>' . $row['InstrumentName'] . '</td>';
@@ -77,7 +76,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Close database connection
-mysqli_close($db);
+mysqli_close($conn);
 ?>
 
 <script>
@@ -86,7 +85,7 @@ function addToWishlist(approvedId) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
-      alert('Product added to wishlist successfully!');
+      alert('Idea added to wishlist successfully!');
     }
   };
   xhr.open('POST', 'http://localhost/wealth_affairs/clients/back_end/add_to_wishlist.php', true);

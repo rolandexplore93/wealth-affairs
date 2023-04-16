@@ -79,7 +79,6 @@
   }
 }
 /* Preferences form */
-/* <!-- language: lang-css --> */
 
 .multiselect {
   width: 200px;
@@ -102,10 +101,6 @@
   bottom: 0;
 }
 
-/* #productType #derivative #riskLevel #industry {
-  display: none;
-  border: 1px #dadada solid;
-} */
 
 #productType  #riskLevel #industry #countries label {
   display: none;
@@ -118,9 +113,6 @@
 
   
   .side-profile {
-    /* height: 50px;
-    width: 50px;
-    border-radius: 100%; */
     text-align: center;
   }
   
@@ -134,9 +126,6 @@
   
   /* Footer styles */
   footer {
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* width: 100%; */
     padding: 10px;
   }
   
