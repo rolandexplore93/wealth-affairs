@@ -116,7 +116,7 @@ $_SESSION['session_time'] = time();
                           "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", 
                           "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", 
                           "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", 
-                          "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", 
+                          "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", 
                           "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
                       foreach ($countries as $country) {
                           echo "<option value=\"$country\">$country</option>";

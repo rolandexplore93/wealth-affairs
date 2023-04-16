@@ -65,9 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $setClause = '';
     $params = array();
 
-    if (!empty($phone)) {
+    if (!empty($email)) {
         $setClause .= 'Email=?, ';
-        $params[] = $phone;
+        $params[] = $email;
     }
 
     if (!empty($phone)) {
