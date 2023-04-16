@@ -76,7 +76,7 @@ $_SESSION['session_time'] = time();
                    <!-- Form for personal data -->
                     <form class="form-inline" method='post' action="http://localhost/wealth_affairs/clients/back_end/bio_data.php">
                          <label for="email">Update Email:</label>
-                        <input type="email" id="email" placeholder="Enter email" name="email">
+                        <input type="email" id="email" placeholder="<?php echo $_SESSION['email']; ?>" name="email">
                         <label for="pnmuber">Phone Number:</label>
                         <input type="pnumber" id="pnumber" placeholder="Enter Phone Number" name="pnumber">
                         <label for="adds">Address:</label>
@@ -177,7 +177,7 @@ $_SESSION['session_time'] = time();
                                 <div class="multiselect">
                                 <div id="riskLevel">
                                 <strong><p>Select a Risk Level:</p></strong>
-                                  <input type="radio" name='riskLevel' value="1">Risk Level 1</label><br>
+                                  <input type="radio" name='riskLevel' value=1>Risk Level 1</label><br>
                                   <input type="radio" name="riskLevel" value=2>Risk Level 2</label><br>
                                   <input type="radio" name="riskLevel" value=3>Risk Level 3</label><br>
                                   <input type="radio" name="riskLevel" value=4>Risk Level 4</label><br>
