@@ -85,10 +85,21 @@ if ( !isset($_SESSION['FaID'] )){
                 <label for="industry">Industry:</label>
                 <select id="industry" name="Industry">
                 <option value="">-- Select an Industry --</option>
-                <option value="Technology">Technology</option>
+                <!-- <option value="Technology">Technology</option>
                 <option value="Finance">Finance</option>
                 <option value="Renewable Energy">Renewable Energy</option>
-                <option value="Healthcare">Healthcare</option>
+                <option value="Healthcare">Healthcare</option> -->
+                <option value="Energy">Energy</option>
+                <option value="Chemicals">Chemicals</option>
+                <option value="Industrial Goods">Industrial Goods</option>
+                <option value="Automobiles & Auto Parts">Automobiles & Auto Parts</option>
+                <option value="Food & Beverages">Food & Beverages</option>
+                <option value="Banking & Investment Services">Banking & Investment Services</option>
+                <option value="Healthcare Services">Healthcare Services</option>
+                <option value="Technology Equipment">Technology Equipment</option>
+                <option value="Telecommunication">Telecommunication</option>
+                <option value="Utilities">Utilities</option>
+
                 </select>
             </div>
             <hr />

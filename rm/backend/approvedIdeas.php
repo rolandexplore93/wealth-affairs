@@ -49,7 +49,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         echo $ideaRejected;
         echo "<script>
             setTimeout(function() {
-                window.location.href = 'http://localhost/wealth_affairs/rm/index.html';
+                window.location.href = 'http://localhost/wealth_affairs/rm/index.php';
             }, 3000);
         </script>";
         exit;
@@ -96,7 +96,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         echo $successMessage;
         echo "<script>
             setTimeout(function() {
-                window.location.href = 'http://localhost/wealth_affairs/rm/index.html';
+                window.location.href = 'http://localhost/wealth_affairs/rm/index.php';
             }, 5000);
         </script>";
     }

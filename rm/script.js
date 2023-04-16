@@ -352,10 +352,17 @@ fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
                     <label for="industry">Industry:</label>
                     <select id="industry" name="Industry">
                       <option value="" disabled ${targetIdea.Industry == '' ? 'selected' : ''}>-- Select an Industry --</option>
-                      <option value="Technology" ${targetIdea.Industry == 'Technology' ? 'selected' : ''}>Technology</option>
-                      <option value="Finance" ${targetIdea.Industry == 'Finance' ? 'selected' : ''}>Finance</option>
-                      <option value="Renewable Energy" ${targetIdea.Industry == 'Renewable Energy' ? 'selected' : ''}>Renewable Energy</option>
-                      <option value="Healthcare" ${targetIdea.Industry == 'Healthcare' ? 'selected' : ''}>Healthcare</option>
+
+                      <option value="Energy" ${targetIdea.Industry == 'Energy' ? 'selected' : ''}>Energy</option>
+                      <option value="Chemicals" ${targetIdea.Industry == 'Chemicals' ? 'selected' : ''}>Chemicals</option>
+                      <option value="Industrial Goods" ${targetIdea.Industry == 'Industrial Goods' ? 'selected' : ''}>Industrial Goods</option>
+                      <option value="Automobiles & Auto Parts" ${targetIdea.Industry == 'Automobiles & Auto Parts' ? 'selected' : ''}>Automobiles & Auto Parts</option>
+                      <option value="Food & Beverages" ${targetIdea.Industry == 'Food & Beverages' ? 'selected' : ''}>Food & Beverages</option>
+                      <option value="Banking & Investment Services" ${targetIdea.Industry == 'Banking & Investment Services' ? 'selected' : ''}>Banking & Investment Services</option>
+                      <option value="Healthcare Services" ${targetIdea.Industry == 'Healthcare Services' ? 'selected' : ''}>Healthcare Services</option>
+                      <option value="Technology Equipment" ${targetIdea.Industry == 'Technology Equipment' ? 'selected' : ''}>Technology Equipment</option>
+                      <option value="Telecommunication" ${targetIdea.Industry == 'Telecommunication' ? 'selected' : ''}>Telecommunication</option>
+                      <option value="Utilities" ${targetIdea.Industry == 'Utilities' ? 'selected' : ''}>Utilities</option>
                     </select>
                   </div>
                   <div class="form-group">
