@@ -37,5 +37,4 @@ echo json_encode($approvedideas);
 
 // Close database connection
 mysqli_close($conn);
-
 ?>

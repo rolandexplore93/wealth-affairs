@@ -34,8 +34,6 @@
     
     // Update the session time
     $_SESSION['session_time'] = time();
-    
-    
 ?>
 
 <!DOCTYPE html>
@@ -105,12 +103,10 @@
                         <a href="http://localhost/wealth_affairs/clients/front_end/all_rm_recommeded_ideas.php">View all recommended ideas</a>
                     </button>
                     </div>
-                    
             </section>
         </section>
          <!-- Footer -->
         <footer style="border: 1px solid gray">Copyright © 2023 WealthManagement. All Rights Reserved</footer>
-
     </div>
 </body>
 </html> 

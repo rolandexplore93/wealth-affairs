@@ -33,9 +33,7 @@
     }
     
     // Update the session time
-    $_SESSION['session_time'] = time();
-    
-    
+    $_SESSION['session_time'] = time(); 
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +46,7 @@
     <noscript>
     <p>Please enable JavaScript to use this website.</p>
     </noscript>
-       <title>All Products
+       <title>All Ideas
     </title>
 </head>
 <body>
@@ -64,7 +62,6 @@
                 <a href="http://localhost/wealth_affairs/clients/back_end/logout.php">Logout</a>
                 
         </header>
-        
          <!-- Ideas section -->
         <section class="product-section" style="border: 3px solid purple; flex: 1; display: flex;;">
        
@@ -72,8 +69,8 @@
             <section class="products" style="border: 1px solid gray; flex: 4; display: flex; flex-direction: column;">
             <div class="all ideas" style="overflow:auto; height: 100vh;">
             <?php        
-                        // Include the header.php file
-                        include ('../back_end/all_ideas.php');
+            // Include the header.php file
+            include ('../back_end/all_ideas.php');
             ?>
             </div>   
             </section> 
@@ -108,7 +105,6 @@
         </section>
          <!-- Footer -->
         <footer style="border: 1px solid purple">Copyright © 2023 WealthManagement. All Rights Reserved</footer>
-      
     </div>
 </body>
 </html> 

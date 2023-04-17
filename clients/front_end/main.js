@@ -52,24 +52,6 @@ function validateForm() {
   }
   
 
- // Make an AJAX request to get the wishlist products
- 
-    $.getJSON('http://localhost/wealth-affairs/clients/view_wishlist.php', function(products) {
-        // Loop through the products and add them to the wishlist div
-        for (var i = 0; i < products.length; i++) {
-            var product = products[i];
-            var card = $('<div class="card"></div>');
-            var cardBody = $('<div class="card-body"></div>');
-            card.append(cardBody);
-            cardBody.append('<h5 class="card-title">' + product.InstrumentName + '</h5>');
-            cardBody.append('<h6 class="card-subtitle mb-2 text-muted">' + product.InstrumentDn + '</h6>');
-            cardBody.append('<p class="card-text">' + product.Industry + '</p>');
-            cardBody.append('<p class="card-text">' + product.RiskLevel + '</p>');
-            cardBody.append('<p class="card-text">' + product.ProductCountry + '</p>');
-            cardBody.append('<a href="#" class="card-link" onclick="toggleDetails(' + product.ProductID + ')">View Details</a>');
-            $('#wishlist').append(card);
-        }
-    });
 
     
 

@@ -28,7 +28,7 @@
       <p>Please enable JavaScript to use this website.</p>
     </noscript>
     <script>
-    // Javascript functoion to validate form inouts
+    // Javascript functoion to validate form inputs
                function validateForm() {
                 var email = document.forms["loginForm"]["email"].value;
                 var password = document.forms["loginForm"]["password"].value;
