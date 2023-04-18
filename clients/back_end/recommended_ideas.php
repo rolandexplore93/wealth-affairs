@@ -40,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<thead>';
     echo '<tr>';
     echo '<th>Instrument Name</th>';
-    echo '<th>Instrument Description</th>';
+    echo '<th>Idea Description</th>';
     echo '<th>Industry</th>';
     echo '<th>Risk Level</th>';
     echo '<th>Country</th>';
@@ -54,7 +54,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
         echo '<td>' . $row['InstrumentName'] . '</td>';
-        echo '<td>' . $row['InstrumentDn'] . '</td>';
+        echo '<td>' . $row['IdeaDescription'] . '</td>';
         echo '<td>' . $row['Industry'] . '</td>';
         echo '<td>' . $row['RiskLevel'] . '</td>';
         echo '<td>' . $row['Country'] . '</td>';

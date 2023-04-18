@@ -205,7 +205,7 @@ $_SESSION['session_time'] = time();
                                           <label for="food-beverages">
                                             <input type="checkbox" id="food-beverages" name="industry[]" value="Food & Beverages" > Food & Beverages</label><br>
                                           <label for="banking">
-                                            <input type="checkbox" id="banking" name="industry[]" value="Banking & Investment"> Banking & Investment</label><br>
+                                            <input type="checkbox" id="banking" name="industry[]" value="Banking & Investment Services"> Banking & Investment</label><br>
                                           <label for="healthcare">
                                             <input type="checkbox" id="healthcare" name="industry[]" value="Healthcare Services"> Healthcare Services</label><br>
                                           <label for="tech">
