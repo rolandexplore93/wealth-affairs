@@ -41,10 +41,10 @@
     }
     // echo "productType: " . $ProductType . "<br>";
 
-    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, Firstname, Lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, Region as RegionPref, Industry as IndustryPref 
+    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, Firstname, Lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, Industry as IndustryPref 
         FROM clients cl
         left join COUNTRIES co on co.ClientID=cl.ClientID
-        left join regions re on re.ClientID=cl.ClientID
+       
         left join industries ind on ind.ClientID=cl.ClientID
         left join producttypes pdt on pdt.ClientID=cl.ClientID)
         select DISTINCT a.*, ai.*
@@ -55,7 +55,7 @@
         AND (
             FIND_IN_SET('$Industry', a.IndustryPref)
             OR FIND_IN_SET('$Country', a.CountryPref)
-            OR FIND_IN_SET('$Region', a.RegionPref)
+            
         )
     ");
 
