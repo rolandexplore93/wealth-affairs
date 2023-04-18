@@ -46,7 +46,7 @@ if (mysqli_num_rows($result) > 0) {
             echo '<div class="card">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['InstrumentName'] . '</h5>';
-            echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['InstrumentDn'] . '</h6>';
+            echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['IdeaDescription'] . '</h6>';
             echo '<hr>';
             echo '<div class="row">';
             echo '<div class="col-md-6">';
