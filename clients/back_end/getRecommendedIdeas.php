@@ -22,7 +22,7 @@ $counter = 0;
 if (mysqli_num_rows($getRecommendedProducts) > 0) {
     while ($row = mysqli_fetch_assoc($getRecommendedProducts)) {
         echo '<div class="card d-inline-block" style="width: 20%;">'; // Set the width to 20%
-         // Limit to 4 cards
+         // Limit to 5 cards
          if ($counter >= 5) {
             break;
         }
