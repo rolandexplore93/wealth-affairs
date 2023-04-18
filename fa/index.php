@@ -26,8 +26,8 @@ if ( !isset($_SESSION['FaID'] )){
             <p>Phone: <span id="phoneno"></span></p>
         </div>
         <div class="">
-            <p><a href="">Dashboard</a></p>
-            <p><a href="">Profile</a></p>
+            <!-- <p><a href="">Dashboard</a></p> -->
+            <!-- <p><a href="">Profile</a></p> -->
         </div>
         <div class="logout">
             <button>
