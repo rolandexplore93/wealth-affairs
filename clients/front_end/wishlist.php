@@ -76,7 +76,7 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
         var row = $('<tr></tr>');
         row.append('<td>' + approvedidea.ApprovedID + '</td>');
         row.append('<td>' + approvedidea.InstrumentName + '</td>');
-        row.append('<td>' + approvedidea.InstrumentDesc + '</td>');
+        row.append('<td>' + approvedidea.IdeaDescription + '</td>');
         row.append('<td>' + approvedidea.Industry + '</td>');
         row.append('<td>' + approvedidea.RiskLevel + '</td>');
         row.append('<td>' + approvedidea.Country + '</td>');

@@ -10,6 +10,7 @@
 <?php 
 // checks if user is logged in or not by checking if the 'FaID' session variable is set
 session_start();
+// This prevent unauthorised login into FA dashboard
 if ( !isset($_SESSION['FaID'] )){
     header('Location: http://localhost/wealth_affairs/auth/login.html');
     exit();
@@ -96,7 +97,7 @@ if ( !isset($_SESSION['FaID'] )){
                             <td>$row[PriceCurrency]</td>
                             <td>$row[Country]</td>
                             <td>$row[Status]</td>
-                            <td><button><a href='/wealth_affairs/delete.php?id=$row[IdeaID]'></a>View</button></td>
+                            <td><button><a href='/wealth_affairs/php?id=$row[IdeaID]'></a>View</button></td>
                         </tr>
                         ";
                     }

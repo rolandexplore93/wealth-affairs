@@ -25,7 +25,6 @@
         $PriceClosingDate = isset($request_data['PriceClosingDate']) ? $request_data['PriceClosingDate'] : '';
         $StockExchange = isset($request_data['StockExchange']) ? $request_data['StockExchange'] : '';
         $Issuer = isset($request_data['Issuer']) ? $request_data['Issuer'] : '';
-        // $Isin = isset($request_data['Isin']) ? $request_data['Isin'] : '';
         $Ticker = isset($request_data['Ticker']) ? $request_data['Ticker'] : '';
         $Region = isset($request_data['Region']) ? $request_data['Region'] : '';
         $Country = isset($request_data['Country']) ? $request_data['Country'] : '';
@@ -69,9 +68,6 @@
     
     $json = json_encode($message);
     echo $json;
-
-
-
 
     mysqli_close($databaseConnection);
 ?>

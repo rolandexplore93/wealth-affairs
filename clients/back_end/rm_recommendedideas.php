@@ -46,16 +46,11 @@ if (mysqli_num_rows($getRecommendedProducts) > 0) {
         echo '<td>' . $row['RiskLevel'] . '</td>';
         echo '<td>' . $row['Country'] . '</td>';
         echo '<td>';
-        
-        // Check if there is data in the "details" section
-        if (!empty($row['Denomination']) || !empty($row['ProductType']) || !empty($row['StockExchange'])) {
             echo '<ul>';
             echo '<li><strong>Denomination:</strong> ' . $row['Denomination'] . '</li>';
             echo '<li><strong>Product Type:</strong> ' . $row['ProductType'] . '</li>';
             echo '<li><strong>Stock Exchange:</strong> ' . $row['StockExchange'] . '</li>';
             echo '</ul>';
-        }
-        
         echo '</td>';
         echo '<td>';
         echo '<button class="add-to-wishlist-btn" onclick="addToWishlist(' . $row['ApprovedID'] . ')">Add to Wishlist</button>';

@@ -1,8 +1,8 @@
 <?php 
     include "dbconnection.php";
 
-    $request_body = file_get_contents('php://input');
-    $request_data = json_decode($request_body, true);
+    $request_body = file_get_contents('php://input');  // This allow this PHP script to read the raw data from the HTTP request body sent by javascript
+    $request_data = json_decode($request_body, true);  // This parse the raw json data into PHP associative array
 
     if (isset($request_data['approvedIdeaDataID'])) {
         $ApprovedID = $request_data['approvedIdeaDataID'];
@@ -41,10 +41,11 @@
     }
     // echo "productType: " . $ProductType . "<br>";
 
-    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, Firstname, Lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, Region as RegionPref, Industry as IndustryPref 
+    // CTE (Common Table Expression) is used to derive a table that joins data from multiple tables and select specific columns
+    $query = mysqli_query($databaseConnection, "With CTE as ( SELECT cl.ClientID, Firstname, Lastname, RiskLevel as RiskLevelPref, ProductType as ProductTypePref, Country as CountryPref, Industry as IndustryPref 
         FROM clients cl
         left join COUNTRIES co on co.ClientID=cl.ClientID
-        left join regions re on re.ClientID=cl.ClientID
+       
         left join industries ind on ind.ClientID=cl.ClientID
         left join producttypes pdt on pdt.ClientID=cl.ClientID)
         select DISTINCT a.*, ai.*
@@ -55,7 +56,7 @@
         AND (
             FIND_IN_SET('$Industry', a.IndustryPref)
             OR FIND_IN_SET('$Country', a.CountryPref)
-            OR FIND_IN_SET('$Region', a.RegionPref)
+            
         )
     ");
 
@@ -77,9 +78,9 @@
         header('HTTP/1.1 200 OK'); // Set HTTP status code to 200 OK
         echo $json;
     } else {
-        // If no client is found, format the error message as JSON
-        $error = array('error' => 'No Client matched');
-        $json = json_encode($error);
+        // If no client is found, format the response as JSON
+        $message = array('message' => 'No Client matched');
+        $json = json_encode($message);
         header('HTTP/1.1 200 OK'); // Set HTTP status code to 200 OK
         echo $json;
     }

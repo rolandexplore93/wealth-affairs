@@ -62,5 +62,8 @@
             <input type="submit" value="Submit">
         </form>
     </div>
+    <h3>
+        <a href="allUsers.php">All users</a>
+    </h3>
 </body>
 </html>

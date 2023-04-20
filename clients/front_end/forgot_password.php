@@ -57,6 +57,8 @@
 </head>
 <body>
     <div class="wrapper">
+                <!--Body divided into two sections  -->
+                <!-- Left section -->
                <section class="Left">
             <div class="title"><h1>Wealth Management</h1></div>
                 <form class="myForm" name="myForm" onsubmit="return validateForm()" method="POST" action="http://localhost/wealth_affairs/clients/back_end/updatepassword.php">
@@ -85,6 +87,7 @@
             </form>
 
         </section>
+        <!-- right section -->
         <section class="Right">
             <div class="onboarding-image-cover">
                 <img class="onboarding-image" src="./Images/invest 2.jpg" alt="female on a her mobile devices">

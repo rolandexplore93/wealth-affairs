@@ -11,7 +11,7 @@ if (isset($_SESSION['ClientID'])) {
     $current_clientid = $_SESSION['ClientID'];
 } else {
     // Require authentication
-    require_once 'basicAuth_v3_PDO.php';
+    require_once 'basicAuth_c.php';
 }
     include "dbconnect.php";
 
@@ -29,7 +29,7 @@ if (mysqli_num_rows($getRecommendedProducts) > 0) {
             echo '<div class="card">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['InstrumentName'] . '</h5>';
-            echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['InstrumentDn'] . '</h6>';
+            echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['IdeaDescription'] . '</h6>';
             echo '<hr>';
             echo '<div class="row">';
             echo '<div class="col-md-6">';
@@ -41,7 +41,7 @@ if (mysqli_num_rows($getRecommendedProducts) > 0) {
             echo '</div>';
             echo '<p class="card-text"><strong>Country:</strong> ' . $row['Country'] . '</p>';
             echo '<div class="text-center">';
-            echo '<a href="#" class="btn btn-primary" onclick="toggleDetails(' . $row['ApprovedID'] . ')">View Details</a>'.'<br>';
+            echo '<a href="#" class="btn btn-primary" onclick="toggleDetailss(' . $row['ApprovedID'] . ')">View Details</a>'.'<br>';
             echo '<a href="#" class="btn btn-secondary" onclick="addToWishlist(' . $row['ApprovedID'] . ')">Add to Wishlist</a>';
             echo '</div>';
             echo '</div>';
@@ -97,7 +97,7 @@ mysqli_close($conn);
 
 <script>
     approvedId = 'ApprovedID'
-function toggleDetails(approvedId) {
+function toggleDetailss(approvedId) {
     var detailsElement = document.getElementById('details-' + approvedId);
     if (detailsElement.style.display === 'none') {
         detailsElement.style.display = 'block';
