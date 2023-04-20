@@ -288,7 +288,8 @@ fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
                   </table>
               </div>
           `;
-
+               
+          // Create a modal to show the profile details of each idea when they are clicked
           const modal = document.createElement('div');
           modal.className = "modal";
           modal.innerHTML = `

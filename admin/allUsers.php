@@ -24,8 +24,8 @@ mysqli_close($databaseConnection);
     <table>
         <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
             <th>Email</th>
             <th>Phone Number</th>
             <th>Pass</th>
@@ -63,5 +63,8 @@ mysqli_close($databaseConnection);
         }
         ?>
     </table>
+    <h2>
+        <a href="user.php">Create user</a>
+    </h2>
 </body>
 </html>

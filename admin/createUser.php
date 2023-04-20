@@ -28,13 +28,13 @@
         // Check the selected role and perform corresponding action
         if ($role == "FA") {
             // Insert data into "fa" table in the database
-            $query = mysqli_query($databaseConnection, "INSERT INTO fa (FirstName, LastName, Email, PhoneNo, Password, Role, AdminID) VALUES ('$firstName', '$lastName', '$email', '$phoneNo', '$hashedPassword', '$role', '$AdminID')");
+            $query = mysqli_query($databaseConnection, "INSERT INTO fa (Firstname, Lastname, Email, PhoneNo, Password, Role, AdminID) VALUES ('$firstName', '$lastName', '$email', '$phoneNo', '$hashedPassword', '$role', '$AdminID')");
             echo "FA has been created...";
             // Close database connection
             mysqli_close($databaseConnection);
         } elseif ($role == "RM") {
             // Insert data into "rm" table in the database
-            $query = mysqli_query($databaseConnection, "INSERT INTO rm (FirstName, LastName, Email, PhoneNo, Password, Role, AdminID) VALUES ('$firstName', '$lastName', '$email', '$phoneNo', '$hashedPassword', '$role', '$AdminID')");
+            $query = mysqli_query($databaseConnection, "INSERT INTO rm (Firstname, Lastname, Email, PhoneNo, Password, Role, AdminID) VALUES ('$firstName', '$lastName', '$email', '$phoneNo', '$hashedPassword', '$role', '$AdminID')");
             echo "RM has been created...";
             // Close database connection
             mysqli_close($databaseConnection);
