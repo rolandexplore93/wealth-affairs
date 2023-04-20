@@ -29,6 +29,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
                     window.location.href = 'http://localhost/wealth_affairs/fa/createIdea.php';
                 }, 3000); // 3000 milliseconds = 3 seconds
             </script>";
+            // redirect the user to a different URL after a 3 seconds has elapsed
             break;
         }
 
@@ -51,7 +52,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $RiskLevelBrief = 'Suitable for very aggressive investors';
             $RiskLevelDescription = 'Investors who are prepared to accept large portfolio losses up to the value of their entire portfolio over a one year period and are generally willing to buy investments or enter into contracts that may be difficult to sell or close for an extended period or have an uncertain realizable value at any given time.';
         }
-
+        // sets the values of two variables ($RiskLevelBrief and $RiskLevelDescription) based on the value of the $RiskLevel variable.
         echo $InstrumentName;
         echo $InstrumentDn;
         echo $IdeaDescription;
@@ -84,6 +85,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         '$Country', '$RiskLevelBrief', '$RiskLevelDescription', '$IssueDate', '$FaID', '$MaturityDate'
         )";
         $result = $databaseconnection->query($sql);
+        // executes a MySQL query and stores the results in the $result variable
 
         if (!$result) {
             $errorMessage = "Invalid query: " . $databaseconnection->error;

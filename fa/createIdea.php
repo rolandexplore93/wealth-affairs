@@ -8,6 +8,7 @@
     <title>Wealth Affairs - Create Idea</title>
 </head>
 <?php 
+// // checks if user is logged in or not by checking if the 'FaID' session variable is set
 session_start();
 if ( !isset($_SESSION['FaID'] )){
     header('Location: http://localhost/wealth_affairs/auth/login.html');
@@ -206,6 +207,7 @@ if ( !isset($_SESSION['FaID'] )){
             <hr />
 
             <?php
+            // checks whether the variable $successMessage is not empty
             if ( !empty ($successMessage) ) {
             echo "
             <div><strong>$successMessage</strong></div>

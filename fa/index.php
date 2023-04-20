@@ -8,6 +8,7 @@
     <title>Wealth Affairs - Fund Administrator</title>
 </head>
 <?php 
+// checks if user is logged in or not by checking if the 'FaID' session variable is set
 session_start();
 if ( !isset($_SESSION['FaID'] )){
     header('Location: http://localhost/wealth_affairs/auth/login.html');
@@ -83,7 +84,7 @@ if ( !isset($_SESSION['FaID'] )){
                     if (!$result) {
                         die("Invalid query: " . $databaseconnection->error);
                     }
-
+                    // fetch each row of data returned from MySQL query.
                     while ( $row = $result->fetch_assoc()) {
                         echo "
                         <tr>
@@ -105,6 +106,7 @@ if ( !isset($_SESSION['FaID'] )){
             </table>
         </div>
     </div>
+    <!-- // validate user login credentials before allowing access  -->
     <script src="../auth/validateLogin.js"></script>
 </body>
 </html>
