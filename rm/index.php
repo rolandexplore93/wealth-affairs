@@ -25,22 +25,20 @@
                 <p>Email: <span id="email"></span></p>
                 <p>Phone: <span id="phoneno"></span></p>
             </div>
-            <div class="">
+            <!-- <div class="">
                 <p><a href="javascript:void(0)" onclick="expanded()">Dashboard</a></p>
-                <p><a href="">Profile</a></p>
-            </div>
+            </div> -->
             <div class="logout"> 
                 <button>
                     <a href="http://localhost/wealth_affairs/auth/logout.php">Logout</a>
                 </button>
-                <p><a href="../index.html">Go to homepage</a></p>
             </div>
         </div>
         <!-- Page content -->
         <div class="main">
             <div class="summary">
                 <h1>Investment Portal Dashboard</h1>  
-                <div>Cards</div>
+                <!-- <div>Cards</div> -->
             </div>
             <div class="tabs">
                 <div class="tablink " id="tab__products" onclick="openTabContent(event, 'products');">
