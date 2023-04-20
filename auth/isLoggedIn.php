@@ -1,11 +1,5 @@
 <?php 
     session_start();
-
-    // if (!isset($_SESSION['Email'])) {
-    //     header('Location: http://localhost/wealth_affairs/auth/login.html');
-    //     echo json_encode(['loggedIn' => false, 'NotAuth' => 'Not Authenticated']);
-    //     exit();
-    // }
     
     // Check if user is logged in
     if (isset($_SESSION['Email'])) {
@@ -35,11 +29,10 @@
             ]);
         } else {
             echo json_encode(['loggedIn' => 'Unknown User just log in']);
-
         };
     } else {
     // User is not logged in, return logged-in status as false
-    echo json_encode(['loggedIn' => false]);
+    echo json_encode(['loggedIn' => false, 'NotAuth' => 'Not Authenticated']);
     }
 ?>
 

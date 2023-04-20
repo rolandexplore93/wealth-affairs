@@ -27,13 +27,11 @@
             </div>
             <!-- <div class="">
                 <p><a href="javascript:void(0)" onclick="expanded()">Dashboard</a></p>
-                <p><a href="">Profile</a></p>
             </div> -->
             <div class="logout"> 
                 <button>
                     <a href="http://localhost/wealth_affairs/auth/logout.php">Logout</a>
                 </button>
-                <!-- <p><a href="../index.html">Go to homepage</a></p> -->
             </div>
         </div>
         <!-- Page content -->
