@@ -6,22 +6,18 @@ session_start();
 if (!isset($_SESSION['RmID']) || !isset($_SESSION['FaID'])){
     // Confirm if user submit both email and and password
     if (isset($_POST['email']) && isset($_POST['password'])){
+        // Connect to the database
         include "../rm/backend/dbconnection.php";
         // Store each input value in a variable
         // Sanitize the email and password parameters to prevent SQL injection
         $email = mysqli_real_escape_string($databaseConnection, trim($_POST['email']));
         $password = mysqli_real_escape_string($databaseConnection, trim($_POST['password']));
 
-        // $email = htmlentities(trim($_POST['email']));
-        // $password = htmlentities(trim($_POST['password']));
-
         if (!$email || !$password){
             // echo json_encode(["message" => "You need to fill in both the email and password."]);
             // exit();
             exit("You need to fill in both the email and password.");
         } else {
-            // Connect to the database
-            // include "../rm/backend/dbconnection.php";
 
             $query = "SELECT FaID, NULL AS RmID, Firstname, Lastname, Email, Password, PhoneNo, Role FROM fa WHERE Email = '$email' AND role = 'FA' 
             UNION ALL
@@ -40,17 +36,6 @@ if (!isset($_SESSION['RmID']) || !isset($_SESSION['FaID'])){
                         $_SESSION['PhoneNo'] = $row['PhoneNo'];
                         $_SESSION['Role'] = $row['Role'];
                         $_SESSION['last_activity'] = time();
-
-                        // echo json_encode([
-                        //     "message" => "Login successful. Redirecting to FA dashboard...",
-                        //     "FaID" => $_SESSION['FaID'],
-                        //     "Firstname" => $_SESSION['Firstname'],
-                        //     "Lastname" => $_SESSION['Lastname'],
-                        //     "Email" => $_SESSION['Email'],
-                        //     "PhoneNo" => $_SESSION['PhoneNo'],
-                        //     "Role" => $_SESSION['Role'],
-                        //     "last_activity" => $_SESSION['last_activity']
-                        // ]);
 
                         // Redirect to fadashboard.php
                         header('Location: http://localhost/wealth_affairs/fa/index.php');
@@ -75,7 +60,6 @@ if (!isset($_SESSION['RmID']) || !isset($_SESSION['FaID'])){
                             window.location.href = 'http://localhost/wealth_affairs/auth/login.html';
                         }, 3000);
                         </script>";
-                        // header('Location: http://localhost/wealth_affairs/auth/login.html');
                     exit();
                 }
             } else {
@@ -86,15 +70,10 @@ if (!isset($_SESSION['RmID']) || !isset($_SESSION['FaID'])){
                         window.location.href = 'http://localhost/wealth_affairs/auth/login.html';
                     }, 3000);
                     </script>";
-                    // header('Location: http://localhost/wealth_affairs/auth/login.html');
                 exit();
             }
 
-
         }
-
-        
-        
     } 
 } else {
     // The user is already logged in, so redirect to the next page  

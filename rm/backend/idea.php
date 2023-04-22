@@ -1,4 +1,5 @@
 <?php
+    // Connection to the database
     include "dbconnection.php";
 
     $instrumentName = $_POST["InstrumentName"];

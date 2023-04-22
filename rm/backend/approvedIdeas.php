@@ -1,6 +1,9 @@
 <?php
+// Connection to the database
 include "dbconnection.php";
 
+// Confirm if the request method is a POST request
+// If this is true, store all the data in a variable and insert it into approvedideas table
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $InstrumentName = $_POST["InstrumentName"];
     $InstrumentName = $_POST["InstrumentDn"];
@@ -22,6 +25,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $IdeaID = $_POST["IdeaID"];
     $RmID = 1; // this value should be the RmID from the RM session login
     
+    // Assigned respective risk level details based on each risk level value
     $RiskLevelBrief;
     $RiskLevelDescription;
     if ($RiskLevel == 1){
@@ -68,36 +72,36 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $updateIdeasTableStatus = mysqli_query($databaseConnection, "UPDATE ideas SET status = 'Approved' WHERE IdeaId = $IdeaID");
         }
 
-        $successMessage = "Idea Approved successfully. Redirecting to approved idea page in 5 seconds...";
+        $successMessage = "Idea Approved successfully. Redirecting to approved idea page in 3 seconds...";
 
-        echo "Data posted <br>";
-        echo $InstrumentName . "<br>";
-        echo $InstrumentName . "<br>"; 
-        echo $IdeaDescription . "<br>";
-        echo $ProductType . "<br>";
-        echo $Industry . "<br>";
-        echo $RiskLevel . "<br>";
-        echo $Denomination . "<br>";
-        echo $PriceCurrency . "<br>";
-        echo $ClosingPrice . "<br>";
-        echo $PriceClosingDate . "<br>";
-        echo $StockExchange . "<br>";
-        echo $Issuer . "<br>";
-        echo $Ticker . "<br>";
-        echo $Region . "<br>";
-        echo $Country . "<br>";
-        echo $IssueDate . "<br>";
-        echo $MaturityDate . "<br>";
-        echo $RiskLevelBrief . "<br>";
-        echo $RiskLevelDescription . "<br>";
-        echo $IdeaID . "<br>";
-        echo $RmID . "<br>";
+        // echo "Data posted <br>";
+        // echo $InstrumentName . "<br>";
+        // echo $InstrumentName . "<br>"; 
+        // echo $IdeaDescription . "<br>";
+        // echo $ProductType . "<br>";
+        // echo $Industry . "<br>";
+        // echo $RiskLevel . "<br>";
+        // echo $Denomination . "<br>";
+        // echo $PriceCurrency . "<br>";
+        // echo $ClosingPrice . "<br>";
+        // echo $PriceClosingDate . "<br>";
+        // echo $StockExchange . "<br>";
+        // echo $Issuer . "<br>";
+        // echo $Ticker . "<br>";
+        // echo $Region . "<br>";
+        // echo $Country . "<br>";
+        // echo $IssueDate . "<br>";
+        // echo $MaturityDate . "<br>";
+        // echo $RiskLevelBrief . "<br>";
+        // echo $RiskLevelDescription . "<br>";
+        // echo $IdeaID . "<br>";
+        // echo $RmID . "<br>";
 
         echo $successMessage;
         echo "<script>
             setTimeout(function() {
                 window.location.href = 'http://localhost/wealth_affairs/rm/index.php';
-            }, 5000);
+            }, 3000);
         </script>";
     }
 

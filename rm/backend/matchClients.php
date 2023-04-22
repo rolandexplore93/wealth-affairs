@@ -63,13 +63,6 @@
     if (mysqli_num_rows($query) > 0) {
         $matchedClients = array();
         while ($row = mysqli_fetch_assoc($query)) {
-            // Display the data from each row
-            // echo "Idea ID: " . $row['IdeaID'] . "<br>";
-            // echo "productType: " . $ProductType . "<br>";
-            // echo "Instrument Name: " . $row['InstrumentName'] . "<br>";
-            // echo "Industry: " . $row['Industry'] . "<br>";
-            // echo "Created At: " . $row['CreatedAt'] . "<br>";
-            // echo "Updated At: " . $row['updated_at'] . "<br><br>";
             // Covert the data to a PHP array
             $matchedClients[] = $row;
         }

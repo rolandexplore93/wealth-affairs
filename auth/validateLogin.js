@@ -1,3 +1,5 @@
+// This makes a GET request to the isLoggedIn.php endpoint to retrieve user information
+// when they login into the application
 fetch('http://localhost/wealth_affairs/auth/isLoggedIn.php')
 .then(response => response.json())
 .then(data => {
