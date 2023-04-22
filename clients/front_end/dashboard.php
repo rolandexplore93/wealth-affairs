@@ -85,7 +85,7 @@
                         <!-- This section displays the title of the tailored ideas -->
                         <div class="product-title">
                             <?php  
-                                // Include the tailored productsideas from all approved ideas based on client's preferences from php script file
+                                // php script to display five cards of tailored ideas from all approved ideas based on client's preferences
                                 require_once('../back_end/tailored_ideas.php');
                             ?>
                         </div>
@@ -96,7 +96,7 @@
                             <!-- This section displays the title of the recommended ideas -->
                             <div class="product-title">
                                 <?php  
-                                    // Include the recommended ideas from the RM from php script file
+                                    // PHP script to display five cards of ideas sent from RM 
                                     require_once('../back_end/getRecommendedideas.php');
                                 ?>
                             </div>

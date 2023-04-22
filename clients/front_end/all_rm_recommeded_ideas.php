@@ -73,7 +73,7 @@
             <div class="recommended-ideas" style="overflow:auto; height: 100vh;">
             <?php
                         
-                // Include the header.php file
+                // PHP script to fetch ideas sent from the RM from the recommendedidea table
                 include ('../back_end/rm_recommendedideas.php');
         
             ?>

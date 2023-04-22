@@ -209,7 +209,7 @@ $_SESSION['session_time'] = time();
                                           <label for="healthcare">
                                             <input type="checkbox" id="healthcare" name="industry[]" value="Healthcare Services"> Healthcare Services</label><br>
                                           <label for="tech">
-                                            <input type="checkbox" id="tech" name="industry[]" value="Technology Equipement"> Technology Equipment</label><br>
+                                            <input type="checkbox" id="tech" name="industry[]" value="Technology Equipment"> Technology Equipment</label><br>
                                           <label for="telecom">
                                             <input type="checkbox" id="telecom" name="industry[]" value="Telecommunication"> Telecommunication</label><br>
                                           <label for="utilities">
@@ -224,6 +224,7 @@ $_SESSION['session_time'] = time();
                                           </div>
                                           <div id="Pcountry" style="height: 200px; overflow-y: scroll;">
                                           <?php
+                                          // loop to display list of countries
                                             foreach ($countries as $country) {
                                               echo "<label for='$country'>";
                                               echo "<input type='checkbox' id='$country' name='Pcountry[]' value='$country'> $country</label><br>";

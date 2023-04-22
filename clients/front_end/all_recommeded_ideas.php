@@ -70,7 +70,7 @@
             <section class="products" style="border: 1px solid gray; flex: 4; display: flex; flex-direction: column;">
             <?php
                         
-                // Include the header.php file
+                // PHP script to fetch tailored ideas from the approved idea table
                 include ('../back_end/recommended_ideas.php');
         
             ?>

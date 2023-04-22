@@ -69,7 +69,7 @@
             <section class="products" style="border: 1px solid gray; flex: 4; display: flex; flex-direction: column;">
             <div class="all ideas" style="overflow:auto; height: 100vh;">
             <?php        
-            // Include the header.php file
+            // Php script to display all ideas from the approved ideas table
             include ('../back_end/all_ideas.php');
             ?>
             </div>   

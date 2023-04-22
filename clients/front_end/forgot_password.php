@@ -62,6 +62,7 @@
                <section class="Left">
             <div class="title"><h1>Wealth Management</h1></div>
                 <form class="myForm" name="myForm" onsubmit="return validateForm()" method="POST" action="http://localhost/wealth_affairs/clients/back_end/updatepassword.php">
+                  <!-- form for password update -->
                 <h2 id="form-directive">Change Password</h2>
                 <label for="email"><b>Email:</b></label>
                 <input type="text" placeholder="Enter Email" name="email" ><br><br>
@@ -69,10 +70,10 @@
                 <input type="password" placeholder="Enter Old Password" name="oldpassword"><br><br>
 
                 <label for="newpassword"><b>New Password:</b></label>
-                <input type="password" placeholder="Enter New Password" name="newpassword"><br><br>
+                <input type="password" placeholder="Enter New Password" name="newpassword" minlength="8"><br><br>
 
                 <label for="confirmpassword"><b>Confirm New Password:</b></label>
-                <input type="password" placeholder="Confirm New Password" name="confirmpassword"><br><br>
+                <input type="password" placeholder="Confirm New Password" name="confirmpassword" minlength="8"><br><br>
 
                 <div class="submit">
                     <button type="submit" class="continuebtn"><b>Change Password</b></button>
@@ -81,7 +82,7 @@
                 <style>
                 .button-wrapper {
                     display: inline-block;
-                    margin-left: 60px; /* change the value to adjust the spacing */
+                    margin-left: 60px; 
                 }
                 </style>
             </form>

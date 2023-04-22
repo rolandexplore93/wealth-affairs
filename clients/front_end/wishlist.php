@@ -132,7 +132,7 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
                 <h1>View your saved product wishlist</h1>
                 
            ` <div class="basic-instrument" style="border: 1px solid purple; flex: 1;">
-                 <!-- The wishlist ideas will be dynamically added here -->  
+                 <!-- The wishlist ideas table  -->  
                 <div id="wishlist" class="wishlist" style="overflow:auto; height: 100vh;">
             </section> 
              <!-- Sidebar -->
@@ -143,7 +143,7 @@ $.getJSON('http://localhost/wealth_affairs/clients/back_end/view_wishlist.php', 
                         <p class="name" ><?php echo $_SESSION['fname']; ?>
                         <p class="email" ><?php echo $_SESSION['email']; ?>
                         <p class="title">Client</p>
-                        
+                        <!-- links to toher pages -->
                         <button><a href="http://localhost/wealth_affairs/clients/front_end/profile.php">Profile</a></button><br>
                         <button><a href="http://localhost/wealth_affairs/clients/front_end/dashboard.php">Dashboard</a></button>
                         <div style="display: flex; flex-direction: column; align-items: center;">
