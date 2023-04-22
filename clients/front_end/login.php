@@ -65,7 +65,7 @@
             }
 </script>
     <title>Login</title>
-<!-- This is an HTML code for a login page for WealthManagement. -->
+
 <head>
 <!-- The head section contains the title of the webpage and other metadata. -->
 </head>
@@ -100,7 +100,7 @@
             <style>
             .button-wrapper {
                 display: inline-block;
-                margin-right: 20px; /* change the value to adjust the spacing */
+                margin-right: 20px; 
             }
             </style>
         </form>
