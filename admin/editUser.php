@@ -23,11 +23,11 @@
             echo '<form action="updateUser.php" method="post">';
             echo '<input type="hidden" name="id" value="' . $id . '">';
             echo '<input type="hidden" name="role" value="' . $role . '">';
-            echo 'First Name: <input type="text" name="firstname" value="' . $row['Firstname'] . '"><br>';
-            echo 'Last Name: <input type="text" name="lastname" value="' . $row['Lastname'] . '"><br>';
-            echo 'Email: <input type="text" name="email" value="' . $row['Email'] . '"><br>';
-            echo 'Phone Number: <input type="text" name="phone" value="' . $row['PhoneNo'] . '"><br>';
-            echo 'Password: <input type="password" name="password" value="' . $row['Password'] . '"><br>';
+            echo 'First Name: <input type="text" name="firstname" value="' . $row['Firstname'] . '" required><br>';
+            echo 'Last Name: <input type="text" name="lastname" value="' . $row['Lastname'] . '" required><br>';
+            echo 'Email: <input type="text" name="email" value="' . $row['Email'] . '" required><br>';
+            echo 'Phone Number: <input type="text" name="phone" value="' . $row['PhoneNo'] . '" required><br>';
+            echo 'Password: <input type="password" name="password" value="' . $row['Password'] . '" required><br>';
             echo '<input type="submit" name="submit" value="Save">';
             echo '</form>';
         } else {
