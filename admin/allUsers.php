@@ -44,6 +44,7 @@ mysqli_close($databaseConnection);
             echo "<td>".$row_fa['Password']."</td>";
             echo "<td>".$row_fa['Role']."</td>";
             echo "<td><a href='editUser.php?id=".$row_fa['FaID']."&role=fa'>Edit</a></td>";
+            echo "<td><a href='deleteAUser.php?id=".$row_fa['FaID']."&role=fa'>Delete FA</a></td>";
             echo "</tr>";
         }
 
@@ -58,6 +59,7 @@ mysqli_close($databaseConnection);
             echo "<td>".$row_rm['Password']."</td>";
             echo "<td>".$row_rm['Role']."</td>";
             echo "<td><a href='editUser.php?id=".$row_rm['RmID']."&role=rm'>Edit</a></td>";
+            echo "<td><a href='deleteAUser.php?id=".$row_rm['RmID']."&role=rm'>Delete RM</a></td>";
             echo "</tr>";
             // allUsers.php
         }

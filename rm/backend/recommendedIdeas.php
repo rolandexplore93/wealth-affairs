@@ -1,9 +1,7 @@
 <?php 
     include "dbconnection.php";
-
     $request_body = file_get_contents('php://input'); // This retrieves and reads the raw data in the POST request sent by javascript to this php script
     $request_data = json_decode($request_body, true); // This parse the raw json data into PHP associative array
-
     if ($request_data === null) {
         // JSON decoding failed
         $message = array('message' => 'Error decoding JSON');
@@ -35,14 +33,12 @@
         // $CreatedAtRec = isset($request_data['CreatedAtRec']) ? $request_data['CreatedAtRec'] : '';
         $IdeaID = isset($request_data['IdeaID']) ? $request_data['IdeaID'] : '';
         $RmID = isset($request_data['RmID']) ? $request_data['RmID'] : '';
-
         // Set the time zone to Europe/London and get current timestamp
         date_default_timezone_set('Europe/London');
         $CurrentTime = date('Y-m-d H:i:s');
 
         $query = mysqli_query($databaseConnection, "SELECT * FROM `recommendedideas` WHERE ApprovedID = $ApprovedID AND ClientId = $ClientID;
         ");
-
         if (mysqli_num_rows($query) == 0) {
             mysqli_query($databaseConnection, "INSERT INTO `recommendedideas`(`ApprovedID`, `ClientID`, 
             `Firstname`, `Lastname`, `InstrumentName`, `InstrumentDn`, `IdeaDescription`, `ProductType`, 
@@ -57,17 +53,13 @@
             '$Country', '$IssueDate', '$MaturityDate', '$RiskLevelBrief','$RiskLevelDescription',
             '$CurrentTime', '$IdeaID', '$RmID')
             ");
-
             $message = array('InstrumentName' => $InstrumentName, 'Timenow' => $CurrentTime, 'ClientID' => $ClientID, 'Message' => "$Firstname $Lastname added to recommended ideas list matching $InstrumentName product");
-
         } else {
             $message = array('Message' => "$Firstname $Lastname already exists for $InstrumentName");
         }
         mysqli_free_result($query);
     }
-    
     $json = json_encode($message);
     echo $json;
-
     mysqli_close($databaseConnection);
 ?>

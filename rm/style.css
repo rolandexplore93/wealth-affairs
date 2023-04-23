@@ -338,3 +338,7 @@ button {
 .showit {
     color: red;
 }
+
+#IdeaDescription {
+    width: 100%;
+}

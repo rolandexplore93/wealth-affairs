@@ -1,7 +1,6 @@
 <?php
 // Connection to the database
 include "dbconnection.php";
-
 // Confirm if the request method is a POST request
 // If this is true, store all the data in a variable and insert it into approvedideas table
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -23,8 +22,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $IssueDate = $_POST["IssueDate"];
     $MaturityDate = $_POST["MaturityDate"];
     $IdeaID = $_POST["IdeaID"];
-    $RmID = 1; // this value should be the RmID from the RM session login
-    
+    $RmID = 1; // this value should be the RmID from the RM session login but since we're using 1 RM in the company, we pass in the value as 1
     // Assigned respective risk level details based on each risk level value
     $RiskLevelBrief;
     $RiskLevelDescription;
@@ -44,7 +42,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $RiskLevelBrief = 'Suitable for very aggressive investors';
         $RiskLevelDescription = 'Investors who are prepared to accept large portfolio losses up to the value of their entire portfolio over a one year period and are generally willing to buy investments or enter into contracts that may be difficult to sell or close for an extended period or have an uncertain realizable value at any given time.';
     }
-    
     // Check if approved or rejected button is clicked
     if (isset($_POST["reject"])){
         // Update this idea status to 'Rejected' inside the main ideas table
@@ -73,7 +70,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         }
 
         $successMessage = "Idea Approved successfully. Redirecting to approved idea page in 3 seconds...";
-
         // echo "Data posted <br>";
         // echo $InstrumentName . "<br>";
         // echo $InstrumentName . "<br>"; 
@@ -104,10 +100,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             }, 3000);
         </script>";
     }
-
     exit;
 }
-
 mysqli_close($databaseConnection);
-
 ?>

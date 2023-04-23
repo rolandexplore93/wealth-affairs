@@ -1,10 +1,10 @@
 // When in use, document.addEventListener('DOMContentLoaded', function() {} is to prevent javascript code from loading until html code has been completely loaded
+
 // JavaScript TABS: The implementation of JavaScript tab on the RM page enables the RM portal 
 // to be behave as a Single Page Application (SPA).
 // With this, all the pages and activities associated with RM roles works 
 // within this page (http://localhost/wealth_affairs/rm/index.php).
 
-            
 const openTabContent = (e, tabName) => {
     let index, tabContent, tablinks; // Define 3 variables
     // Get the 3 div elements where the content for each tab will be displayed
@@ -25,14 +25,16 @@ const openTabContent = (e, tabName) => {
 }
 
 // Get the modal
-const modal = document.getElementById("myModal");
+// const modal = document.getElementById("myModal");
 
-// Get the view product button that opens the modal
-const btn = document.getElementById("product-view");
+// // Get the view product button that opens the modal
+// const btn = document.getElementById("product-view");
 
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+// // Get the <span> element that closes the modal
+// const span = document.getElementsByClassName("close")[0];
 
+
+// IDEAS APPROVED BY RM
 document.addEventListener('DOMContentLoaded', function() {
 // Make an HTTP request to php backend API using JavaScript fetch to get the data of all approved idea from the approvedidea table.
 // The raw data received is converted to a usable format by parsing it to a JavaScript object using json()
@@ -149,7 +151,7 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php') // an a
                     <p class="industry-cat" style="display: fle;">Region: ${targetApprovedIdea.Region}</p>
                   </div>
                   <div class="product-details-recom" style="display: flex;">
-                    <button id="filter-client">Matched Clients (2)</button>
+                    <button id="filter-client">Matched Clients</button>
                     <button id="rec-to-client" onclick="recommendToClients()">Recommend to Clients</button>
                   </div>
                 </div>
@@ -255,7 +257,7 @@ fetch('http://localhost/wealth_affairs/rm/backend/getApprovedIdeas.php') // an a
 });
 
 
-// Idea from FA
+// Ideas from FA
 fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
 .then(response => response.json())
 .then(ideas => {
@@ -294,7 +296,9 @@ fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
                                 <td>${idea.PriceClosingDate}</td>
                                 <td>${idea.RiskLevel}</td>
                                 <td>${idea.Status}</td>
-                                <td><button ${idea.Status == '' || idea.Status == 'Pending' ? '' : 'disabled'} class="view-idea" data-id="${idea.IdeaID}" onclick="viewIdea()">${idea.Status == 'Approved' || idea.Status == 'Rejected' ? 'Decided' : 'View Idea'}</button></td>
+                                <td><button ${idea.Status == '' || idea.Status == 'Pending' ? '' : 'disabled'} class="view-idea" data-id="${idea.IdeaID}" onclick="viewIdea()">
+                                  ${idea.Status == 'Approved' || idea.Status == 'Rejected' ? 'Decided' : 'View Idea'}
+                                </button></td>
                             </tr>`
                         ))
                         .join('')
@@ -340,15 +344,15 @@ fetch('http://localhost/wealth_affairs/rm/backend/getIdeas.php')
                     <input type="hidden" name="FaID" value="${targetIdea.FaID}" >
                     <div class="form-group">
                       <label for="instrument-name">Instrument Name:</label>
-                      <input type="text" id="InstrumentName" name="InstrumentName" value='${targetIdea.InstrumentName}' >
+                      <input type="text" id="InstrumentName" name="InstrumentName" value='${targetIdea.InstrumentName}'>
                     </div>
                     <div class="form-group">
                       <label for="instrument-dn">Instrument DN:</label>
-                      <input type="text" id="InstrumentDn" name="InstrumentDn" value='${targetIdea.InstrumentDn}' >
+                      <input type="text" id="InstrumentDn" name="InstrumentDn" value='${targetIdea.InstrumentDn}'>
                     </div>
                     <div class="form-group">
                       <label for="IdeaDescription">Idea Description:</label>
-                      <input type="text" id="IdeaDescription" name="IdeaDescription" value='${targetIdea.IdeaDescription}' >
+                      <input type="text" id="IdeaDescription" name="IdeaDescription" value='${targetIdea.IdeaDescription}'>
                     </div>
                     <div class="form-group">
                       <label for="product type">Product Type:</label>
